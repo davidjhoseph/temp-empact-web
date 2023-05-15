@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-body{
+    font-size: 16px;
+} 
+.text-caption{
+    font-size: 14px;
+} 
+.text-micro{
+    font-size: 12px;
+} 
+.text-nano{
+    font-size: 10px;
+} 
+.text-header1 {
+	font-size: 56px; 
+}
+.text-header2 {
+	font-size: 48px; 
+}
+.text-header3 {
+	font-size: 40px; 
+}
+.text-header4 {
+	font-size: 36px; 
+}
+.text-header5 {
+	font-size: 28px; 
+}
+.text-header6 {
+    font-size: 20px;
+}
