@@ -1,10 +1,10 @@
 module.exports = {
-  purge: [],
-  purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-   darkMode: false, // or 'media' or 'class'
-   theme: {
-     extend: {
-      colors: {
+	purge: [],
+	purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+	darkMode: false, // or 'media' or 'class'
+	theme: {
+		extend: {
+			colors: {
 				black: {
 					DEFAULT: '#020D1C',
 				},
@@ -20,6 +20,7 @@ module.exports = {
 					60: '#718198',
 					70: '#4B586C',
 					80: '#323B48',
+
 				},
 				green: {
 					DEFAULT: '#36C555',
@@ -66,10 +67,10 @@ module.exports = {
 					80: '#7B5714',
 				},
 			},
-     },
-   },
-   variants: {
-     extend: {},
-   },
-   plugins: [],
- }
+		},
+	},
+	variants: {
+		extend: {},
+	},
+	plugins: [],
+}

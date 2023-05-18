@@ -11,12 +11,21 @@ import ForgotPassword from "../views/auth/ForgotPassword.vue";
 import ResetPasswordConfirmation from "../views/auth/ResetPasswordConfirmation.vue";
 import SetNewPassword from "../views/auth/SetNewPassword.vue";
 import SetPasswordSuccessful from "../views/auth/SetPasswordSuccessful.vue";
-
+import BrandTheme from "../views/BrandTheme.vue";
+import Recommendation from "../views/Recommendation.vue";
+import Task from "../views/Task.vue";
+import Setting from "../views/Setting.vue";
+import Settings from "../views/Settings.vue";
 export const ROUTES = {
   HOME: "home",
   HOME_ADMIN: "home-admin",
   HOME_DASHBOARD: "home-dashboard",
   CONTENT_MANAGEMENT: "content-management",
+  BRAND_THEME: "board-team",
+  RECOMMENDATION: "recommendation",
+  SETTINGS: "settings",
+  SETTING: "setting",
+  TASK: "Task",
   COMPONENTS: "components",
   LOGIN: "login",
   REGISTER: "register",
@@ -44,6 +53,31 @@ export default [
         path: "/content-management",
         name: ROUTES.CONTENT_MANAGEMENT,
         component: ContentManagementView,
+      },
+      {
+        path: "/brand-theme",
+        name: ROUTES.BRAND_THEME,
+        component: BrandTheme,
+      },
+      {
+        path: "/recommendation",
+        name: ROUTES.RECOMMENDATION,
+        component: Recommendation,
+      },
+      {
+        path: "/settings",
+        name: ROUTES.SETTINGS,
+        component: Settings,
+      },
+      {
+        path: "/setting",
+        name: ROUTES.SETTING,
+        component: Setting,
+      },
+      {
+        path: "/task",
+        name: ROUTES.TASK,
+        component: Task,
       },
     ],
   },
@@ -73,13 +107,13 @@ export default [
       {
         path: "reset-password",
         name: ROUTES.RESET_PASSWORD,
-        
+
         component: ForgotPassword,
       },
       {
         path: "reset-password-confirmation",
         name: ROUTES.RESET_PASSWORD_CONFIRMATION,
-        
+
         component: ResetPasswordConfirmation,
       },
       {

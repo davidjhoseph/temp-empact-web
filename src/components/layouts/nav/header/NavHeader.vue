@@ -1,22 +1,39 @@
 <template>
-    <div class="flex items-center justify-between h-20 px-6 shadow">
-        <div class="flex items-center space-x-5">
-            <BackButtonIcon class="w-8 h-8"/>
-            <div class="text-black font-bold text-header6">Page Title</div>
-        </div>
-        <div class="flex items-center space-x-4">
-            <div class="text-right">
-                <div class="text-black font-medium text-micro">David Carrasco</div>
-                <div class="text-gray-60 text-nano">davidcarrasco@mail.com</div>
-            </div>
-            <div class="w-14 h-14 rounded-full bg-blue-60"></div>
-            <button>
-                <ArrowDownIcon class="w-8 h-8 text-gray-60"/>
-            </button>
-        </div>
-
+  <div class="flex items-center justify-between h-20 px-6 shadow">
+    <div class="flex items-center space-x-5">
+      <div
+        class="border-2 rounded-full h-6 w-6 mt-2 border-gray-60 flex justify-center items-center"
+      >
+        <Vector class="items-center px-1 h-6 w-6" />
+      </div>
+      <div class="h-5">
+        <a href="#" class="text-gray-60 text-base"> Community</a>
+      </div>
+      <div class="h-5 w-5 flex justify-center items-center">
+        <ArrowRightIcon class="h-3.5 w-3.5 items-center mt-0.5" />
+      </div>
+      <div class="h-5">
+        <a href="" class="text-base text-blue">Content Manager</a>
+      </div>
     </div>
+    <div class="flex items-center space-x-4">
+      <div class="text-right">
+        <div class="text-black font-medium text-micro">David Carrasco</div>
+        <div class="text-gray-60 text-nano">davidcarrasco@mail.com</div>
+      </div>
+      <div class="w-14 h-14">
+        <img
+          src="/public/images/Avatars - Circular.png"
+          alt="user image"
+          class="w-full h-full"
+        />
+      </div>
+      <button>
+        <ArrowDownIcon class="w-8 h-8 text-gray-60" />
+      </button>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
-    import { BackButtonIcon, ArrowDownIcon } from '../../../icons/AllIcons'
+import { ArrowDownIcon, Vector, ArrowRightIcon } from "../../../icons/AllIcons";
 </script>
