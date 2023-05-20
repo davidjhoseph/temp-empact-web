@@ -1,10 +1,105 @@
 <template>
-  <div
-    class="border border-gray-30 rounded-md px-6 py-10 h-96 w-full overflow-y-auto"
-  >
+  <div class="flex justify-between px-6">
+    <div class="flex space-x-4">
+      <div class="relative mt-2 rounded-md shadow-sm">
+        <div
+          class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
+        >
+          <Search class="h-5 w-5 text-gray-400" aria-hidden="true" />
+        </div>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          class="block w-full h-12 rounded-md border-0 py-1.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-40 placeholder:text-gray-70 focus:ring-2 focus:ring-inset focus:ring-none sm:text-sm sm:leading-6"
+          placeholder="Search"
+        />
+      </div>
+      <Filter />
+      <!-- Media type dropdown -->
+      <Menu as="div" class="relative inline-block text-left mt-2">
+        <div>
+          <MenuButton
+            class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-3.5 text-sm text-gray-70 shadow-sm ring-1 ring-inset ring-gray-40"
+            >Media type : All
+            <ChevronDownIcon
+              class="-mr-1 h-5 w-5 text-gray-400"
+              aria-hidden="true"
+            />
+          </MenuButton>
+        </div>
+
+        <transition
+          enter-active-class="transition ease-out duration-100"
+          enter-from-class="transform opacity-0 scale-95"
+          enter-to-class="transform opacity-100 scale-100"
+          leave-active-class="transition ease-in duration-75"
+          leave-from-class="transform opacity-100 scale-100"
+          leave-to-class="transform opacity-0 scale-95"
+        >
+          <MenuItems
+            class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            <div class="py-1">
+              <small class="text-blue px-4" style="">Select content type</small>
+              <MenuItem v-slot="{ active }">
+                <a
+                  href="#"
+                  :class="[
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm',
+                  ]"
+                  >Account settings</a
+                >
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+                <a
+                  href="#"
+                  :class="[
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm',
+                  ]"
+                  >Support</a
+                >
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+                <a
+                  href="#"
+                  :class="[
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'block px-4 py-2 text-sm',
+                  ]"
+                  >License</a
+                >
+              </MenuItem>
+              <form method="POST" action="#">
+                <MenuItem v-slot="{ active }">
+                  <button
+                    type="submit"
+                    :class="[
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block w-full px-4 py-2 text-left text-sm',
+                    ]"
+                  >
+                    Sign out
+                  </button>
+                </MenuItem>
+              </form>
+            </div>
+          </MenuItems>
+        </transition>
+      </Menu>
+    </div>
+    <div class="flex space-x-4 mt-2 items-center">
+      <div class="text-gray-60">View</div>
+      <button><ListIcon /></button>
+      <button><GridIcon /></button>
+    </div>
+  </div>
+  <div class="px-6 py-10 w-full overflow-y-auto">
     <div>
-      <div v-if="getContentList()" class="h-96">
-        <div class="" v-for="list in contentList" :key="list.id">
+      <div v-if="getContentList()" class="">
+        <div class="py-4" v-for="list in contentList" :key="list.id">
           <div class="flex justify-between border rounded-md space-y-6 px-2">
             <!-- left column -->
             <div class="flex space-x-4 py-4">
@@ -21,31 +116,103 @@
                 <p class="text-gray-60 text-left">
                   <small>{{ list.desc }}</small>
                 </p>
-                <div class="flex space-x-2 mt-6 items-center">
-                  <div class="text-sm text-gray-60 text-left">
-                    <small>{{ list.date }}</small>
-                  </div>
-                  <div class="text-sm text-gray-60 text-left"><Ellipse /></div>
-                  <div class="text-sm text-gray-60 text-left">
-                    <small>{{ list.time }}</small>
+                <div class="justify-between">
+                  <div class="flex space-x-2 mt-6 items-center">
+                    <div class="text-sm text-gray-60 text-left">
+                      <small>{{ list.date }}</small>
+                    </div>
+                    <div class="text-sm text-gray-60 text-left">
+                      <Ellipse />
+                    </div>
+                    <div class="text-sm text-gray-60 text-left">
+                      <small>{{ list.time }}</small>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
             <!-- right column -->
             <div class="flex flex-col space-y-12">
               <div class="flex space-x-4 justify-end">
                 <button
+                  @click="
+                    router.push({ path: `/content-management/${list.id}` })
+                  "
                   class="text-gray-70 h-6 w-10 text-sm border-gray-40 rounded-sm border px-1"
                 >
                   view
                 </button>
-                <button
-                  class="text-gray-70 h-6 w-7 px-2 border-gray-40 rounded-sm border text-center"
-                >
-                  <MenuIcon />
-                </button>
+                <!-- view dropdown -->
+                <Menu as="div" class="relative inline-block text-left h-6">
+                  <div>
+                    <MenuButton
+                      class="text-gray-70 h-6 w-8 text-sm border-gray-40 rounded-sm border text-center pl-1"
+                    >
+                      <MenuIcon
+                        class="-mr-1 h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
+                    </MenuButton>
+                  </div>
+
+                  <transition
+                    enter-active-class="transition ease-out duration-100"
+                    enter-from-class="transform opacity-0 scale-95"
+                    enter-to-class="transform opacity-100 scale-100"
+                    leave-active-class="transition ease-in duration-75"
+                    leave-from-class="transform opacity-100 scale-100"
+                    leave-to-class="transform opacity-0 scale-95"
+                  >
+                    <MenuItems
+                      class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    >
+                      <div class="py-1">
+                        <small class="text-blue ml-4" style=""
+                          >Select content type</small
+                        >
+                        <MenuItem v-slot="{ active }">
+                          <a
+                            href="#"
+                            :class="[
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700',
+                              'block px-4 py-2 text-sm',
+                            ]"
+                            >Account settings</a
+                          >
+                        </MenuItem>
+                        <MenuItem v-slot="{ active }">
+                          <a
+                            href="#"
+                            :class="[
+                              active
+                                ? 'bg-gray-100 text-gray-900'
+                                : 'text-gray-700',
+                              'block px-4 py-2 text-sm',
+                            ]"
+                            >License</a
+                          >
+                        </MenuItem>
+                        <form method="POST" action="#">
+                          <MenuItem v-slot="{ active }">
+                            <button
+                              type="submit"
+                              :class="[
+                                active
+                                  ? 'bg-gray-100 text-gray-900'
+                                  : 'text-gray-700',
+                                'block w-full px-4 py-2 text-left text-sm',
+                              ]"
+                            >
+                              Sign out
+                            </button>
+                          </MenuItem>
+                        </form>
+                      </div>
+                    </MenuItems>
+                  </transition>
+                </Menu>
               </div>
               <div class="flex space-x-10">
                 <div>
@@ -68,7 +235,10 @@
               </div>
             </div>
           </div>
+          <!-- <GridContentView /> -->
         </div>
+        <!-- <ListContentView /> -->
+        <GridContentView />
       </div>
       <div class="flex justify-center items-center h-96" v-else>
         <div class="items-center">
@@ -85,21 +255,20 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import Ellipse from "../../icons/Ellipse.vue";
-import MenuIcon from "../../icons/menuIcon.vue";
+import MenuIcon from "../../icons/MenuIcon.vue";
 import LikesIcon from "../../icons/LikesIcon.vue";
 import LoveIcon from "../../icons/LoveIcon.vue";
-import ContentHeading from "../../ContentHeading.vue";
-// interface ContentLists {
-//   id: number;
-//   title: string;
-//   desc: string;
-//   date: string;
-//   time: string;
-//   image: string;
-//   likes: number;
-//   favourite: number;
-//   view: boolean;
-// }
+import Search from "../../icons/Search.vue";
+import Filter from "../RightCoulumn/Filter.vue";
+import ListIcon from "../../icons/ListIcon.vue";
+import GridIcon from "../../icons/gridIcon.vue";
+import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import { useRouter, useRoute, RouterLink } from "vue-router";
+import GridContentView from "../../GridContentView.vue";
+import ListContentView from "../../ListContentView.vue";
+const router = useRouter();
+const route = useRoute();
 const contentList = reactive([
   {
     id: 1,
@@ -240,5 +409,12 @@ const getContentList = () => {
   } else if ((contentList.length = 0)) {
     return;
   }
+};
+const goToContentPage = () => {
+  const id = route.params.id;
+  router.push({
+    // path: `/content-management/:${}`,
+    name: "ROUTES.CONTENT_VIEW",
+  });
 };
 </script>

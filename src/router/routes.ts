@@ -16,6 +16,7 @@ import Recommendation from "../views/Recommendation.vue";
 import Task from "../views/Task.vue";
 import Setting from "../views/Setting.vue";
 import Settings from "../views/Settings.vue";
+import ContentView from "../views/ContentView.vue";
 export const ROUTES = {
   HOME: "home",
   HOME_ADMIN: "home-admin",
@@ -33,6 +34,7 @@ export const ROUTES = {
   RESET_PASSWORD_CONFIRMATION: "reset-password-confirmation",
   SET_NEW_PASSWORD: "set-new-password",
   SET_NEW_PASSWORD_SUCCESSFUL: "set-new-password-successful",
+  CONTENT_VIEW: "content-view"
 };
 
 export default [
@@ -54,6 +56,7 @@ export default [
         name: ROUTES.CONTENT_MANAGEMENT,
         component: ContentManagementView,
       },
+
       {
         path: "/brand-theme",
         name: ROUTES.BRAND_THEME,
@@ -79,7 +82,13 @@ export default [
         name: ROUTES.TASK,
         component: Task,
       },
+
     ],
+  },
+  {
+    path: "/content-management/:id",
+    name: ROUTES.CONTENT_VIEW,
+    component: ContentView
   },
   {
     path: "/component",

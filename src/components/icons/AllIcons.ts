@@ -22,7 +22,9 @@ import Vector from './Vector.vue';
 import AvatarsSquare from './AvatarsSquare.vue';
 import RecommendationIcon from './RecommendationIcon.vue';
 import ArrowRightIcon from './ArrowRightIcon.vue';
-import Person from './Person.vue'
+import Person from './Person.vue';
+import OutlineArrowDownIcon from './OutlineArrowDownIcon.vue';
+import FilterIcon from './FilterIcon.vue';
 export {
 	ArrowDownIcon,
 	BackButtonIcon,
@@ -46,5 +48,7 @@ export {
 	AvatarsSquare,
 	RecommendationIcon,
 	ArrowRightIcon,
-	Person
+	Person,
+	OutlineArrowDownIcon,
+	FilterIcon
 };
