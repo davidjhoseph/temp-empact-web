@@ -1,8 +1,8 @@
 <template>
   <div>
-    <AdminLayout />
+    <AllContent />
   </div>
 </template>
 <script setup lang="ts">
-import AdminLayout from "../components/layouts/AdminLayout.vue";
+import AllContent from "../components/layouts/RightCoulumn/AllContent.vue";
 </script>

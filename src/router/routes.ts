@@ -17,6 +17,7 @@ import Task from "../views/Task.vue";
 import Setting from "../views/Setting.vue";
 import Settings from "../views/Settings.vue";
 import ContentView from "../views/ContentView.vue";
+import AdvanceStatisticsView from "../views/AdvancedStatisticsView.vue";
 export const ROUTES = {
   HOME: "home",
   HOME_ADMIN: "home-admin",
@@ -34,7 +35,8 @@ export const ROUTES = {
   RESET_PASSWORD_CONFIRMATION: "reset-password-confirmation",
   SET_NEW_PASSWORD: "set-new-password",
   SET_NEW_PASSWORD_SUCCESSFUL: "set-new-password-successful",
-  CONTENT_VIEW: "content-view"
+  CONTENT_VIEW: "content-view",
+  ADVANCED_STATISTICS_VIEW: "advanced-statistics-view"
 };
 
 export default [
@@ -89,6 +91,11 @@ export default [
     path: "/content-management/:id",
     name: ROUTES.CONTENT_VIEW,
     component: ContentView
+  },
+  {
+    path: "/content-management/statistics",
+    name: ROUTES.ADVANCED_STATISTICS_VIEW,
+    component: AdvanceStatisticsView,
   },
   {
     path: "/component",

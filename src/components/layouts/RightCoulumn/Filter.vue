@@ -103,8 +103,7 @@
         class="relative inline-block text-left px-4 py-3 border border-gray-40 rounded-md h-12 w-40"
       >
         <div class="flex items-center space-x-2">
-          <FilterIcon />
-
+          <slot></slot>
           <MenuButton
             class="group inline-flex justify-center text-sm font-medium text-gray-70"
           >

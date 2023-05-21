@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-4 gap-6">
+  <div class="grid grid-cols-4 gap-x-14 gap-y-6">
     <div class="py-4" v-for="list in contentList" :key="list.id">
       <!-- left column -->
       <div class="grid gap-y-2 p-4 border rounded-md">
