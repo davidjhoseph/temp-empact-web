@@ -4,8 +4,8 @@
       <div class="flex justify-between border rounded-md space-y-6 px-2">
         <div class="flex space-x-4 py-4">
           <input type="checkbox" name="" id="" class="-mt-16" />
-          <div>
-            <img :src="`/public/images/${list.image}`" alt="content image" />
+          <div class="w-32 h-32 relative">
+            <img class="absolute inset-0 w-full h-full object-cover" :src="`https://picsum.photos/200/300`" alt="content image" />
           </div>
           <div class="flex flex-col">
             <p class="text-black text-left">{{ list.title }}</p>

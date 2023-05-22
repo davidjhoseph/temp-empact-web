@@ -8,7 +8,7 @@
       <div class="flex justify-between">
         <div class="flex space-x-2 items-center">
           <div>
-            <img src="../../icons/vector (5).png" alt="" class="h-4 w-4" />
+            <!-- <img src="../../icons/vector (5).png" alt="" class="h-4 w-4" /> -->
           </div>
           <div>{{ i.name }}</div>
         </div>

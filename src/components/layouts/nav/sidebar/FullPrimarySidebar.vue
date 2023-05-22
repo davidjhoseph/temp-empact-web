@@ -79,7 +79,7 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex grow flex-col overflow-y-auto bg-blue-80 px-6 pb-4">
         <div class="py-4">
-          <img src="/public/images/logo-export.png" alt="" />
+          <img src="/images/logo-export.png" alt="" />
         </div>
         <div class="flex h-16 shrink-0 items-center">
           <button
