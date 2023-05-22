@@ -23,7 +23,7 @@
       </div>
       <div class="w-14 h-14">
         <img
-          src="/public/images/Avatars - Circular.png"
+          src="/images/Avatars - Circular.png"
           alt="user image"
           class="w-full h-full"
         />

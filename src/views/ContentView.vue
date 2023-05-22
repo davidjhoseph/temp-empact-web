@@ -47,7 +47,7 @@
               </div>
               <div class="w-14 h-14">
                 <img
-                  src="/public/images/Avatars - Circular.png"
+                  src="/images/Avatars - Circular.png"
                   alt="user image"
                   class="w-full h-full"
                 />
@@ -154,7 +154,7 @@
               <div class="flex space-x-4 mt-8">
                 <div>
                   <img
-                    src="/public/images/Avatars - Circular.png"
+                    src="/images/Avatars - Circular.png"
                     alt=""
                     class="h-12 w-12"
                   />
@@ -167,13 +167,13 @@
             </div>
             <div class="w-1/2">
               <div>
-                <img src="/public/images/Rectangle.png" alt="" class="w-full" />
+                <img src="/images/Rectangle.png" alt="" class="w-full" />
               </div>
               <div class="flex space-x-4 mt-2">
                 <img
                   v-for="i in 4"
                   :key="i"
-                  src="/public/images/Rectangle.png"
+                  src="/images/Rectangle.png"
                   alt=""
                   class="w-20 h-12 rounded-md"
                 />

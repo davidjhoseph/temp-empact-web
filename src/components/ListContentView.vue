@@ -5,7 +5,7 @@
         <div class="flex space-x-4 py-4">
           <input type="checkbox" name="" id="" class="-mt-16" />
           <div>
-            <img :src="`/public/images/${list.image}`" alt="content image" />
+            <img :src="`/images/${list.image}`" alt="content image" />
           </div>
           <div class="flex flex-col">
             <p class="text-black text-left">{{ list.title }}</p>

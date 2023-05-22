@@ -6,7 +6,7 @@
         <!-- <input type="checkbox" name="" id="" class="-mt-16" /> -->
         <div class="">
           <img
-            :src="`/public/images/${list.image}`"
+            :src="`/images/${list.image}`"
             alt="content image"
             class="relative w-full"
           />
