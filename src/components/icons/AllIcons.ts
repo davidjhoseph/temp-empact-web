@@ -16,9 +16,8 @@ import MessageIcon from '../icons/MessageIcon.vue';
 import MoreIcon from '../icons/MoreIcon.vue';
 import PlusIcon from '../icons/PlusIcon.vue';
 import SearchIcon from '../icons/SearchIcon.vue';
+import SettingIcon from './SettingIcon.vue'
 import SpinnerIcon from '../icons/SpinnerIcon.vue';
-import BackArrowIcon from '../icons/BackArrow.vue'
-import CloseIcon from '../icons/CloseIcon.vue'
 export {  
 	ArrowDownIcon,
 	BackButtonIcon,
@@ -36,7 +35,15 @@ export {
 	MoreIcon,
 	PlusIcon,
 	SearchIcon,
+	SettingIcon,
 	SpinnerIcon,
+	Vector,
+	AvatarsSquare,
+	RecommendationIcon,
+	ArrowRightIcon,
+	Person,
+	OutlineArrowDownIcon,
+	FilterIcon
 	BackArrowIcon,
 	CloseIcon
 };
