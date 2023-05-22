@@ -1,45 +1,68 @@
 <template>
-    <div class="md:py-20 py-10">
-        <AskToRegister/>
-        <div>
-            <div class="md:mt-40 mt-20 flex justify-center">
-                <KeyIcon class="w-20" />
-            </div>
-            <div class="mt-6 text-center text-black text-header-6">Set new password</div>
-            <div class="text-caption text-gray-70 text-center mt-2">Your new password must be different
-                from previous used passwords</div>
-            <div class="my-4 space-y-4">
-                <div>
-                    <BaseInput type="password" label="Password"/>
-                </div>
-                <div>
-                    <BaseInput type="password" label="Confirm Password"/>
-                </div>
-            </div>
-            <BaseButton class="w-full" @click="goToResetPasswordSuccessful">Reset Password</BaseButton>
-            <div class="flex justify-center text-caption mt-4">
-                 <button class="font-medium text-blue" @click="goToLogin">Back to Login</button>
-            </div>
-        </div>
+  <div class="mx-auto w-[525px] flex flex-col h-screen py-20">
+    <!--  -->
+    <div class="relative right-3">
+      <img src="../../assets/logo/empact_logo.png" class="pb-12" />
     </div>
+
+    <form class="space-y-16">
+      <div class="space-y-6">
+        <h1 class="text-header3 text-blue font-bold">Reset password?</h1>
+        <h2 class="text-gray-60">
+          Don’t worry we can help you out! Type in your email address and we
+          will send a password reset to you.
+        </h2>
+      </div>
+
+      <div class="my-4 space-y-8">
+        <div>
+          <BaseInput
+            type="password"
+            label="New password*"
+            placeholder="Enter your password"
+            icon
+          >
+            <template #icon>
+              <LockIcon class="h-5 w-5 text-gray-70" />
+            </template>
+          </BaseInput>
+        </div>
+        <div>
+          <BaseInput
+            type="password"
+            label="Confirm new password*"
+            placeholder="Re-enter your password"
+            icon
+          >
+            <template #icon>
+              <LockIcon class="h-5 w-5 text-gray-70" />
+            </template>
+          </BaseInput>
+        </div>
+      </div>
+
+      <div>
+        <BaseButton class="w-full">Change password</BaseButton>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script setup lang="ts">
-import BaseButton from "../../components/common/BaseButton.vue"
-import BaseInput from "../../components/common/BaseInput.vue"
-import { KeyIcon } from '../../components/icons/AllIcons';
+import BaseButton from "../../components/common/BaseButton.vue";
+import BaseInput from "../../components/common/BaseInput.vue";
+import { LockIcon } from "../../components/icons/AllIcons";
 import { useRouter } from "vue-router";
 import { ROUTES } from "../../router/routes";
-import AskToRegister from "../../components/common/auth/AskToRegister.vue"
-
+import AskToRegister from "../../components/common/auth/AskToRegister.vue";
 
 const router = useRouter();
 
 const goToResetPasswordSuccessful = () => {
-    router.push({name: ROUTES.SET_NEW_PASSWORD_SUCCESSFUL});
-}
+  router.push({ name: ROUTES.SET_NEW_PASSWORD_SUCCESSFUL });
+};
 
 const goToLogin = () => {
-    router.push({name: ROUTES.LOGIN});
-}
+  router.push({ name: ROUTES.LOGIN });
+};
 </script>

@@ -18,14 +18,7 @@ import PlusIcon from '../icons/PlusIcon.vue';
 import SearchIcon from '../icons/SearchIcon.vue';
 import SettingIcon from './SettingIcon.vue'
 import SpinnerIcon from '../icons/SpinnerIcon.vue';
-import Vector from './Vector.vue';
-import AvatarsSquare from './AvatarsSquare.vue';
-import RecommendationIcon from './RecommendationIcon.vue';
-import ArrowRightIcon from './ArrowRightIcon.vue';
-import Person from './Person.vue';
-import OutlineArrowDownIcon from './OutlineArrowDownIcon.vue';
-import FilterIcon from './FilterIcon.vue';
-export {
+export {  
 	ArrowDownIcon,
 	BackButtonIcon,
 	CalendarIcon,
@@ -51,4 +44,6 @@ export {
 	Person,
 	OutlineArrowDownIcon,
 	FilterIcon
+	BackArrowIcon,
+	CloseIcon
 };
