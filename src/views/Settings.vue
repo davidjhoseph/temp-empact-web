@@ -1,4 +1,6 @@
 <template>
-  <div><AdminLayout /></div>
+  <template>
+    <div>Settings</div>
+  </template>
 </template>
 <script setup lang="ts"></script>

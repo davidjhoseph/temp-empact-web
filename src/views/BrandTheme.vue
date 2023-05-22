@@ -1,5 +1,5 @@
 <template>
-  <AdminLayout />
+  <div>Brand</div>
 </template>
 <script setup lang="ts">
 import AdminLayout from "../components/layouts/AdminLayout.vue";
