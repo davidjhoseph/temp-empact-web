@@ -47,7 +47,7 @@
               </div>
               <div class="w-14 h-14">
                 <img
-                  src="/images/Avatars - Circular.png"
+                  src="https://ui-avatars.com/api/?name=John+Doe"
                   alt="user image"
                   class="w-full h-full"
                 />
@@ -154,7 +154,7 @@
               <div class="flex space-x-4 mt-8">
                 <div>
                   <img
-                    src="/images/Avatars - Circular.png"
+                    src="https://ui-avatars.com/api/?name=John+Doe"
                     alt=""
                     class="h-12 w-12"
                   />
