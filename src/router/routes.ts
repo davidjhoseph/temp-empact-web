@@ -72,8 +72,7 @@ export default [
       },
       {
         path: "reset-password",
-        name: ROUTES.RESET_PASSWORD,
-        
+        name: ROUTES.RESET_PASSWORD,   
         component: ForgotPassword,
       },
       {
