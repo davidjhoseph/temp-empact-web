@@ -21,7 +21,7 @@
       <!-- Brand -->
       <div class="flex flex-col gap-5 border p-5 rounded-md">
         <div class="flex items-center gap-3">
-          <img src="/images/brand.png" alt="" class="" />
+          <img src="../assets/images/brand.png" alt="" class="" />
           <div>
             <h2 class="font-semibold text-black">Brand Logo</h2>
             <p class="text-gray-60 text-sm">Change/Upload your brand logo</p>
@@ -85,39 +85,50 @@
         </div>
       </div>
 
-      <div
-        v-for="colorConfig in colorConfigs"
-        :key="colorConfig.id"
-        class="flex gap-5 border p-3 rounded-md"
-      >
-        <div class="flex flex-col">
-          <h3 class="text-black font-bold pb-3">{{ colorConfig.label }}</h3>
-          <div
-            class="w-32 h-32 border rounded-md"
-            :style="{ backgroundColor: colorConfig.color }"
-          ></div>
-        </div>
-
-        <div class="flex flex-col justify-between">
-          <h3 class="mt-9 text-gray-50">Hex color</h3>
+      <div class="border p-3 rounded-md">
+        <div class="flex items-center gap-3 pb-8">
+          <img src="../assets/images/brand.png" alt="" class="" />
           <div>
-            <input
-              v-model="colorConfig.input"
-              class="border w-56 p-1 rounded-md"
-              placeholder="Enter a color value (hex, RGB, or HSL)"
-              @input="updateColor(colorConfig)"
-            />
+            <h2 class="font-semibold text-black">Colors</h2>
+            <p class="text-gray-60 text-sm">
+              Customize the colors of your brand
+            </p>
           </div>
-          <div class="flex gap-2">
-            <button
-              class="border text-gray-60 p-1.5 w-1/3 rounded-md"
-              @click="resetColor(colorConfig)"
-            >
-              Reset
-            </button>
-            <button class="border p-1.5 w-2/3 rounded-md bg-blue text-white">
-              Custom Color
-            </button>
+        </div>
+        <div
+          v-for="colorConfig in colorConfigs"
+          :key="colorConfig.id"
+          class="flex gap-5"
+        >
+          <div class="flex flex-col">
+            <h3 class="text-black font-bold pb-3">{{ colorConfig.label }}</h3>
+            <div
+              class="w-32 h-32 border rounded-md"
+              :style="{ backgroundColor: colorConfig.color }"
+            ></div>
+          </div>
+
+          <div class="flex flex-col justify-between">
+            <h3 class="mt-9 text-gray-50">Hex color</h3>
+            <div>
+              <input
+                v-model="colorConfig.input"
+                class="border w-56 p-1 rounded-md"
+                placeholder="Enter a color value (hex, RGB, or HSL)"
+                @input="updateColor(colorConfig)"
+              />
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="border text-gray-60 p-1.5 w-1/3 rounded-md"
+                @click="resetColor(colorConfig)"
+              >
+                Reset
+              </button>
+              <button class="border p-1.5 w-2/3 rounded-md bg-blue text-white">
+                Custom Color
+              </button>
+            </div>
           </div>
         </div>
       </div>
