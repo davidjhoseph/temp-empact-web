@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <div class="border p-5 rounded-md space-y-9">
+      <div class="border p-5 rounded-md space-y-7">
         <div class="flex items-center gap-3 pb-2">
           <img src="src/assets/images/brand.png" alt="" class="" />
           <div>
@@ -97,7 +97,7 @@
         <div
           v-for="colorConfig in colorConfigs"
           :key="colorConfig.id"
-          class="flex gap-5 border p-5 rounded-sm"
+          class="flex gap-5 border p-5 rounded-md"
         >
           <div class="flex flex-col">
             <h3 class="text-black text-lg font-bold pb-3">
