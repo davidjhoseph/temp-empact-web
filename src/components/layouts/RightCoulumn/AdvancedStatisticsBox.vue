@@ -1,19 +1,19 @@
 <template>
   <div class="border border-gray-70 rounded-md">
     <div class="flex justify-between p-4">
-      <div class="">{{ props.title }}</div>
+      <div class="font-bold text-balck">{{ props.title }}</div>
       <div><slot name="viewAll"></slot></div>
     </div>
     <div class="py-2 px-4" v-for="i in platforms" :key="i.id">
       <div class="flex justify-between">
         <div class="flex space-x-2 items-center">
           <div>
-            <!-- <img src="../../icons/vector (5).png" alt="" class="h-4 w-4" /> -->
+            <img :src="`/public/images/${i.icon}`" alt="" class="" />
           </div>
-          <div>{{ i.name }}</div>
+          <div class="text-gray-80">{{ i.name }}</div>
         </div>
 
-        <div>{{ i.value }}</div>
+        <div class="text-grauy-80">{{ i.value }}</div>
       </div>
     </div>
   </div>
@@ -32,43 +32,49 @@ const platforms = reactive([
     id: 1,
     name: "whatsapp",
     value: 1567,
-    icon: "Vector (6).png",
+    icon: "vector (5).png",
   },
   {
     id: 2,
-    name: "whatsapp",
+    name: "Telegram",
+    value: 1567,
+    icon: "Telegram.png",
+  },
+  {
+    id: 3,
+    name: "Instagram",
+    value: 1567,
+    icon: "Instagram.png",
+  },
+  {
+    id: 4,
+    name: "link copied",
+    value: 1567,
+    icon: "Vector (6).png",
+  },
+  {
+    id: 5,
+    name: "Twitter",
+    value: 1567,
+    icon: "Twitter.png",
+  },
+  {
+    id: 6,
+    name: "email",
+    value: 1567,
+    icon: "Mail.png",
+  },
+  {
+    id: 7,
+    name: "Whatsapp",
     value: 1567,
     icon: "Vector (5).png",
   },
   {
-    id: 3,
-    name: "whatsapp",
-    value: 1567,
-  },
-  {
-    id: 4,
-    name: "whatsapp",
-    value: 1567,
-  },
-  {
-    id: 5,
-    name: "whatsapp",
-    value: 1567,
-  },
-  {
-    id: 6,
-    name: "whatsapp",
-    value: 1567,
-  },
-  {
-    id: 7,
-    name: "whatsapp",
-    value: 1567,
-  },
-  {
     id: 8,
-    name: "whatsapp",
+    name: "Facebook",
     value: 1567,
+    icon: "Facebook.png",
   },
 ]);
 </script>
