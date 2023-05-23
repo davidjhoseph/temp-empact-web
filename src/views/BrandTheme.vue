@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between px-9 pt-2">
-    <div>
+  <div class="flex justify-between px-5 pt-2">
+    <div class="space-y-2">
       <h1 class="capitalize text-black text-xl font-bold">
         Customize brand theme
       </h1>
@@ -16,7 +16,7 @@
     </button>
   </div>
 
-  <div class="flex">
+  <div class="flex gap-3">
     <div class="p-5 rounded-md flex flex-col gap-8 w-4/6">
       <!-- Brand -->
       <div class="flex flex-col gap-5 border p-5 rounded-md">
@@ -85,23 +85,23 @@
         </div>
       </div>
 
-      <div class="border p-3 rounded-md">
-        <div class="flex items-center gap-3 pb-8">
+      <div class="border p-5 rounded-md space-y-9">
+        <div class="flex items-center gap-3 pb-2">
           <img src="../assets/images/brand.png" alt="" class="" />
           <div>
             <h2 class="font-semibold text-black">Colors</h2>
-            <p class="text-gray-60 text-sm">
-              Customize the colors of your brand
-            </p>
+            <p class="text-gray-60">Customize the colors of your brand</p>
           </div>
         </div>
         <div
           v-for="colorConfig in colorConfigs"
           :key="colorConfig.id"
-          class="flex gap-5"
+          class="flex gap-5 border p-5 rounded-md"
         >
           <div class="flex flex-col">
-            <h3 class="text-black font-bold pb-3">{{ colorConfig.label }}</h3>
+            <h3 class="text-black text-lg font-bold pb-3">
+              {{ colorConfig.label }}
+            </h3>
             <div
               class="w-32 h-32 border rounded-md"
               :style="{ backgroundColor: colorConfig.color }"
@@ -135,10 +135,10 @@
     </div>
 
     <div
-      class="p-5 rounded-md flex flex-col gap-8 w-2/6 border mt-5 bg-gray-10"
+      class="p-5 rounded-md flex flex-col gap-8 w-2/6 border mt-5 bg-gray-10 h-1/2"
     >
       <h2 class="font-bold text-black text-center text-2xl">App Preview</h2>
-      <div class="mx-auto mt-5">
+      <div class="mx-auto mt-2">
         <img src="../assets/iphone.png" alt="" />
       </div>
     </div>
