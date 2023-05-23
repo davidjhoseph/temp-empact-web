@@ -193,7 +193,7 @@
                 <div>
                   <h2 class="text-black font-bold text-xl">Content Stats</h2>
                 </div>
-                <div class="flex space-x-2">
+                <div class="flex space-x-2 items-center">
                   <a
                     href="#"
                     @click="
