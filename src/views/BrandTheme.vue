@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between px-5 pt-2">
-    <div class="space-y-2">
+  <div class="flex justify-between items-center px-5 pt-2">
+    <div class="space-y-1">
       <h1 class="capitalize text-black text-xl font-bold">
         Customize brand theme
       </h1>
@@ -8,7 +8,8 @@
         Make edits or changes that are consistent with your brand language
       </p>
     </div>
-    <button class="bg-blue text-white w-36 rounded-md h-12">
+
+    <button class="bg-blue text-white w-36 rounded-md p-1.5">
       <div class="flex justify-center gap-2 items-center">
         <SaveIcon class="h-4 w-4" />
         <p>Save Changes</p>
@@ -96,7 +97,7 @@
         <div
           v-for="colorConfig in colorConfigs"
           :key="colorConfig.id"
-          class="flex gap-5 border p-5 rounded-md"
+          class="flex gap-5 border p-5 rounded-sm"
         >
           <div class="flex flex-col">
             <h3 class="text-black text-lg font-bold pb-3">
@@ -135,7 +136,7 @@
     </div>
 
     <div
-      class="p-5 rounded-md flex flex-col gap-8 w-2/6 border mt-5 bg-gray-10 h-1/2"
+      class="p-5 rounded-md flex flex-col gap-8 w-2/6 border mt-3 bg-gray-10 h-1/2"
     >
       <h2 class="font-bold text-black text-center text-2xl">App Preview</h2>
       <div class="mx-auto mt-2">
