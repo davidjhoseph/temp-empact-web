@@ -80,64 +80,6 @@
           </transition>
         </Menu>
       </div>
-      <!-- <div class="flex justify-between px-9 pt-10">
-        <h1 class="capitalize text-black text-xl font-bold">Content Manager</h1>
-        <button class="bg-blue text-white w-36 rounded-md h-12">
-          <div class="flex justify-center space-x-2">
-            <PlusIcon class="h-6 w-6" />
-            <p>Create New</p>
-          </div>
-        </button>
-      </div> -->
-      <!-- <div class="pt-6 px-9">
-        <div class="flex space-x-10 pb-4">
-          <div
-            class="flex cursor-pointer space-x-2 hover:underline hover:underline-blue items-center"
-            @click=""
-          >
-            <div class="text-gray-60">All Content</div>
-            <div
-              class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
-            >
-              0
-            </div>
-          </div>
-          <div
-            class="flex items-center cursor-pointer space-x-2 hover:underline hover:underline-blue"
-            @click=""
-          >
-            <div class="text-gray-60">Publish</div>
-            <div
-              class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
-            >
-              0
-            </div>
-          </div>
-          <div
-            class="flex items-center cursor-pointer space-x-2 hover:underline hover:underline-blue"
-            @click=""
-          >
-            <div class="text-gray-60">Drafts</div>
-            <div
-              class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
-            >
-              0
-            </div>
-          </div>
-          <div
-            class="flex items-center cursor-pointer space-x-2 hover:underline hover:underline-blue"
-            @click=""
-          >
-            <div class="text-gray-60">Archive</div>
-            <div
-              class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
-            >
-              0
-            </div>
-          </div>
-        </div>
-        <hr />
-      </div> -->
       <main class="py-10">
         <div class="sm:px-6 lg:px-4">
           <!-- Your content -->

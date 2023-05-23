@@ -1,11 +1,17 @@
 <template>
   <div>
     <div class="py-4" v-for="list in contentList" :key="list.id">
-      <div class="flex justify-between border rounded-md space-y-6 px-2">
+      <div
+        class="flex justify-between border border-gray-30 rounded-md space-y-6 px-2"
+      >
         <div class="flex space-x-4 py-4">
-          <input type="checkbox" name="" id="" class="-mt-16" />
+          <input type="checkbox" name="" id="" class="-mt-28" />
           <div class="w-32 h-32 relative">
-            <img class="absolute inset-0 w-full h-full object-cover" :src="`https://picsum.photos/200/300`" alt="content image" />
+            <img
+              class="absolute inset-0 w-full h-full object-cover"
+              :src="`https://picsum.photos/200/300`"
+              alt="content image"
+            />
           </div>
           <div class="flex flex-col">
             <p class="text-black text-left">{{ list.title }}</p>
@@ -14,7 +20,7 @@
               <small>{{ list.desc }}</small>
             </p>
             <div class="justify-between">
-              <div class="flex space-x-2 mt-6 items-center">
+              <div class="flex space-x-2 mt-16 items-center">
                 <div class="text-sm text-gray-60 text-left">
                   <small>{{ list.date }}</small>
                 </div>
@@ -40,7 +46,7 @@
             <Menu as="div" class="relative inline-block text-left h-6">
               <div>
                 <MenuButton
-                  class="text-gray-70 h-6 w-8 text-sm border-gray-40 rounded-sm border text-center pl-1"
+                  class="text-gray-70 h-6 w-8 text-sm border-gray-30 rounded-sm border text-center pl-1"
                 >
                   <MenuIcon
                     class="-mr-1 h-5 w-5 text-gray-400"
@@ -157,6 +163,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 2,
@@ -169,6 +176,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 3,
@@ -181,6 +189,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 4,
@@ -193,6 +202,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 5,
@@ -205,6 +215,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 6,
@@ -217,6 +228,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 7,
@@ -229,6 +241,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 8,
@@ -241,6 +254,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 9,
@@ -253,6 +267,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 10,
@@ -265,6 +280,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
   {
     id: 11,
@@ -277,6 +293,7 @@ const contentList = reactive([
     likes: "500",
     favourite: "5,126",
     view: false,
+    ststistics: [],
   },
 ]);
 const getContentList = () => {

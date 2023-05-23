@@ -109,7 +109,13 @@
                 class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
               >
                 <EditIcon />
-                <p class="text-gray-70 text-sm">Edit</p>
+                <button
+                  @click="showModal = !showModal"
+                  class="text-gray-70 text-sm"
+                >
+                  Edit
+                </button>
+                <EditContent v-if="showModal" />
               </button>
               <button
                 class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
@@ -167,13 +173,17 @@
             </div>
             <div class="w-1/2">
               <div>
-                <img src="/images/Rectangle.png" alt="" class="w-full" />
+                <img
+                  src="../assets/images/Rectangle.png"
+                  alt=""
+                  class="w-full"
+                />
               </div>
               <div class="flex space-x-4 mt-2">
                 <img
                   v-for="i in 4"
                   :key="i"
-                  src="/images/Rectangle.png"
+                  src="../assets/images/Rectangle.png"
                   alt=""
                   class="w-20 h-12 rounded-md"
                 />
@@ -183,8 +193,16 @@
                 <div>
                   <h2 class="text-black font-bold text-xl">Content Stats</h2>
                 </div>
-                <div class="flex space-x-2">
-                  <a href="#">Advanced Stats</a><ArrowRightIcon />
+                <div class="flex space-x-2 items-center">
+                  <a
+                    href="#"
+                    @click="
+                      router.push({
+                        path: `/content-management/${id}/statistics`,
+                      })
+                    "
+                    >Advanced Stats</a
+                  ><ArrowRightIcon />
                 </div>
               </div>
               <div class="mt-4 flex justify-between">
@@ -212,7 +230,7 @@
   </FullPrimarySidebar>
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import FullPrimarySidebar from "../components/layouts/nav/sidebar/FullPrimarySidebar.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { useRouter, useRoute } from "vue-router";
@@ -222,6 +240,7 @@ import EditIcon from "../components/icons/EditIcon.vue";
 import ArchiveIcon from "../components/icons/Archive.vue";
 import DeleteIcon from "../components/icons/DeleteIcon.vue";
 import Ellipse from "../components/icons/Ellipse.vue";
+import EditContent from "../components/Modals/EditContent.vue";
 const router = useRouter();
 const route = useRoute();
 const userNavigation = [
@@ -229,4 +248,7 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 const sidebarOpen = ref(false);
+const showModal = ref(false);
+const id = route.params.id;
+const statistics = route.params.statistics;
 </script>
