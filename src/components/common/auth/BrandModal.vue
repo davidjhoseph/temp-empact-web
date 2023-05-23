@@ -98,7 +98,7 @@
             <BaseButton
               class="w-1/2"
               :disabled="selectedBrandId === null"
-              @click="closeModal"
+              @click="gotoDashboard"
               >Continue</BaseButton
             >
           </div>
@@ -110,6 +110,8 @@
 
 <script lang="ts" setup>
 import { reactive, ref, computed } from "vue";
+import { useRouter } from "vue-router";
+import { ROUTES } from "../../../router/routes";
 import BaseButton from "../BaseButton.vue";
 import BaseInput from "../BaseInput.vue";
 import SearchIcon from "../../icons/SearchIcon.vue";
@@ -121,6 +123,8 @@ const props = defineProps({
     default: false,
   },
 });
+
+const router = useRouter();
 
 const emit = defineEmits(["closeModal"]);
 
@@ -197,6 +201,11 @@ const filteredBrands = computed(() => {
 
 const closeModal = () => {
   emit("closeModal");
+};
+
+const gotoDashboard = () => {
+  router.push({ name: ROUTES.HOME_DASHBOARD });
+  closeModal();
 };
 </script>
 

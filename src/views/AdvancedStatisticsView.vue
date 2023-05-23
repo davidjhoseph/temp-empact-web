@@ -95,7 +95,7 @@
               <div>
                 <Filter> <Calendar /> </Filter>
               </div>
-              <button class="mt-2">
+              <button class="">
                 <div
                   class="flex justify-center items-center space-x-2 h-12 w-40 rounded-md border border-gray-40"
                 >
@@ -253,16 +253,11 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-import {
-  ArrowRightIcon,
-  CalendarIcon,
-  Vector,
-} from "../components/icons/AllIcons";
+import { ArrowRightIcon, Vector } from "../components/icons/AllIcons";
 import Filter from "../components/layouts/RightCoulumn/Filter.vue";
 import Calendar from "../components/icons/calendar.vue";
 import DownloadIcon from "../components/icons/Download.vue";
 import EyeIcon from "../components/icons/eyeIcon.vue";
-import AdvancedStatisticsBox from "../components/layouts/RightCoulumn/AdvancedStatisticsBox.vue";
 import Ellipse from "../components/icons/Ellipse.vue";
 const userNavigation = [
   { name: "Your profile", href: "#" },
@@ -319,65 +314,6 @@ const platforms = reactive([
     icon: "Facebook.png",
   },
 ]);
-// const recentLikes = reactive([
-//   {
-//     id: 1,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-//   {
-//     id: 2,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-//   {
-//     id: 3,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-//   ,
-//   {
-//     id: 4,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-//   {
-//     id: 5,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-//   {
-//     id: 6,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-//   {
-//     id: 7,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-//   {
-//     id: 8,
-//     name: "David Green",
-//     icon: "DG.png",
-//     date: "Mar 20, 2023",
-//     time: "12:30 PM",
-//   },
-// ]);
 const recentShares = reactive([
   {
     id: 1,

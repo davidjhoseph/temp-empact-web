@@ -2,7 +2,7 @@
   <div class="grid grid-cols-4 gap-x-14 gap-y-6">
     <div class="py-4" v-for="list in contentList" :key="list.id">
       <!-- left column -->
-      <div class="grid gap-y-2 p-4 border rounded-md">
+      <div class="grid gap-y-2 p-4 border rounded-md border-gray-30">
         <!-- <input type="checkbox" name="" id="" class="-mt-16" /> -->
         <div class="w-full h-40 relative">
           <img

@@ -16,24 +16,8 @@
 </template>
 <script setup lang="ts">
 import { ref, reactive } from "vue";
-import Ellipse from "../../icons/Ellipse.vue";
-import MenuIcon from "../../icons/MenuIcon.vue";
-import LikesIcon from "../../icons/LikesIcon.vue";
-import LoveIcon from "../../icons/LoveIcon.vue";
-import Search from "../../icons/Search.vue";
-import Filter from "../RightCoulumn/Filter.vue";
-import ListIcon from "../../icons/ListIcon.vue";
-import GridIcon from "../../icons/gridIcon.vue";
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
-import { useRouter, useRoute, RouterLink } from "vue-router";
 import GridContentView from "../../GridContentView.vue";
 import ListContentView from "../../ListContentView.vue";
-import ListIcongray from "../../icons/ListIcongray.vue";
-import { FilterIcon } from "../../icons/AllIcons";
-const router = useRouter();
-const route = useRoute();
-const isActive = ref(false);
 const contentList = reactive([
   {
     id: 1,

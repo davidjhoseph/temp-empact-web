@@ -127,7 +127,7 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
 import FullPrimarySidebar from "../nav/sidebar/FullPrimarySidebar.vue";
-import Filter from "./Filter.vue";
+import Filter from "../../layouts/RightCoulumn/Filter.vue";
 import Vector from "../../icons/Vector.vue";
 import ArrowRightIcon from "../../icons/ArrowRightIcon.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
