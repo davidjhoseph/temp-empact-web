@@ -3,16 +3,16 @@
     <Modal @closeModal="close" :open="open" />
     <!--  -->
     <div class="relative right-3">
-      <img src="../../assets/logo/empact_logo.png" class="pb-12" />
+      <img src="../../assets/logo/empact_logo.png" class="pb-16" />
     </div>
 
     <form>
-      <div class="space-y-4">
+      <div class="space-y-4 pb-10">
         <h1 class="text-header3 text-blue font-bold">Welcome back to Empact</h1>
         <h2 class="text-gray-60">Sign in to continue to your account</h2>
       </div>
 
-      <div class="my-4 space-y-8">
+      <div class="my-4 space-y-6">
         <div>
           <BaseInput
             type="email"

@@ -27,6 +27,9 @@ import Person from '../icons/Person.vue';
 import OutlineArrowDownIcon from '../icons/OutlineArrowDownIcon.vue';
 import FilterIcon from '../icons/FilterIcon.vue';	
 import BackArrowIcon from '../icons/BackArrow.vue';
+import TrashIcon from '../icons/TrashIcon.vue';
+import UploadIcon from '../icons/UploadIcon.vue';
+import Saveicon from '../icons/SaveIcon.vue';
 
 
 
@@ -58,4 +61,7 @@ export {
 	FilterIcon,
 	BackArrowIcon,
 	CloseIcon,
+	TrashIcon,
+	UploadIcon,
+	Saveicon
 };

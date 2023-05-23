@@ -114,7 +114,7 @@
                       <template #icon><HomeIcon /></template>
                     </SingleNavLink>
                     <SingleNavLink
-                      title="BrandTheme"
+                      title="Brand Theme"
                       :route="ROUTES.BRAND_THEME"
                     >
                       <template #icon> <HomeIcon /></template>
