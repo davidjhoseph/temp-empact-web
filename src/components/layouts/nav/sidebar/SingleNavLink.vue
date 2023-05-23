@@ -1,7 +1,7 @@
 <template>
   <button
     @click="router.push({ name: route })"
-    class="flex items-center justify-between px-3 py-5 rounded w-full"
+    class="flex items-center justify-between px-3 py-4 rounded w-full"
     :class="isActive ? 'text-white bg-blue-60' : 'text-gray-40'"
   >
     <div class="flex items-center space-x-4">

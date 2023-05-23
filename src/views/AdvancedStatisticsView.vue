@@ -155,13 +155,27 @@
             </div>
           </div>
           <div class="grid grid-cols-2 gap-6">
-            <AdvancedStatisticsBox title="Platform Shares" value="1567">
-              <template #viewAll></template>
-              <template #icon><EyeIcon /></template>
-            </AdvancedStatisticsBox>
             <div class="border border-gray-70 rounded-md">
               <div class="flex justify-between p-4">
-                <div class="font-bold text-balck">Recent Shares</div>
+                <div class="font-bold text-black">Platform Shares</div>
+              </div>
+              <div class="py-2 px-4" v-for="x in platforms" :key="x?.id">
+                <div class="flex justify-between">
+                  <div class="flex space-x-2 items-center">
+                    <img
+                      :src="`/src/assets/images/${x?.icon}`"
+                      alt=""
+                      class=""
+                    />
+                    <div class="text-gray-80">{{ x?.name }}</div>
+                  </div>
+                  <div class="text-gray-80">{{ x?.value }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="border border-gray-70 rounded-md">
+              <div class="flex justify-between p-4">
+                <div class="font-bold text-black">Recent Shares</div>
                 <button class="text-gray-60">
                   <div class="flex space-x-2 items-center">
                     <div
@@ -178,7 +192,11 @@
               <div class="py-2 px-4" v-for="x in recentShares" :key="x?.id">
                 <div class="flex justify-between">
                   <div class="flex space-x-2 items-center">
-                    <img :src="`/public/images/${x?.icon}`" alt="" class="" />
+                    <img
+                      :src="`/src/assets/images/${x?.icon}`"
+                      alt=""
+                      class=""
+                    />
                     <div class="text-gray-80">{{ x?.name }}</div>
                   </div>
                   <div class="flex space-x-2 items-center">
@@ -191,10 +209,16 @@
             </div>
             <div class="border border-gray-70 rounded-md">
               <div class="flex justify-between p-4">
-                <div class="font-bold text-balck">Recent Likes</div>
+                <div class="font-bold text-black">Recent Shares</div>
                 <button class="text-gray-60">
                   <div class="flex space-x-2 items-center">
-                    <div>View All</div>
+                    <div
+                      @click="
+                        router.push({ path: '/content-management/platform' })
+                      "
+                    >
+                      View All
+                    </div>
                     <ArrowRightIcon />
                   </div>
                 </button>
@@ -202,7 +226,11 @@
               <div class="py-2 px-4" v-for="x in recentLikes" :key="x?.id">
                 <div class="flex justify-between">
                   <div class="flex space-x-2 items-center">
-                    <img :src="`/public/images/${x?.icon}`" alt="" class="" />
+                    <img
+                      :src="`/src/assets/images/${x?.icon}`"
+                      alt=""
+                      class=""
+                    />
                     <div class="text-gray-80">{{ x?.name }}</div>
                   </div>
                   <div class="flex space-x-2 items-center">
@@ -241,71 +269,121 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 const sidebarOpen = ref(false);
-const recentLikes = reactive([
-  {
-    id: 1,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-  {
-    id: 2,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-  {
-    id: 3,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-  ,
-  {
-    id: 4,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-  {
-    id: 5,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-  {
-    id: 6,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-  {
-    id: 7,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-  {
-    id: 8,
-    name: "David Green",
-    icon: "DG.png",
-    date: "Mar 20, 2023",
-    time: "12:30 PM",
-  },
-]);
-const recentShares = reactive([
+const platforms = reactive([
   {
     id: 1,
     name: "whatsapp",
     value: 1567,
     icon: "vector (5).png",
+  },
+  {
+    id: 2,
+    name: "Telegram",
+    value: 1567,
+    icon: "Telegram.png",
+  },
+  {
+    id: 3,
+    name: "Instagram",
+    value: 1567,
+    icon: "Instagram.png",
+  },
+  {
+    id: 4,
+    name: "link copied",
+    value: 1567,
+    icon: "Vector (6).png",
+  },
+  {
+    id: 5,
+    name: "Twitter",
+    value: 1567,
+    icon: "Twitter.png",
+  },
+  {
+    id: 6,
+    name: "email",
+    value: 1567,
+    icon: "Mail.png",
+  },
+  {
+    id: 7,
+    name: "Whatsapp",
+    value: 1567,
+    icon: "Vector (5).png",
+  },
+  {
+    id: 8,
+    name: "Facebook",
+    value: 1567,
+    icon: "Facebook.png",
+  },
+]);
+// const recentLikes = reactive([
+//   {
+//     id: 1,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+//   {
+//     id: 2,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+//   {
+//     id: 3,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+//   ,
+//   {
+//     id: 4,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+//   {
+//     id: 5,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+//   {
+//     id: 6,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+//   {
+//     id: 7,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+//   {
+//     id: 8,
+//     name: "David Green",
+//     icon: "DG.png",
+//     date: "Mar 20, 2023",
+//     time: "12:30 PM",
+//   },
+// ]);
+const recentShares = reactive([
+  {
+    id: 1,
+    name: "whatsapp",
+    value: 1567,
+    icon: "Vector (5).png",
     date: "May 20,2023",
     time: "12:30 PM",
   },
@@ -362,6 +440,72 @@ const recentShares = reactive([
     name: "Facebook",
     value: 1567,
     icon: "Facebook.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+]);
+const recentLikes = reactive([
+  {
+    id: 1,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+  {
+    id: 2,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+  {
+    id: 3,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+  {
+    id: 4,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+  {
+    id: 5,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+  {
+    id: 6,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+  {
+    id: 7,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+  },
+  {
+    id: 8,
+    name: "David Green",
+    value: 1567,
+    icon: "DG.png",
     date: "May 20,2023",
     time: "12:30 PM",
   },

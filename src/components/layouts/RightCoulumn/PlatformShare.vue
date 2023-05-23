@@ -99,11 +99,15 @@
                 v-for="x in recentShares"
               >
                 <div class="flex space-x-2 items-center pl-4">
-                  <img :src="`/public/images/${x?.icon}`" alt="" class="" />
+                  <img
+                    :src="`/src/assets/images/${x.icon}`"
+                    alt=""
+                    class="h-4 w-4"
+                  />
                   <p class="capitalize text-blacK">{{ x?.platform }}</p>
                 </div>
                 <div class="flex space-x-2 items-end">
-                  <img src="../../../assets/images/DG.png" alt="" />
+                  <img src="/src/assets/images/DG.png" alt="" />
                   <div class="text-gray-80 capitalize">{{ x?.name }}</div>
                 </div>
                 <div class="flex space-x-2 items-center ml-6">
@@ -209,7 +213,7 @@ const recentShares = reactive([
     platform: "facebook",
   },
   {
-    id: 1,
+    id: 9,
     name: "David Green",
     value: 1567,
     icon: "vector (5).png",
@@ -218,16 +222,7 @@ const recentShares = reactive([
     platform: "whatsapp",
   },
   {
-    id: 2,
-    name: "David Green",
-    value: 1567,
-    icon: "Telegram.png",
-    date: "May 20,2023",
-    time: "12:30 PM",
-    platform: "telegram",
-  },
-  {
-    id: 3,
+    id: 10,
     name: "David Green",
     value: 1567,
     icon: "Instagram.png",
@@ -236,7 +231,7 @@ const recentShares = reactive([
     platform: "instagram",
   },
   {
-    id: 4,
+    id: 11,
     name: "David Green",
     value: 1567,
     icon: "Vector (6).png",
@@ -245,7 +240,7 @@ const recentShares = reactive([
     platform: "linked copy",
   },
   {
-    id: 5,
+    id: 12,
     name: "David Green",
     value: 1567,
     icon: "Twitter.png",
@@ -254,7 +249,7 @@ const recentShares = reactive([
     platform: "twitter",
   },
   {
-    id: 6,
+    id: 13,
     name: "David Green",
     value: 1567,
     icon: "Mail.png",
@@ -263,7 +258,7 @@ const recentShares = reactive([
     platform: "email",
   },
   {
-    id: 7,
+    id: 14,
     name: "David Green",
     value: 1567,
     icon: "Vector (5).png",
@@ -272,13 +267,22 @@ const recentShares = reactive([
     platform: "whatsapp",
   },
   {
-    id: 8,
+    id: 15,
     name: "David Green",
     value: 1567,
     icon: "Facebook.png",
     date: "May 20,2023",
     time: "12:30 PM",
     platform: "facebook",
+  },
+  {
+    id: 16,
+    name: "David Green",
+    value: 1567,
+    icon: "Telegram.png",
+    date: "May 20,2023",
+    time: "12:30 PM",
+    platform: "telegram",
   },
 ]);
 </script>

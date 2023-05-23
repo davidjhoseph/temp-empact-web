@@ -96,7 +96,7 @@
           </button>
         </div>
         <nav class="flex flex-1 flex-col">
-          <ul role="list" class="flex flex-1 flex-col gap-y-7">
+          <ul role="list" class="flex flex-1 flex-colx">
             <li>
               <ul role="list" class="-mx-2 space-y-1">
                 <li>
