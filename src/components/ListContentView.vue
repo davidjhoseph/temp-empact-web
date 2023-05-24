@@ -2,32 +2,32 @@
   <div>
     <div class="py-4" v-for="list in contentList" :key="list.id">
       <div
-        class="flex justify-between border border-gray-30 rounded-md space-y-6 px-2"
+        class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"
       >
-        <div class="flex space-x-4 py-4">
+        <div class="flex py-4 space-x-4">
           <input type="checkbox" name="" id="" class="-mt-28" />
-          <div class="w-32 h-32 relative">
+          <div class="relative w-32 h-32">
             <img
-              class="absolute inset-0 w-full h-full object-cover"
+              class="absolute inset-0 object-cover w-full h-full"
               :src="`https://picsum.photos/200/300`"
               alt="content image"
             />
           </div>
           <div class="flex flex-col">
-            <p class="text-black text-left">{{ list.title }}</p>
+            <p class="text-left text-black">{{ list.title }}</p>
 
-            <p class="text-gray-60 text-left">
+            <p class="text-left text-gray-60">
               <small>{{ list.desc }}</small>
             </p>
             <div class="justify-between">
-              <div class="flex space-x-2 mt-16 items-center">
-                <div class="text-sm text-gray-60 text-left">
+              <div class="flex items-center mt-16 space-x-2">
+                <div class="text-sm text-left text-gray-60">
                   <small>{{ list.date }}</small>
                 </div>
-                <div class="text-sm text-gray-60 text-left">
+                <div class="text-sm text-left text-gray-60">
                   <Ellipse />
                 </div>
-                <div class="text-sm text-gray-60 text-left">
+                <div class="text-sm text-left text-gray-60">
                   <small>{{ list.time }}</small>
                 </div>
               </div>
@@ -36,38 +36,38 @@
         </div>
 
         <div class="flex flex-col space-y-12">
-          <div class="flex space-x-4 justify-end">
+          <div class="flex justify-end space-x-4">
             <button
-              @click="router.push({ path: `/content-management/${list.id}` })"
-              class="text-gray-70 h-6 w-10 text-sm border-gray-40 rounded-sm border px-1"
+              @click="router.push({ name: ROUTES.CONTENT_VIEW, params: {id: list.id}})"
+              class="w-10 h-6 px-1 text-sm border rounded-sm text-gray-70 border-gray-40"
             >
               view
             </button>
-            <Menu as="div" class="relative inline-block text-left h-6">
+            <Menu as="div" class="relative inline-block h-6 text-left">
               <div>
                 <MenuButton
-                  class="text-gray-70 h-6 w-8 text-sm border-gray-30 rounded-sm border text-center pl-1"
+                  class="w-8 h-6 pl-1 text-sm text-center border rounded-sm text-gray-70 border-gray-30"
                 >
                   <MenuIcon
-                    class="-mr-1 h-5 w-5 text-gray-400"
+                    class="w-5 h-5 -mr-1 text-gray-400"
                     aria-hidden="true"
                   />
                 </MenuButton>
               </div>
 
               <transition
-                enter-active-class="transition ease-out duration-100"
-                enter-from-class="transform opacity-0 scale-95"
-                enter-to-class="transform opacity-100 scale-100"
-                leave-active-class="transition ease-in duration-75"
-                leave-from-class="transform opacity-100 scale-100"
-                leave-to-class="transform opacity-0 scale-95"
+                enter-active-class="transition duration-100 ease-out"
+                enter-from-class="transform scale-95 opacity-0"
+                enter-to-class="transform scale-100 opacity-100"
+                leave-active-class="transition duration-75 ease-in"
+                leave-from-class="transform scale-100 opacity-100"
+                leave-to-class="transform scale-95 opacity-0"
               >
                 <MenuItems
-                  class="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  class="absolute right-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 >
                   <div class="py-1">
-                    <small class="text-blue ml-4" style=""
+                    <small class="ml-4 text-blue" style=""
                       >Select content type</small
                     >
                     <MenuItem v-slot="{ active }">
@@ -116,20 +116,20 @@
           </div>
           <div class="flex space-x-10">
             <div>
-              <button class="bg-green-10 text-green-70 h-5 w-12 rounded-sm">
-                <p class="text-center text-sm px-2">
+              <button class="w-12 h-5 rounded-sm bg-green-10 text-green-70">
+                <p class="px-2 text-sm text-center">
                   {{ list.imageText }}
                 </p>
               </button>
             </div>
             <div>
-              <div class="flex space-x-2 items-center">
+              <div class="flex items-center space-x-2">
                 <LikesIcon />
                 <div class="text-gray-60">{{ list.likes }}</div>
               </div>
             </div>
             <div>
-              <div class="flex space-x-2 items-center">
+              <div class="flex items-center space-x-2">
                 <LoveIcon />
                 <div class="text-gray-60">{{ list.favourite }}</div>
               </div>
@@ -148,6 +148,7 @@ import LoveIcon from "./icons/LoveIcon.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 
 import { useRouter, useRoute, RouterLink } from "vue-router";
+import { ROUTES } from "../router/routes";
 
 const router = useRouter();
 const route = useRoute();

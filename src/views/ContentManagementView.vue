@@ -1,59 +1,59 @@
 <template>
   <div>
     <div class="flex justify-between px-6 pt-4">
-      <h1 class="capitalize text-black-DEFAULT text-xl font-bold">
+      <h1 class="text-xl font-bold capitalize text-black-DEFAULT">
         Content Manager
       </h1>
-      <button class="bg-blue text-white w-32 rounded-md h-10">
+      <button class="w-32 h-10 text-white rounded-md bg-blue">
         <div class="flex justify-center space-x-2">
-          <PlusIcon class="h-6 w-6" />
+          <PlusIcon class="w-6 h-6" />
           <button @click="showModal = !showModal">Create New</button>
           <CreateNewContent v-if="showModal" />
         </div>
       </button>
     </div>
-    <div class="pt-6 px-6">
-      <div class="flex space-x-10 pb-4">
+    <div class="px-6 pt-6">
+      <div class="flex pb-4 space-x-10">
         <div
-          class="flex cursor-pointer space-x-2 hover:underline hover:underline-blue items-center"
+          class="flex items-center space-x-2 cursor-pointer hover:underline hover:underline-blue"
           @click="currentContentTab = 'AllContent'"
         >
           <div class="text-gray-60">All Content</div>
           <div
-            class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
+            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
             0
           </div>
         </div>
         <div
-          class="flex items-center cursor-pointer space-x-2 hover:underline hover:underline-blue"
+          class="flex items-center space-x-2 cursor-pointer hover:underline hover:underline-blue"
           @click="currentContentTab = 'Publish'"
         >
           <div class="text-gray-60">Publish</div>
           <div
-            class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
+            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
             0
           </div>
         </div>
         <div
-          class="flex items-center cursor-pointer space-x-2 hover:underline hover:underline-blue"
+          class="flex items-center space-x-2 cursor-pointer hover:underline hover:underline-blue"
           @click="currentContentTab = 'Drafts'"
         >
           <div class="text-gray-60">Drafts</div>
           <div
-            class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
+            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
             0
           </div>
         </div>
         <div
-          class="flex items-center cursor-pointer space-x-2 hover:underline hover:underline-blue"
+          class="flex items-center space-x-2 cursor-pointer hover:underline hover:underline-blue"
           @click="currentContentTab = 'Archive'"
         >
           <div class="text-gray-60">Archive</div>
           <div
-            class="w-5 h-5 bg-blue text-white rounded-sm text-center flex justify-center items-center"
+            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
             0
           </div>
@@ -66,9 +66,9 @@
       <div class="flex space-x-6">
         <div class="relative rounded-md">
           <div
-            class="pointer-events-none absolute top-3 left-0 flex items-center pl-3"
+            class="absolute left-0 flex items-center pl-3 pointer-events-none top-3"
           >
-            <Search class="h-5 w-5 text-gray-400" aria-hidden="true" />
+            <Search class="w-5 h-5 text-gray-400" aria-hidden="true" />
           </div>
           <input
             type="text"
@@ -83,7 +83,7 @@
         <!-- Media type dropdown -->
         <Dropdown />
       </div>
-      <div class="flex space-x-4 mt-2 items-center">
+      <div class="flex items-center mt-2 space-x-4">
         <div class="text-gray-60">View</div>
         <div @click="currentTab = 'ListContentView'">
           <button>
