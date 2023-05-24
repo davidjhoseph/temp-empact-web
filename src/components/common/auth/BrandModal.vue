@@ -139,7 +139,6 @@ const searchQuery = ref("");
 const selectedBrandId = ref<number | null>(null);
 
 const handleBrandSelection = (brandId: number) => {
-  console.log(brandId);
   selectedBrandId.value = selectedBrandId.value === brandId ? null : brandId;
 };
 
