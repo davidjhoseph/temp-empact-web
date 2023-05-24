@@ -19,22 +19,26 @@
         </div>
         <div class="flex space-x-4">
           <button
-            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60">
+            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60"
+          >
             <EditIcon />
             <button
               @click="showModal = !showModal"
-              class="text-sm text-gray-70">
+              class="text-sm text-gray-70"
+            >
               Edit
             </button>
             <EditContent v-if="showModal" />
           </button>
           <button
-            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60">
+            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60"
+          >
             <ArchiveIcon />
             <p class="text-sm text-gray-70">Archive</p>
           </button>
           <button
-            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-red">
+            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-red"
+          >
             <DeleteIcon />
             <p class="text-sm text-red">Delete</p>
           </button>
@@ -46,24 +50,23 @@
             Paintings are a form of visual art that have been around for
             centuries, and they continue to be a popular and powerful way of
             expressing ideas, emotions, and experiences. Paintings can vary
-            greatly in style, subject matter, and technique, but they all
-            have one thing in common: they are created by the application of
-            paint or other pigments to a surface such as canvas, paper, or
-            wood. Paintings can be realistic or abstract, figurative or
-            landscape, still life or portrait, and they can be made using a
-            variety of mediums, including oil, acrylic, watercolor, and
-            gouache.
+            greatly in style, subject matter, and technique, but they all have
+            one thing in common: they are created by the application of paint or
+            other pigments to a surface such as canvas, paper, or wood.
+            Paintings can be realistic or abstract, figurative or landscape,
+            still life or portrait, and they can be made using a variety of
+            mediums, including oil, acrylic, watercolor, and gouache.
           </p>
           <br />
           <p class="pb-4 mt-4 text-gray-80">
-            One of the most fascinating aspects of paintings is the way they
-            can communicate complex ideas and emotions through color,
-            composition, and form. A well-executed painting can evoke
-            feelings of joy, sadness, awe, or contemplation, and it can
-            transport the viewer to another time or place. Moreover,
-            paintings can be appreciated on many levels, from the purely
-            aesthetic to the intellectual and symbolic, making them a rich
-            and rewarding art form for both artists and viewers alike.
+            One of the most fascinating aspects of paintings is the way they can
+            communicate complex ideas and emotions through color, composition,
+            and form. A well-executed painting can evoke feelings of joy,
+            sadness, awe, or contemplation, and it can transport the viewer to
+            another time or place. Moreover, paintings can be appreciated on
+            many levels, from the purely aesthetic to the intellectual and
+            symbolic, making them a rich and rewarding art form for both artists
+            and viewers alike.
           </p>
           <hr />
           <div class="flex mt-8 space-x-4">
@@ -71,7 +74,8 @@
               <img
                 src="https://ui-avatars.com/api/?name=John+Doe"
                 alt=""
-                class="w-12 h-12" />
+                class="w-12 h-12"
+              />
             </div>
             <div class="flex flex-col">
               <p>
@@ -83,10 +87,7 @@
         </div>
         <div class="w-1/2">
           <div>
-            <img
-              src="../assets/images/Rectangle.png"
-              alt=""
-              class="w-full" />
+            <img src="../assets/images/Rectangle.png" alt="" class="w-full" />
           </div>
           <div class="flex mt-2 space-x-4">
             <img
@@ -94,7 +95,8 @@
               :key="i"
               src="../assets/images/Rectangle.png"
               alt=""
-              class="w-20 h-12 rounded-md" />
+              class="w-20 h-12 rounded-md"
+            />
             <button class="text-gray-60">+ 5 more</button>
           </div>
           <div class="flex justify-between mt-6">
@@ -108,7 +110,9 @@
                   router.push({
                     path: `/content-management/${id}/statistics`,
                   })
-                  ">Advanced Stats</a>
+                "
+                >Advanced Stats</a
+              >
               <ArrowRightIcon />
             </div>
           </div>
@@ -116,9 +120,9 @@
             <div
               v-for="i in 3"
               :key="i"
-              class="w-48 rounded-lg h-28 bg-blue-10">
-              <div
-                class="flex flex-col items-center justify-center px-3 my-7">
+              class="w-48 rounded-lg h-28 bg-blue-10"
+            >
+              <div class="flex flex-col items-center justify-center px-3 my-7">
                 <h3 class="text-lg text-blue">150,397</h3>
                 <div class="flex items-center space-x-2">
                   <EyeIcon />
@@ -137,7 +141,7 @@ import { ref, reactive } from "vue";
 import FullPrimarySidebar from "../components/layouts/nav/sidebar/FullPrimarySidebar.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { useRouter, useRoute } from "vue-router";
-import { ArrowRightIcon, Vector } from "../components/icons/AllIcons";
+import { ArrowRightIcon } from "../components/icons/AllIcons";
 import EyeIcon from "../components/icons/eyeIcon.vue";
 import EditIcon from "../components/icons/EditIcon.vue";
 import ArchiveIcon from "../components/icons/Archive.vue";
