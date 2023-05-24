@@ -32,16 +32,20 @@
           </button>
           <button
             class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60"
+            @click="openArchive = !openArchive"
           >
             <ArchiveIcon />
             <p class="text-sm text-gray-70">Archive</p>
           </button>
+          <ArchiveContent v-if="openArchive" />
           <button
             class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-red"
+            @click="openDelete = openDelete"
           >
             <DeleteIcon />
             <p class="text-sm text-red">Delete</p>
           </button>
+          <DeleteContent v-if="openDelete" />
         </div>
       </div>
       <div class="flex mt-14 space-x-72">
