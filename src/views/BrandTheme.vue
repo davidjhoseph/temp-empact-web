@@ -49,7 +49,8 @@
                   id="dropzone-file"
                   type="file"
                   class="hidden"
-                  @change="handleFileUpload" />
+                  @change="handleFileUpload" 
+                  />
                 <div class="flex gap-3 w-60">
                   <div
                     :class="previewImage

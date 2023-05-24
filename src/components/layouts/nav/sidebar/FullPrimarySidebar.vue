@@ -112,10 +112,10 @@
                 <HomeIcon />
               </template>
               <template #arrowIcon>
-                <OutlineArrowDownIcon class="w-4 h-4 transform" :class="{'rotate-180' : !isBrandThemeSelected}" />
+                <OutlineArrowDownIcon class="w-4 h-4 transition-all ease-linear transform" :class="{'rotate-180' : !isBrandThemeSelected}" />
               </template>
             </SingleNavLink>
-            <div  class="ml-8 font-light text-gray-40 text-micro" :class="isBrandThemeSelected ? 'h-auto opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none'">
+            <div  class="ml-8 font-light transition-all duration-100 ease-linear transform text-gray-40 text-micro" :class="isBrandThemeSelected ? 'h-[70px] opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none'">
               <div class="py-2 tracking-wider cursor-pointer">Content Manager</div>
               <div class="py-2 tracking-wider cursor-pointer">Theme Manager</div>
             </div>
