@@ -106,6 +106,7 @@
       <component :is="tabs[currentTab as keyof typeof tabs]"></component>
     </keepAlive>
   </div>
+  <Calendar />
 </template>
 <script setup lang="ts">
 import { ref, reactive } from "vue";
@@ -123,6 +124,7 @@ import Drafts from "../components/layouts/RightCoulumn/Drafts.vue";
 import Publish from "../components/layouts/RightCoulumn/Publish.vue";
 import CreateNewContent from "../components/Modals/CreateNewContent.vue";
 import Dropdown from "../components/Dropdown.vue";
+import Calendar from "../components/layouts/RightCoulumn/Calendar.vue";
 
 const showModal = ref(false);
 

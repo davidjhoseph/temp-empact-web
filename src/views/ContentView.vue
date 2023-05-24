@@ -119,17 +119,21 @@
               </button>
               <button
                 class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
+                @click="openArchive = !openArchive"
               >
                 <ArchiveIcon />
                 <p class="text-gray-70 text-sm">Archive</p>
               </button>
               <button
                 class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-red px-2"
+                @click="openDelete = !openDelete"
               >
                 <DeleteIcon />
                 <p class="text-red text-sm">Delete</p>
               </button>
             </div>
+            <DeleteContent v-if="openDelete" />
+            <ArchiveContent v-if="openArchive" />
           </div>
           <div class="mt-14 flex space-x-72">
             <div class="w-1/2">
@@ -241,6 +245,8 @@ import ArchiveIcon from "../components/icons/Archive.vue";
 import DeleteIcon from "../components/icons/DeleteIcon.vue";
 import Ellipse from "../components/icons/Ellipse.vue";
 import EditContent from "../components/Modals/EditContent.vue";
+import DeleteContent from "../components/Modals/DeleteContent.vue";
+import ArchiveContent from "../components/Modals/ArchiveContent.vue";
 const router = useRouter();
 const route = useRoute();
 const userNavigation = [
@@ -249,6 +255,8 @@ const userNavigation = [
 ];
 const sidebarOpen = ref(false);
 const showModal = ref(false);
+const openDelete = ref(false);
+const openArchive = ref(false);
 const id = route.params.id;
 const statistics = route.params.statistics;
 </script>

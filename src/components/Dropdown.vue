@@ -2,7 +2,7 @@
   <Menu as="div" class="relative inline-block text-left">
     <div>
       <MenuButton
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-3.5 text-sm text-gray-70 shadow-sm border border-gray-40"
+        class="inline-flex w-44 justify-center gap-x-1.5 rounded-md bg-white px-3 py-3.5 text-sm text-gray-80 shadow-sm border border-gray-40"
         >Media type : All
         <ChevronDownIcon
           class="-mr-1 h-5 w-5 text-gray-400"
