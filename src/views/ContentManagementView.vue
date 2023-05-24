@@ -16,7 +16,7 @@
       <div class="flex pb-4 space-x-10">
         <div
           class="flex items-center space-x-2 cursor-pointer hover:underline hover:underline-blue"
-          @click="currentContentTab = 'AllContent'"
+          @click="AllContent = AllContent"
         >
           <div class="text-gray-60">All Content</div>
           <div
@@ -27,7 +27,7 @@
         </div>
         <div
           class="flex items-center space-x-2 cursor-pointer hover:underline hover:underline-blue"
-          @click="currentContentTab = 'Publish'"
+          @click="Publish = Publish"
         >
           <div class="text-gray-60">Publish</div>
           <div
@@ -81,7 +81,14 @@
         <Filter><FilterIcon /></Filter>
 
         <!-- Media type dropdown -->
-        <Dropdown />
+        <Dropdown name="Media type : All">
+          <template #icon>
+            <ChevronDownIcon
+              class="w-5 h-5 -mr-1 text-gray-400"
+              aria-hidden="true"
+          /></template>
+          <MediaDropdown />
+        </Dropdown>
       </div>
       <div class="flex items-center mt-2 space-x-4">
         <div class="text-gray-60">View</div>
@@ -105,6 +112,10 @@
     <keepAlive>
       <component :is="tabs[currentTab as keyof typeof tabs]"></component>
     </keepAlive>
+    <!-- <AllContent v-if="AllContent" />
+    <Publish v-else-if="Publish" />
+    <Drafts v-else-if="Drafts" />
+    <Archive v-else-if="Archive" /> -->
   </div>
 </template>
 <script setup lang="ts">
@@ -123,7 +134,8 @@ import Drafts from "../components/layouts/RightCoulumn/Drafts.vue";
 import Publish from "../components/layouts/RightCoulumn/Publish.vue";
 import CreateNewContent from "../components/Modals/CreateNewContent.vue";
 import Dropdown from "../components/Dropdown.vue";
-import Calendar from "../components/layouts/RightCoulumn/Calendar.vue";
+import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import MediaDropdown from "../components/layouts/Dropdown/MediaDropdown.vue";
 
 const showModal = ref(false);
 

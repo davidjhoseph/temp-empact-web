@@ -1,5 +1,5 @@
 <template>
-  <div class="px-9">
+  <div class="">
     <div class="py-4" v-for="list in contentList" :key="list.id">
       <div
         class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"
@@ -71,50 +71,7 @@
                 <MenuItems
                   class="absolute right-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 >
-                  <div class="py-1">
-                    <small class="ml-4 text-blue" style=""
-                      >Select content type</small
-                    >
-                    <MenuItem v-slot="{ active }">
-                      <a
-                        href="#"
-                        :class="[
-                          active
-                            ? 'bg-gray-100 text-gray-900'
-                            : 'text-gray-700',
-                          'block px-4 py-2 text-sm',
-                        ]"
-                        >Account settings</a
-                      >
-                    </MenuItem>
-                    <MenuItem v-slot="{ active }">
-                      <a
-                        href="#"
-                        :class="[
-                          active
-                            ? 'bg-gray-100 text-gray-900'
-                            : 'text-gray-700',
-                          'block px-4 py-2 text-sm',
-                        ]"
-                        >License</a
-                      >
-                    </MenuItem>
-                    <form method="POST" action="#">
-                      <MenuItem v-slot="{ active }">
-                        <button
-                          type="submit"
-                          :class="[
-                            active
-                              ? 'bg-gray-100 text-gray-900'
-                              : 'text-gray-700',
-                            'block w-full px-4 py-2 text-left text-sm',
-                          ]"
-                        >
-                          Sign out
-                        </button>
-                      </MenuItem>
-                    </form>
-                  </div>
+                  <div><MenuDropdownView /></div>
                 </MenuItems>
               </transition>
             </Menu>
@@ -150,10 +107,15 @@ import { ref } from "vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import LikesIcon from "./icons/LikesIcon.vue";
 import LoveIcon from "./icons/LoveIcon.vue";
+import AllContent from "./layouts/RightCoulumn/AllContent.vue";
+import Publish from "./layouts/RightCoulumn/Publish.vue";
+import Drafts from "./layouts/RightCoulumn/Drafts.vue";
+import Archive from "./layouts/RightCoulumn/Archive.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 
 import { useRouter, useRoute, RouterLink } from "vue-router";
 import { ROUTES } from "../router/routes";
+import MenuDropdownView from "./layouts/Dropdown/MenuDropdownView.vue";
 
 const router = useRouter();
 const route = useRoute();
