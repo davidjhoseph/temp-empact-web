@@ -1,5 +1,5 @@
 <template>
-  <main class="py-6">
+  <main class="py-6 px-6">
     <div class="sm:px-9 lg:px-4">
       <!-- Your content -->
       <div class="flex justify-between pb-2 -mt-4 items-center">
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="my-10">
-        <div class="flex justify-between space-x-4">
+        <div class="flex justify-between space-x-2">
           <div v-for="i in stats" :key="i.id">
             <div class="h-28 w-72 border-gray-50 border rounded-lg">
               <div class="my-7 px-3 flex flex-col">

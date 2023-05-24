@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="px-9">
     <div class="py-4" v-for="list in contentList" :key="list.id">
       <div
         class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"

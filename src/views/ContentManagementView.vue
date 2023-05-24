@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex justify-between px-6 pt-4">
+    <div class="flex justify-between px-9 pt-4">
       <h1 class="text-xl font-bold capitalize text-black-DEFAULT">
         Content Manager
       </h1>
@@ -12,7 +12,7 @@
         </div>
       </button>
     </div>
-    <div class="px-6 pt-6">
+    <div class="px-9 pt-6">
       <div class="flex pb-4 space-x-10">
         <div
           class="flex items-center space-x-2 cursor-pointer hover:underline hover:underline-blue"
@@ -62,7 +62,7 @@
       <hr />
     </div>
 
-    <div class="flex justify-between px-6 pt-6">
+    <div class="flex justify-between px-9 pt-6">
       <div class="flex space-x-6">
         <div class="relative rounded-md">
           <div

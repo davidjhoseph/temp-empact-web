@@ -121,15 +121,15 @@
           </div>
           <div class="flex justify-between mt-4">
             <div
-              v-for="i in 3"
-              :key="i"
+              v-for="i in stats"
+              :key="i.id"
               class="w-48 rounded-lg h-28 bg-blue-10"
             >
               <div class="flex flex-col items-center justify-center px-3 my-7">
-                <h3 class="text-lg text-blue">150,397</h3>
+                <h3 class="text-lg text-blue">{{ i.value }}</h3>
                 <div class="flex items-center space-x-2">
-                  <EyeIcon />
-                  <p class="text-gray-60">View</p>
+                  <img :src="`/images/${i.icon}`" alt="" />
+                  <p class="text-gray-60">{{ i.name }}</p>
                 </div>
               </div>
             </div>
@@ -143,7 +143,6 @@
 import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { ArrowRightIcon } from "../components/icons/AllIcons";
-import EyeIcon from "../components/icons/eyeIcon.vue";
 import EditIcon from "../components/icons/EditIcon.vue";
 import ArchiveIcon from "../components/icons/Archive.vue";
 import DeleteIcon from "../components/icons/DeleteIcon.vue";
@@ -157,5 +156,25 @@ const route = useRoute();
 const showModal = ref(false);
 const openDelete = ref(false);
 const openArchive = ref(false);
+const stats = ref([
+  {
+    id: 1,
+    name: "Views",
+    value: "150,397",
+    icon: "EyeIcon.svg",
+  },
+  {
+    id: 2,
+    name: "Likes",
+    value: "150,397",
+    icon: "LoveIcon.svg",
+  },
+  {
+    id: 3,
+    name: "Shares",
+    value: "150,397",
+    icon: "ShareIcon.svg",
+  },
+]);
 const id = route.params.id;
 </script>
