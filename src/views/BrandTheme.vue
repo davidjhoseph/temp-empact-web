@@ -22,7 +22,9 @@
       <div class="flex flex-col w-4/6 gap-8 p-5 rounded-md">
         <div class="flex flex-col gap-5 p-5 border rounded-md">
           <div class="flex items-center gap-3">
-            <img src="src/assets/images/brand.png" alt="" class="" />
+            <div class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center">
+              <SearchIcon class="w-6 h-6 text-blue" />
+            </div>
             <div>
               <h2 class="font-semibold text-black">Brand Logo</h2>
               <p class="text-sm text-gray-60">Change/Upload your brand logo</p>
@@ -40,7 +42,7 @@
                 class="mb-5 border rounded-md w-60 h-60" />
               <img
                 v-else
-                src="src/assets/preview.png"
+                src="images/preview.png"
                 alt="Preview"
                 class="mb-5 border rounded-md w-60 h-60" />
 
@@ -140,6 +142,7 @@ import { ref, watch, Ref } from "vue";
 import UploadIcon from "../components/icons/UploadIcon.vue";
 import TrashIcon from "../components/icons/TrashIcon.vue";
 import SaveIcon from "../components/icons/SaveIcon.vue";
+import { SearchIcon } from "../components/icons/AllIcons";
 
 const previewImage = ref("");
 
