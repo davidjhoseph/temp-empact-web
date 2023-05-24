@@ -1,6 +1,6 @@
 <template>
   <div
-    class="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200 gap-6 bg-white"
+    class="gap-6 bg-white md:grid md:grid-cols-2 md:divide-x md:divide-gray-200"
   >
     <div class="md:pr-14">
       <div class="flex items-center">
@@ -10,18 +10,18 @@
           class="-my-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
         >
           <span class="sr-only">2021 </span>
-          <ChevronDownIcon class="h-5 w-5" aria-hidden="true" />
+          <ChevronDownIcon class="w-5 h-5" aria-hidden="true" />
         </button>
         <!-- <button
           type="button"
           class="-my-1.5 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
         >
           <span class="sr-only">Next month</span>
-          <ChevronRightIcon class="h-5 w-5" aria-hidden="true" />
+          <ChevronRightIcon class="w-5 h-5" aria-hidden="true" />
         </button> -->
       </div>
       <div
-        class="mt-10 grid grid-cols-7 text-center text-xs leading-6 text-gray-500"
+        class="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"
       >
         <div>M</div>
         <div>T</div>
@@ -31,7 +31,7 @@
         <div>S</div>
         <div>S</div>
       </div>
-      <div class="mt-2 grid grid-cols-7 text-sm gap-10">
+      <div class="grid grid-cols-7 gap-10 mt-2 text-sm">
         <div
           v-for="(day, dayIdx) in days"
           :key="day.date"
@@ -72,12 +72,12 @@
         <li
           v-for="meeting in meetings"
           :key="meeting.id"
-          class="group flex items-center space-x-4 rounded-xl px-4 py-2 focus-within:bg-gray-100 hover:bg-gray-100"
+          class="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100"
         >
           <img
             :src="meeting.imageUrl"
             alt=""
-            class="h-10 w-10 flex-none rounded-full"
+            class="flex-none w-10 h-10 rounded-full"
           />
           <div class="flex-auto">
             <p class="text-gray-900">{{ meeting.name }}</p>
@@ -96,20 +96,20 @@
                 class="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600"
               >
                 <span class="sr-only">Open options</span>
-                <EllipsisVerticalIcon class="h-6 w-6" aria-hidden="true" />
+                <EllipsisVerticalIcon class="w-6 h-6" aria-hidden="true" />
               </MenuButton>
             </div>
 
             <transition
-              enter-active-class="transition ease-out duration-100"
-              enter-from-class="transform opacity-0 scale-95"
-              enter-to-class="transform opacity-100 scale-100"
-              leave-active-class="transition ease-in duration-75"
-              leave-from-class="transform opacity-100 scale-100"
-              leave-to-class="transform opacity-0 scale-95"
+              enter-active-class="transition duration-100 ease-out"
+              enter-from-class="transform scale-95 opacity-0"
+              enter-to-class="transform scale-100 opacity-100"
+              leave-active-class="transition duration-75 ease-in"
+              leave-from-class="transform scale-100 opacity-100"
+              leave-to-class="transform scale-95 opacity-0"
             >
               <MenuItems
-                class="absolute right-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg w-36 ring-1 ring-black ring-opacity-5 focus:outline-none"
               >
                 <div class="py-1">
                   <MenuItem v-slot="{ active }">
@@ -143,7 +143,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/vue/20/solid";
+import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { EllipsisVerticalIcon } from "@heroicons/vue/24/outline";
 
