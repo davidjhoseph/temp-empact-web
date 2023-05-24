@@ -150,7 +150,7 @@
       >
         <h2 class="text-2xl font-bold text-center text-black">App Preview</h2>
         <div class="mx-auto mt-2">
-          <img src="../assets/iphone.png" alt="" />
+          <img src="/images/iphone.png" alt="" />
         </div>
       </div>
     </div>

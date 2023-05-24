@@ -248,7 +248,7 @@ const stats = ref([
     id: 3,
     name: "Total Comments",
     value: 1567,
-    icon: "Vector (2).png",
+    icon: "Vector (3).png",
   },
   {
     id: 4,
