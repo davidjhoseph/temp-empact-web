@@ -105,8 +105,8 @@
     <keepAlive>
       <component :is="tabs[currentTab as keyof typeof tabs]"></component>
     </keepAlive>
+    <Calendar />
   </div>
-  <Calendar />
 </template>
 <script setup lang="ts">
 import { ref, reactive } from "vue";
