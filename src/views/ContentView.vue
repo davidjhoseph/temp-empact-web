@@ -19,31 +19,32 @@
         </div>
         <div class="flex space-x-4">
           <button
-            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60"
+            class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
           >
             <EditIcon />
             <button
               @click="showModal = !showModal"
-              class="text-sm text-gray-70"
+              class="text-gray-70 text-sm"
             >
               Edit
             </button>
             <EditContent v-if="showModal" />
           </button>
           <button
-            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60"
+            class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
             @click="openArchive = !openArchive"
           >
             <ArchiveIcon />
-            <p class="text-sm text-gray-70">Archive</p>
+            <p class="text-gray-70 text-sm">Archive</p>
           </button>
           <ArchiveContent v-if="openArchive" />
+
           <button
-            class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-red"
-            @click="openDelete = openDelete"
+            class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-red px-2"
+            @click="openDelete = !openDelete"
           >
             <DeleteIcon />
-            <p class="text-sm text-red">Delete</p>
+            <p class="text-red text-sm">Delete</p>
           </button>
           <DeleteContent v-if="openDelete" />
         </div>
@@ -78,39 +79,13 @@
               <img
                 src="https://ui-avatars.com/api/?name=John+Doe"
                 alt=""
-                class="w-12 h-12"
+                class="w-12 h-12 rounded-full"
               />
             </div>
-            <div class="flex space-x-4">
-              <button
-                class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
-              >
-                <EditIcon />
-                <button
-                  @click="showModal = !showModal"
-                  class="text-gray-70 text-sm"
-                >
-                  Edit
-                </button>
-                <EditContent v-if="showModal" />
-              </button>
-              <button
-                class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
-                @click="openArchive = !openArchive"
-              >
-                <ArchiveIcon />
-                <p class="text-gray-70 text-sm">Archive</p>
-              </button>
-              <button
-                class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-red px-2"
-                @click="openDelete = !openDelete"
-              >
-                <DeleteIcon />
-                <p class="text-red text-sm">Delete</p>
-              </button>
+            <div class="grid">
+              <div class="text-gray-60 text-xs">Posted By</div>
+              <div class="text-gray-80 text-sm">David Green</div>
             </div>
-            <DeleteContent v-if="openDelete" />
-            <ArchiveContent v-if="openArchive" />
           </div>
         </div>
         <div class="w-1/2">
@@ -165,9 +140,7 @@
   </main>
 </template>
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import FullPrimarySidebar from "../components/layouts/nav/sidebar/FullPrimarySidebar.vue";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import { ref } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { ArrowRightIcon } from "../components/icons/AllIcons";
 import EyeIcon from "../components/icons/eyeIcon.vue";
@@ -178,16 +151,11 @@ import Ellipse from "../components/icons/Ellipse.vue";
 import EditContent from "../components/Modals/EditContent.vue";
 import DeleteContent from "../components/Modals/DeleteContent.vue";
 import ArchiveContent from "../components/Modals/ArchiveContent.vue";
+
 const router = useRouter();
 const route = useRoute();
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
-const sidebarOpen = ref(false);
 const showModal = ref(false);
 const openDelete = ref(false);
 const openArchive = ref(false);
 const id = route.params.id;
-const statistics = route.params.statistics;
 </script>
