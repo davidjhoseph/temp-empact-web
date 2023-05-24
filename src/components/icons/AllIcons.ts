@@ -30,6 +30,8 @@ import BackArrowIcon from '../icons/BackArrow.vue';
 import TrashIcon from '../icons/TrashIcon.vue';
 import UploadIcon from '../icons/UploadIcon.vue';
 import Saveicon from '../icons/SaveIcon.vue';
+import BrandIcon from '../icons/BrandIcon.vue';
+import ColorsIcon from '../icons/ColorsIcon.vue';
 
 
 
@@ -63,5 +65,7 @@ export {
 	CloseIcon,
 	TrashIcon,
 	UploadIcon,
-	Saveicon
+	Saveicon,
+	BrandIcon,
+	ColorsIcon
 };

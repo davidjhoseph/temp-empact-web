@@ -165,7 +165,7 @@ import { ref, reactive } from "vue";
 import FullPrimarySidebar from "../components/layouts/nav/sidebar/FullPrimarySidebar.vue";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { useRouter, useRoute } from "vue-router";
-import { ArrowRightIcon, Vector } from "../components/icons/AllIcons";
+import { ArrowRightIcon } from "../components/icons/AllIcons";
 import EyeIcon from "../components/icons/eyeIcon.vue";
 import EditIcon from "../components/icons/EditIcon.vue";
 import ArchiveIcon from "../components/icons/Archive.vue";

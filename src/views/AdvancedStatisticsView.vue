@@ -19,7 +19,7 @@
             <Vector class="items-center px-1 h-6 w-6" />
           </div>
           <div class="h-5">
-            <a href="#" class="text-gray-60 text-base"> Community</a>
+            <a href="#" class="text-gray-60 text-base">Community</a>
           </div>
           <div class="h-5 w-5 flex justify-center items-center">
             <ArrowRightIcon class="h-3.5 w-3.5 items-center mt-0.5" />
@@ -93,7 +93,7 @@
             <div class="text-black text-xl font-bold">Content Statistics</div>
             <div class="flex space-x-4">
               <div>
-                <Filter> <Calendar /> </Filter>
+                <Filter><Calendar /></Filter>
               </div>
               <button class="">
                 <div
@@ -266,6 +266,33 @@ const userNavigation = [
   { name: "Sign out", href: "#" },
 ];
 const sidebarOpen = ref(false);
+const stats = ref([
+  {
+    id: 1,
+    name: "Total Shares",
+    value: 1567,
+    icon: "Vector (1).png",
+  },
+  {
+    id: 2,
+    name: "Total Likes",
+    value: 1567,
+    icon: "Vector (2).png",
+  },
+  {
+    id: 3,
+    name: "Total Comments",
+    value: 1567,
+    icon: "Vector (2).png",
+  },
+  {
+    id: 4,
+    name: "Total Downloads",
+    value: 1567,
+    icon: "Vector (4).png",
+  },
+]);
+
 const platforms = reactive([
   {
     id: 1,
