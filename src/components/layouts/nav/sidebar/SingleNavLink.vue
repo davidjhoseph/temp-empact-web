@@ -1,7 +1,7 @@
 <template>
   <button
-    @click="router.push({ name: route })"
-    class="flex items-center justify-between px-3 py-4 rounded w-full"
+    @click="clickedLink"
+    class="flex items-center justify-between w-full px-3 py-2 rounded bg-opacity-[0.28]"
     :class="isActive ? 'text-white bg-blue-60' : 'text-gray-40'"
   >
     <div class="flex items-center space-x-4">
@@ -15,9 +15,15 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { ChevronRightIcon } from "../../../icons/AllIcons";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
+import { ROUTES, ROUTES_MAPPING } from "../../../../router/routes";
 
 const router = useRouter();
+const vueRoute = useRoute();
+
+const currentRoute = computed(() => vueRoute.name);
+
+const isActive = computed(() =>currentRoute.value === props.route || ROUTES_MAPPING[props.route]?.includes(currentRoute.value as string));
 const props = defineProps({
   title: {
     type: String,
@@ -33,7 +39,10 @@ const props = defineProps({
   },
 });
 
-import { useRoute } from "vue-router";
-const vueRoute = useRoute();
-const isActive = computed(() => vueRoute.name === props.route);
+
+const clickedLink = () => {
+  // emits('clicked');
+  console.log(props.route);
+  router.push({ name: props.route })
+}
 </script>

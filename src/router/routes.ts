@@ -40,6 +40,20 @@ export const ROUTES = {
   ADVANCED_STATISTICS_VIEW: "advanced-statistics-view",
   PLATFORM_VIEW: "platform"
 };
+export const ROUTES_MAPPING = {
+  [ROUTES.HOME]: [],
+  [ROUTES.HOME_ADMIN]: [],
+  [ROUTES.HOME_DASHBOARD]: [],
+  [ROUTES.CONTENT_MANAGEMENT]: [ROUTES.CONTENT_VIEW, ROUTES.PLATFORM_VIEW, ROUTES.ADVANCED_STATISTICS_VIEW],
+  [ROUTES.BRAND_THEME]: [],
+  [ROUTES.RECOMMENDATION]: [],
+  [ROUTES.SETTINGS]: [],
+  [ROUTES.SETTING]: [],
+  [ROUTES.TASK]: [],
+ 
+};
+
+
 
 export default [
   {
@@ -54,56 +68,86 @@ export default [
         path: "/dashboard",
         name: ROUTES.HOME_DASHBOARD,
         component: HomePage,
+        meta: {
+          breadcrumbs: ['Home']
+        }
       },
       {
         path: "/content-management",
         name: ROUTES.CONTENT_MANAGEMENT,
         component: ContentManagementView,
+        meta: {
+          breadcrumbs: ['Content Management']
+        },
       },
-
+      {
+        path: "/content-management/:id",
+        name: ROUTES.CONTENT_VIEW,
+        component: ContentView,
+        meta: {
+          breadcrumbs: ['Content Management', 'Details']
+        }
+      },
+      {
+        path: "/content-management/:id/statistics",
+        name: ROUTES.ADVANCED_STATISTICS_VIEW,
+        component: AdvanceStatisticsView,
+        meta: {
+          breadcrumbs: ['Content Management', 'Details', 'Statistics']
+        }
+      },
+      {
+        path: "/content-management/platform",
+        name: ROUTES.PLATFORM_VIEW,
+        component: PlatformView,
+        meta: {
+          breadcrumbs: ['Content Management', 'Platform']
+        }
+      },
       {
         path: "/brand-theme",
         name: ROUTES.BRAND_THEME,
         component: BrandTheme,
+        meta: {
+          breadcrumbs: ['Brand Theme']
+        }
       },
       {
         path: "/recommendation",
         name: ROUTES.RECOMMENDATION,
         component: Recommendation,
+        meta: {
+          breadcrumbs: ['Recommendation']
+        }
       },
       {
         path: "/settings",
         name: ROUTES.SETTINGS,
         component: Settings,
+        meta: {
+          breadcrumbs: ['Settings']
+        }
       },
       {
         path: "/setting",
         name: ROUTES.SETTING,
         component: Setting,
+        meta: {
+          breadcrumbs: ['Settings']
+        }
       },
       {
         path: "/task",
         name: ROUTES.TASK,
         component: Task,
+        meta: {
+          breadcrumbs: ['Task']
+        }
       },
 
     ],
   },
-  {
-    path: "/content-management/:id",
-    name: ROUTES.CONTENT_VIEW,
-    component: ContentView
-  },
-  {
-    path: "/content-management/:id/statistics",
-    name: ROUTES.ADVANCED_STATISTICS_VIEW,
-    component: AdvanceStatisticsView,
-  },
-  {
-    path: "/content-management/platform",
-    name: ROUTES.PLATFORM_VIEW,
-    component: PlatformView
-  },
+  
   {
     path: "/component",
     name: ROUTES.COMPONENTS,
