@@ -32,16 +32,20 @@
           </button>
           <button
             class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-gray-60"
+            @click="openArchive = !openArchive"
           >
             <ArchiveIcon />
             <p class="text-sm text-gray-70">Archive</p>
           </button>
+          <ArchiveContent v-if="openArchive" />
           <button
             class="flex items-center w-auto px-2 space-x-2 border rounded-sm h-7 border-red"
+            @click="openDelete = openDelete"
           >
             <DeleteIcon />
             <p class="text-sm text-red">Delete</p>
           </button>
+          <DeleteContent v-if="openDelete" />
         </div>
       </div>
       <div class="flex mt-14 space-x-72">
@@ -77,12 +81,36 @@
                 class="w-12 h-12"
               />
             </div>
-            <div class="flex flex-col">
-              <p>
-                <smaall>Posted By</smaall>
-              </p>
-              <p><small>David Green</small></p>
+            <div class="flex space-x-4">
+              <button
+                class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
+              >
+                <EditIcon />
+                <button
+                  @click="showModal = !showModal"
+                  class="text-gray-70 text-sm"
+                >
+                  Edit
+                </button>
+                <EditContent v-if="showModal" />
+              </button>
+              <button
+                class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
+                @click="openArchive = !openArchive"
+              >
+                <ArchiveIcon />
+                <p class="text-gray-70 text-sm">Archive</p>
+              </button>
+              <button
+                class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-red px-2"
+                @click="openDelete = !openDelete"
+              >
+                <DeleteIcon />
+                <p class="text-red text-sm">Delete</p>
+              </button>
             </div>
+            <DeleteContent v-if="openDelete" />
+            <ArchiveContent v-if="openArchive" />
           </div>
         </div>
         <div class="w-1/2">
@@ -148,6 +176,8 @@ import ArchiveIcon from "../components/icons/Archive.vue";
 import DeleteIcon from "../components/icons/DeleteIcon.vue";
 import Ellipse from "../components/icons/Ellipse.vue";
 import EditContent from "../components/Modals/EditContent.vue";
+import DeleteContent from "../components/Modals/DeleteContent.vue";
+import ArchiveContent from "../components/Modals/ArchiveContent.vue";
 const router = useRouter();
 const route = useRoute();
 const userNavigation = [
@@ -156,6 +186,8 @@ const userNavigation = [
 ];
 const sidebarOpen = ref(false);
 const showModal = ref(false);
+const openDelete = ref(false);
+const openArchive = ref(false);
 const id = route.params.id;
 const statistics = route.params.statistics;
 </script>

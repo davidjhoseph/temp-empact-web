@@ -106,19 +106,54 @@
             </div>
           </div>
           <div class="my-10">
-            <div class="flex space-x-4 justify-between">
-              <div
-                v-for="stat in stats"
-                class="h-28 w-72 border-gray-50 border rounded-lg"
-              >
+            <div class="flex justify-between">
+              <div v-for="i in 5">
+                <div class="h-28 w-72 border-gray-50 border rounded-lg">
+                  <div class="my-7 px-3 flex flex-col">
+                    <h3 class="text-blue text-lg">150,397</h3>
+                    <div class="flex space-x-2 items-center">
+                      <EyeIcon />
+                      <p class="text-gray-60">View</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="h-28 w-72 border-gray-50 border rounded-lg">
                 <div class="my-7 px-3 flex flex-col">
-                  <h3 class="text-blue text-lg">{{ stat.value }}</h3>
+                  <h3 class="text-blue text-lg">150,397</h3>
                   <div class="flex space-x-2 items-center">
                     <EyeIcon />
                     <p class="text-gray-60">View</p>
                   </div>
                 </div>
               </div>
+              <div class="h-28 w-72 border-gray-50 border rounded-lg">
+                <div class="my-7 px-3 flex flex-col">
+                  <h3 class="text-blue text-lg">150,397</h3>
+                  <div class="flex space-x-2 items-center">
+                    <EyeIcon />
+                    <p class="text-gray-60">View</p>
+                  </div>
+                </div>
+              </div>
+              <div class="h-28 w-72 border-gray-50 border rounded-lg">
+                <div class="my-7 px-3 flex flex-col">
+                  <h3 class="text-blue text-lg">150,397</h3>
+                  <div class="flex space-x-2 items-center">
+                    <EyeIcon />
+                    <p class="text-gray-60">View</p>
+                  </div>
+                </div>
+              </div>
+              <div class="h-28 w-72 border-gray-50 border rounded-lg">
+                <div class="my-7 px-3 flex flex-col">
+                  <h3 class="text-blue text-lg">150,397</h3>
+                  <div class="flex space-x-2 items-center">
+                    <EyeIcon />
+                    <p class="text-gray-60">View</p>
+                  </div>
+                </div>
+              </div> -->
             </div>
           </div>
           <div class="grid grid-cols-2 gap-6">

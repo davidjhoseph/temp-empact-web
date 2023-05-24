@@ -1,207 +1,23 @@
 <template>
-  <div
-    class="gap-6 bg-white md:grid md:grid-cols-2 md:divide-x md:divide-gray-200"
-  >
-    <div class="md:pr-14">
-      <div class="flex items-center">
-        <h2 class="flex-auto text-sm font-semibold text-gray-900">January</h2>
-        <button
-          type="button"
-          class="-my-1.5 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
-        >
-          <span class="sr-only">2021 </span>
-          <ChevronDownIcon class="w-5 h-5" aria-hidden="true" />
-        </button>
-        <!-- <button
-          type="button"
-          class="-my-1.5 -mr-1.5 ml-2 flex flex-none items-center justify-center p-1.5 text-gray-400 hover:text-gray-500"
-        >
-          <span class="sr-only">Next month</span>
-          <ChevronRightIcon class="w-5 h-5" aria-hidden="true" />
-        </button> -->
-      </div>
-      <div
-        class="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500"
-      >
-        <div>M</div>
-        <div>T</div>
-        <div>W</div>
-        <div>T</div>
-        <div>F</div>
-        <div>S</div>
-        <div>S</div>
-      </div>
-      <div class="grid grid-cols-7 gap-10 mt-2 text-sm">
-        <div
-          v-for="(day, dayIdx) in days"
-          :key="day.date"
-          :class="[dayIdx > 6 && 'border-t border-gray-200', 'py-2']"
-        >
-          <button
-            type="button"
-            :class="[
-              day.isSelected && 'text-white',
-              !day.isSelected && day.isToday && 'text-indigo-600',
-              !day.isSelected &&
-                !day.isToday &&
-                day.isCurrentMonth &&
-                'text-gray-900',
-              !day.isSelected &&
-                !day.isToday &&
-                !day.isCurrentMonth &&
-                'text-gray-400',
-              day.isSelected && day.isToday && 'bg-indigo-600',
-              day.isSelected && !day.isToday && 'bg-gray-900',
-              !day.isSelected && 'hover:bg-gray-200',
-              (day.isSelected || day.isToday) && 'font-semibold',
-              'mx-auto flex h-8 w-8 items-center justify-center rounded-full',
-            ]"
-          >
-            <time :datetime="day.date">{{
-              day.date.split("_").pop()?.replace(/^0/, "")
-            }}</time>
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- <section class="mt-12 md:mt-0 md:pl-14">
-      <h2 class="text-base font-semibold leading-6 text-gray-900">
-        Schedule for <time datetime="2022-01-21">January 21, 2022</time>
-      </h2>
-      <ol class="mt-4 space-y-1 text-sm leading-6 text-gray-500">
-        <li
-          v-for="meeting in meetings"
-          :key="meeting.id"
-          class="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100"
-        >
-          <img
-            :src="meeting.imageUrl"
-            alt=""
-            class="flex-none w-10 h-10 rounded-full"
-          />
-          <div class="flex-auto">
-            <p class="text-gray-900">{{ meeting.name }}</p>
-            <p class="mt-0.5">
-              <time :datetime="meeting.startDatetime">{{ meeting.start }}</time>
-              -
-              <time :datetime="meeting.endDatetime">{{ meeting.end }}</time>
-            </p>
-          </div>
-          <Menu
-            as="div"
-            class="relative opacity-0 focus-within:opacity-100 group-hover:opacity-100"
-          >
-            <div>
-              <MenuButton
-                class="-m-2 flex items-center rounded-full p-1.5 text-gray-500 hover:text-gray-600"
-              >
-                <span class="sr-only">Open options</span>
-                <EllipsisVerticalIcon class="w-6 h-6" aria-hidden="true" />
-              </MenuButton>
-            </div>
-
-            <transition
-              enter-active-class="transition duration-100 ease-out"
-              enter-from-class="transform scale-95 opacity-0"
-              enter-to-class="transform scale-100 opacity-100"
-              leave-active-class="transition duration-75 ease-in"
-              leave-from-class="transform scale-100 opacity-100"
-              leave-to-class="transform scale-95 opacity-0"
-            >
-              <MenuItems
-                class="absolute right-0 z-10 mt-2 origin-top-right bg-white rounded-md shadow-lg w-36 ring-1 ring-black ring-opacity-5 focus:outline-none"
-              >
-                <div class="py-1">
-                  <MenuItem v-slot="{ active }">
-                    <a
-                      href="#"
-                      :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      ]"
-                      >Edit</a
-                    >
-                  </MenuItem>
-                  <MenuItem v-slot="{ active }">
-                    <a
-                      href="#"
-                      :class="[
-                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
-                      ]"
-                      >Cancel</a
-                    >
-                  </MenuItem>
-                </div>
-              </MenuItems>
-            </transition>
-          </Menu>
-        </li>
-      </ol>
-    </section> -->
+  <div>
+    <label
+      :for="props.label"
+      class="capitalize text-black-DEFAULT background-none"
+      >{{ props.label }}</label
+    >
+    <VueDatePicker
+      v-model="date"
+      placeholder="Select date"
+      class="placeholder:pl-3 placeholder:text-gray-70 rounded-none pt-2"
+    ></VueDatePicker>
   </div>
 </template>
-
 <script setup lang="ts">
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
-import { EllipsisVerticalIcon } from "@heroicons/vue/24/outline";
-
-const days = [
-  { date: "2021-12-27" },
-  { date: "2021-12-28" },
-  { date: "2021-12-29" },
-  { date: "2021-12-30" },
-  { date: "2021-12-31" },
-  { date: "2022-01-01", isCurrentMonth: true },
-  { date: "2022-01-02", isCurrentMonth: true },
-  { date: "2022-01-03", isCurrentMonth: true },
-  { date: "2022-01-04", isCurrentMonth: true },
-  { date: "2022-01-05", isCurrentMonth: true },
-  { date: "2022-01-06", isCurrentMonth: true },
-  { date: "2022-01-07", isCurrentMonth: true },
-  { date: "2022-01-08", isCurrentMonth: true },
-  { date: "2022-01-09", isCurrentMonth: true },
-  { date: "2022-01-10", isCurrentMonth: true },
-  { date: "2022-01-11", isCurrentMonth: true },
-  { date: "2022-01-12", isCurrentMonth: true, isToday: true },
-  { date: "2022-01-13", isCurrentMonth: true },
-  { date: "2022-01-14", isCurrentMonth: true },
-  { date: "2022-01-15", isCurrentMonth: true },
-  { date: "2022-01-16", isCurrentMonth: true },
-  { date: "2022-01-17", isCurrentMonth: true },
-  { date: "2022-01-18", isCurrentMonth: true },
-  { date: "2022-01-19", isCurrentMonth: true },
-  { date: "2022-01-20", isCurrentMonth: true },
-  { date: "2022-01-21", isCurrentMonth: true, isSelected: true },
-  { date: "2022-01-22", isCurrentMonth: true },
-  { date: "2022-01-23", isCurrentMonth: true },
-  { date: "2022-01-24", isCurrentMonth: true },
-  { date: "2022-01-25", isCurrentMonth: true },
-  { date: "2022-01-26", isCurrentMonth: true },
-  { date: "2022-01-27", isCurrentMonth: true },
-  { date: "2022-01-28", isCurrentMonth: true },
-  { date: "2022-01-29", isCurrentMonth: true },
-  { date: "2022-01-30", isCurrentMonth: true },
-  { date: "2022-01-31", isCurrentMonth: true },
-  { date: "2022-02-01" },
-  { date: "2022-02-02" },
-  { date: "2022-02-03" },
-  { date: "2022-02-04" },
-  { date: "2022-02-05" },
-  { date: "2022-02-06" },
-];
-const meetings = [
-  {
-    id: 1,
-    name: "Leslie Alexander",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-    start: "1:00 PM",
-    startDatetime: "2022-01-21T13:00",
-    end: "2:30 PM",
-    endDatetime: "2022-01-21T14:30",
-  },
-  // More meetings...
-];
+import { ref } from "vue";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+const props = defineProps({
+  label: String,
+});
+const date = ref();
 </script>
