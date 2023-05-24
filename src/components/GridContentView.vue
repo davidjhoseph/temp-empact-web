@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-4 gap-x-14 gap-y-6">
+  <div class="grid grid-cols-4 gap-x-14 gap-y-6 px-9">
     <div class="py-4" v-for="list in contentList" :key="list.id">
       <!-- left column -->
       <div class="grid gap-y-2 p-4 border rounded-md border-gray-30">
@@ -19,7 +19,7 @@
           </p>
         </div>
         <div class="flex flex-col space-y-12">
-          <div class="absolute top-4 right-2">
+          <div class="absolute bottom-56 right-16">
             <button class="bg-green-10 text-green-70 h-5 w-12 rounded-sm">
               <p class="text-center text-sm px-2 text-red">
                 {{ list.imageText }}
@@ -70,11 +70,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive } from "vue";
+import { ref } from "vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import LikesIcon from "./icons/LikesIcon.vue";
 import LoveIcon from "./icons/LoveIcon.vue";
-const contentList = reactive([
+const contentList = ref([
   {
     id: 1,
     title: "This is the title of the post",
@@ -208,11 +208,4 @@ const contentList = reactive([
     view: false,
   },
 ]);
-const getContentList = () => {
-  if (contentList.length > 0) {
-    return contentList;
-  } else if ((contentList.length = 0)) {
-    return;
-  }
-};
 </script>

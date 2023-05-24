@@ -67,6 +67,9 @@ module.exports = {
 					80: '#7B5714',
 				},
 			},
+			width: {
+				'82': '350px'
+			}
 		},
 	},
 	variants: {

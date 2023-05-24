@@ -16,8 +16,8 @@
       leave-from-class="transform opacity-100 scale-100"
       leave-to-class="transform opacity-0 scale-95"
     >
-      <MenuItems class="absolute mt-4 w-96 rounded-md bg-white shadow-lg">
-        <div class="flex items-center space-x-48 justify-between px-4 pt-2">
+      <MenuItems class="absolute mt-4 w-82 rounded-md bg-white shadow-lg">
+        <div class="flex items-center justify-between px-4 pt-2">
           <div class="capitalize font-bold text-gray-80">Filter by date</div>
           <CloseIcon @click="open" class="cursor-pointer" />
         </div>

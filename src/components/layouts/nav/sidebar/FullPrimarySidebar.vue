@@ -4,7 +4,8 @@
       <Dialog
         as="div"
         class="relative z-50 lg:hidden"
-        @close="sidebarOpen = false">
+        @close="sidebarOpen = false"
+      >
         <TransitionChild
           as="template"
           enter="transition-opacity ease-linear duration-300"
@@ -12,7 +13,8 @@
           enter-to="opacity-100"
           leave="transition-opacity ease-linear duration-300"
           leave-from="opacity-100"
-          leave-to="opacity-0">
+          leave-to="opacity-0"
+        >
           <div class="fixed inset-0 bg-gray-900/80" />
         </TransitionChild>
 
@@ -24,7 +26,8 @@
             enter-to="translate-x-0"
             leave="transition ease-in-out duration-300 transform"
             leave-from="translate-x-0"
-            leave-to="-translate-x-full">
+            leave-to="-translate-x-full"
+          >
             <DialogPanel class="relative flex flex-1 w-full max-w-xs mr-16">
               <TransitionChild
                 as="template"
@@ -33,13 +36,16 @@
                 enter-to="opacity-100"
                 leave="ease-in-out duration-300"
                 leave-from="opacity-100"
-                leave-to="opacity-0">
+                leave-to="opacity-0"
+              >
                 <div
-                  class="absolute top-0 flex justify-center w-16 pt-5 left-full">
+                  class="absolute top-0 flex justify-center w-16 pt-5 left-full"
+                >
                   <button
                     type="button"
                     class="-m-2.5 p-2.5"
-                    @click="sidebarOpen = false">
+                    @click="sidebarOpen = false"
+                  >
                     <span class="sr-only">Close sidebar</span>
                     <XMarkIcon class="w-6 h-6 text-white" aria-hidden="true" />
                   </button>
@@ -47,12 +53,14 @@
               </TransitionChild>
               <!-- Sidebar component, swap this element with another sidebar if you like -->
               <div
-                class="flex flex-col px-6 pb-4 overflow-y-auto bg-gray-900 grow gap-y-5 ring-1 ring-white/10">
+                class="flex flex-col px-6 pb-4 overflow-y-auto bg-gray-900 grow gap-y-5 ring-1 ring-white/10"
+              >
                 <div class="flex items-center h-16 shrink-0">
                   <img
                     class="w-auto h-8"
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company" />
+                    alt="Your Company"
+                  />
                 </div>
                 <nav class="flex flex-col flex-1">
                   <ul role="list" class="-mx-2 space-y-1"></ul>
@@ -66,15 +74,17 @@
 
     <!-- Static sidebar for desktop -->
     <div
-      class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
+      class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
+    >
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex flex-col px-6 pb-4 overflow-y-auto grow bg-blue-80">
         <div class="py-4">
-          <img src="src/assets/images/logo-export.png" alt="" />
+          <img src="/images/logo-export.png" alt="" />
         </div>
         <div class="flex items-center h-16 shrink-0">
           <button
-            class="flex w-full px-3 py-3 mt-4 space-x-4 border rounded-md">
+            class="flex w-full px-3 py-3 mt-4 space-x-4 border rounded-md"
+          >
             <AvatarsSquare />
             <div class="flex flex-col text-start">
               <p class="text-sm text-white">Coca Cola</p>
@@ -99,7 +109,8 @@
             </SingleNavLink>
             <SingleNavLink
               title="Content Manager"
-              :route="ROUTES.CONTENT_MANAGEMENT">
+              :route="ROUTES.CONTENT_MANAGEMENT"
+            >
               <template #icon>
                 <HomeIcon />
               </template>
@@ -107,17 +118,32 @@
             <SingleNavLink
               @click="isBrandThemeSelected = !isBrandThemeSelected"
               title="Brand Theme"
-              :route="ROUTES.BRAND_THEME">
+              :route="ROUTES.BRAND_THEME"
+            >
               <template #icon>
                 <HomeIcon />
               </template>
               <template #arrowIcon>
-                <OutlineArrowDownIcon class="w-4 h-4 transition-all ease-linear transform" :class="{'rotate-180' : !isBrandThemeSelected}" />
+                <OutlineArrowDownIcon
+                  class="w-4 h-4 transition-all ease-linear transform"
+                  :class="{ 'rotate-180': !isBrandThemeSelected }"
+                />
               </template>
             </SingleNavLink>
-            <div  class="ml-8 font-light transition-all duration-100 ease-linear transform text-gray-40 text-micro" :class="isBrandThemeSelected ? 'h-[70px] opacity-100 pointer-events-auto' : 'h-0 opacity-0 pointer-events-none'">
-              <div class="py-2 tracking-wider cursor-pointer">Content Manager</div>
-              <div class="py-2 tracking-wider cursor-pointer">Theme Manager</div>
+            <div
+              class="ml-8 font-light transition-all duration-100 ease-linear transform text-gray-40 text-micro"
+              :class="
+                isBrandThemeSelected
+                  ? 'h-[70px] opacity-100 pointer-events-auto'
+                  : 'h-0 opacity-0 pointer-events-none'
+              "
+            >
+              <div class="py-2 tracking-wider cursor-pointer">
+                Content Manager
+              </div>
+              <div class="py-2 tracking-wider cursor-pointer">
+                Theme Manager
+              </div>
             </div>
             <!-- <SingleNavLink title="Settings" :route="ROUTES.SETTINGS">
               <template #icon>
@@ -126,7 +152,8 @@
             </SingleNavLink> -->
             <SingleNavLink
               title="Recommendations"
-              :route="ROUTES.RECOMMENDATION">
+              :route="ROUTES.RECOMMENDATION"
+            >
               <template #icon>
                 <RecommendationIcon />
               </template>

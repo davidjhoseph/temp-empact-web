@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between px-6 shadow">
+  <div class="flex items-center justify-between px-9 shadow">
     <div class="flex items-center space-x-5">
       <div
         @click="router.back()"

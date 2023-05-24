@@ -105,7 +105,6 @@
     <keepAlive>
       <component :is="tabs[currentTab as keyof typeof tabs]"></component>
     </keepAlive>
-    <Calendar />
   </div>
 </template>
 <script setup lang="ts">

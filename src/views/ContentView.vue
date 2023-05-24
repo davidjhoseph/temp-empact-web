@@ -90,13 +90,13 @@
         </div>
         <div class="w-1/2">
           <div>
-            <img src="../assets/images/Rectangle.png" alt="" class="w-full" />
+            <img src="/images/Rectangle.png" alt="" class="w-full" />
           </div>
           <div class="flex mt-2 space-x-4">
             <img
               v-for="i in 4"
               :key="i"
-              src="../assets/images/Rectangle.png"
+              src="/images/Rectangle.png"
               alt=""
               class="w-20 h-12 rounded-md"
             />

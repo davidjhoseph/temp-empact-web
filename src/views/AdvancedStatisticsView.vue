@@ -1,6 +1,6 @@
 <template>
   <main class="py-6">
-    <div class="sm:px-6 lg:px-4">
+    <div class="sm:px-9 lg:px-4">
       <!-- Your content -->
       <div class="flex justify-between pb-2 -mt-4 items-center">
         <div class="text-black text-xl font-bold">Content Statistics</div>
@@ -20,53 +20,17 @@
       </div>
       <div class="my-10">
         <div class="flex justify-between space-x-4">
-          <div v-for="i in 5">
+          <div v-for="i in stats" :key="i.id">
             <div class="h-28 w-72 border-gray-50 border rounded-lg">
               <div class="my-7 px-3 flex flex-col">
-                <h3 class="text-blue text-lg">150,397</h3>
+                <h3 class="text-blue text-lg">{{ i.value }}</h3>
                 <div class="flex space-x-2 items-center">
-                  <EyeIcon />
-                  <p class="text-gray-60">View</p>
+                  <div><img :src="`/images/${i.icon}`" alt="" /></div>
+                  <p class="text-gray-60">{{ i.name }}</p>
                 </div>
               </div>
             </div>
           </div>
-          <!-- <div class="h-28 w-72 border-gray-50 border rounded-lg">
-                <div class="my-7 px-3 flex flex-col">
-                  <h3 class="text-blue text-lg">150,397</h3>
-                  <div class="flex space-x-2 items-center">
-                    <EyeIcon />
-                    <p class="text-gray-60">View</p>
-                  </div>
-                </div>
-              </div>
-              <div class="h-28 w-72 border-gray-50 border rounded-lg">
-                <div class="my-7 px-3 flex flex-col">
-                  <h3 class="text-blue text-lg">150,397</h3>
-                  <div class="flex space-x-2 items-center">
-                    <EyeIcon />
-                    <p class="text-gray-60">View</p>
-                  </div>
-                </div>
-              </div>
-              <div class="h-28 w-72 border-gray-50 border rounded-lg">
-                <div class="my-7 px-3 flex flex-col">
-                  <h3 class="text-blue text-lg">150,397</h3>
-                  <div class="flex space-x-2 items-center">
-                    <EyeIcon />
-                    <p class="text-gray-60">View</p>
-                  </div>
-                </div>
-              </div>
-              <div class="h-28 w-72 border-gray-50 border rounded-lg">
-                <div class="my-7 px-3 flex flex-col">
-                  <h3 class="text-blue text-lg">150,397</h3>
-                  <div class="flex space-x-2 items-center">
-                    <EyeIcon />
-                    <p class="text-gray-60">View</p>
-                  </div>
-                </div>
-              </div> -->
         </div>
       </div>
       <div class="grid grid-cols-2 gap-6">
@@ -77,7 +41,7 @@
           <div class="py-2 px-4" v-for="x in platforms" :key="x?.id">
             <div class="flex justify-between">
               <div class="flex space-x-2 items-center">
-                <img :src="`/src/assets/images/${x?.icon}`" alt="" class="" />
+                <img :src="`/images/${x?.icon}`" alt="" class="" />
                 <div class="text-gray-80">{{ x?.name }}</div>
               </div>
               <div class="text-gray-80">{{ x?.value }}</div>
@@ -101,7 +65,7 @@
           <div class="py-2 px-4" v-for="x in recentShares" :key="x?.id">
             <div class="flex justify-between">
               <div class="flex space-x-2 items-center">
-                <img :src="`/src/assets/images/${x?.icon}`" alt="" class="" />
+                <img :src="`/images/${x?.icon}`" alt="" class="" />
                 <div class="text-gray-80">{{ x?.name }}</div>
               </div>
               <div class="flex space-x-2 items-center">
@@ -129,7 +93,7 @@
           <div class="py-2 px-4" v-for="x in recentLikes" :key="x?.id">
             <div class="flex justify-between">
               <div class="flex space-x-2 items-center">
-                <img :src="`/src/assets/images/${x?.icon}`" alt="" class="" />
+                <img :src="`/images/${x?.icon}`" alt="" class="" />
                 <div class="text-gray-80">{{ x?.name }}</div>
               </div>
               <div class="flex space-x-2 items-center">
@@ -145,8 +109,6 @@
   </main>
 </template>
 <script setup lang="ts">
-import FullPrimarySidebar from "../components/layouts/nav/sidebar/FullPrimarySidebar.vue";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
@@ -156,44 +118,45 @@ import Calendar from "../components/icons/calendar.vue";
 import DownloadIcon from "../components/icons/Download.vue";
 import EyeIcon from "../components/icons/eyeIcon.vue";
 import Ellipse from "../components/icons/Ellipse.vue";
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
-const sidebarOpen = ref(false);
 const stats = ref([
   {
     id: 1,
-    name: "Total Shares",
-    value: 1567,
-    icon: "Vector (1).png",
+    name: "Views",
+    value: "150,397",
+    icon: "EyeIcon.svg",
   },
   {
     id: 2,
-    name: "Total Likes",
-    value: 1567,
-    icon: "Vector (2).png",
+    name: "Likes",
+    value: "150,397",
+    icon: "LoveIcon.svg",
   },
   {
     id: 3,
-    name: "Total Comments",
-    value: 1567,
-    icon: "Vector (3).png",
+    name: "Shares",
+    value: "150,397",
+    icon: "ShareIcon.svg",
   },
   {
     id: 4,
-    name: "Total Downloads",
-    value: 1567,
-    icon: "Vector (4).png",
+    name: "Comments",
+    value: "150,397",
+    icon: "EyeIcon.svg",
+  },
+  {
+    id: 5,
+    name: "Time Spent (Minutes)",
+    value: "150,397",
+    icon: "EyeIcon.svg",
   },
 ]);
 
 const platforms = reactive([
   {
     id: 1,
-    name: "whatsapp",
+    name: "Whatsapp",
     value: 1567,
-    icon: "vector (5).png",
+    icon: "Whatsapp.png",
   },
   {
     id: 2,
@@ -211,7 +174,7 @@ const platforms = reactive([
     id: 4,
     name: "link copied",
     value: 1567,
-    icon: "Vector (6).png",
+    icon: "link.png",
   },
   {
     id: 5,
@@ -229,7 +192,7 @@ const platforms = reactive([
     id: 7,
     name: "Whatsapp",
     value: 1567,
-    icon: "Vector (5).png",
+    icon: "Whatsapp.png",
   },
   {
     id: 8,
@@ -243,7 +206,7 @@ const recentShares = reactive([
     id: 1,
     name: "whatsapp",
     value: 1567,
-    icon: "Vector (5).png",
+    icon: "Whatsapp.png",
     date: "May 20,2023",
     time: "12:30 PM",
   },
@@ -267,7 +230,7 @@ const recentShares = reactive([
     id: 4,
     name: "link copied",
     value: 1567,
-    icon: "Vector (6).png",
+    icon: "link.png",
     date: "May 20,2023",
     time: "12:30 PM",
   },
@@ -291,7 +254,7 @@ const recentShares = reactive([
     id: 7,
     name: "Whatsapp",
     value: 1567,
-    icon: "Vector (5).png",
+    icon: "Whatsapp.png",
     date: "May 20,2023",
     time: "12:30 PM",
   },

@@ -121,12 +121,8 @@
                                 <EditIcon class="text-gray-10" />
                                 <p class="text-sm text-gray-10">select File</p>
                               </div>
-                              <!-- <p class="text-gray-60">
-                                JPG, PNG, less than 10MB
-                              </p> -->
                             </button>
                           </div>
-                          <!-- <img src="/public/images/Rectangle.png" alt="" /> -->
                         </div>
                         <div class="flex justify-between">
                           <div>
@@ -163,15 +159,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="mt-5 sm:mt-6">
-                <button
-                  type="button"
-                  class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  @click="open = false"
-                >
-                  Go back to dashboard
-                </button>
-              </div> -->
             </DialogPanel>
           </TransitionChild>
         </div>
@@ -189,7 +176,6 @@ import {
   TransitionChild,
   TransitionRoot,
 } from "@headlessui/vue";
-import { CheckIcon } from "@heroicons/vue/24/outline";
 import CloseIcon from "../icons/CloseIcon.vue";
 import EditIcon from "../icons/EditIcon.vue";
 const selectedFile = ref(null);
@@ -206,7 +192,7 @@ const handleUploadFile = (e: any) => {
 </script>
 <style scoped>
 .bg {
-  background-image: url("../../assets/images/Rectangle.png");
+  background-image: url("/images/Rectangle.png");
   background-size: cover;
 }
 </style>

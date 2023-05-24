@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="px-9">
     <div class="py-4" v-for="list in contentList" :key="list.id">
       <div
         class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"
@@ -38,7 +38,12 @@
         <div class="flex flex-col space-y-12">
           <div class="flex justify-end space-x-4">
             <button
-              @click="router.push({ name: ROUTES.CONTENT_VIEW, params: {id: list.id}})"
+              @click="
+                router.push({
+                  name: ROUTES.CONTENT_VIEW,
+                  params: { id: list.id },
+                })
+              "
               class="w-10 h-6 px-1 text-sm border rounded-sm text-gray-70 border-gray-40"
             >
               view
@@ -141,7 +146,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive } from "vue";
+import { ref } from "vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import LikesIcon from "./icons/LikesIcon.vue";
 import LoveIcon from "./icons/LoveIcon.vue";
@@ -152,7 +157,7 @@ import { ROUTES } from "../router/routes";
 
 const router = useRouter();
 const route = useRoute();
-const contentList = reactive([
+const contentList = ref([
   {
     id: 1,
     title: "This is the title of the post",
@@ -297,11 +302,4 @@ const contentList = reactive([
     ststistics: [],
   },
 ]);
-const getContentList = () => {
-  if (contentList.length > 0) {
-    return contentList;
-  } else if ((contentList.length = 0)) {
-    return;
-  }
-};
 </script>
