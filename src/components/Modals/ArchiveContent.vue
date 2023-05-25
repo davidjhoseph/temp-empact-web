@@ -31,7 +31,7 @@
             <DialogPanel
               class="relative transform overflow-hidden rounded-lg bg-white pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
             >
-              <div class="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+              <div class="absolute right-0 top-0 hidden pe-4 pt-4 sm:block">
                 <button
                   type="button"
                   class="bg-white text-gray-400 hover:text-gray-500"
@@ -42,7 +42,7 @@
                 </button>
               </div>
               <div class="sm:flex sm:items-start">
-                <div class="mt-3 text-center sm:ml-1 sm:mt-0 sm:text-left">
+                <div class="mt-3 text-center sm:ms-1 sm:mt-0 sm:text-left">
                   <DialogTitle
                     as="h3"
                     class="text-xl font-bold leading-6 text-gray-80"
@@ -59,7 +59,7 @@
               <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                 <button
                   type="button"
-                  class="inline-flex w-full justify-center rounded-md bg-blue px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
+                  class="inline-flex w-full justify-center rounded-md bg-blue px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ms-3 sm:w-auto"
                   @click="open = false"
                 >
                   Archive Content

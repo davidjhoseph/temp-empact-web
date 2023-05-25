@@ -58,7 +58,7 @@
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 placeholder:text-gray-70 placeholder:pl-3 rounded-md h-12"
+                            class="w-full focus:outline-none border border-gray-40 placeholder:text-gray-70 placeholder:ps-3 rounded-md h-12"
                             placeholder="Enter a title"
                           />
                         </div>
@@ -71,7 +71,7 @@
                             id=""
                             cols=""
                             rows=""
-                            class="w-full h-48 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:pl-3 placeholder:pt-2"
+                            class="w-full h-48 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2"
                             placeholder="Enter details of this post"
                           ></textarea>
                         </div>
@@ -95,7 +95,7 @@
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 rounded-md placeholder:text-gray-70 placeholder:pl-3 placeholder:pt-2 h-12"
+                            class="w-full focus:outline-none border border-gray-40 rounded-md placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2 h-12"
                             placeholder="Paste URL to the media file"
                           />
                         </div>
@@ -103,7 +103,7 @@
                           <label for="upload-file" class="text-black capitalize"
                             >upload a file</label
                           >
-                          <div class="flex space-x-2 bg">
+                          <div class="flex space-s-2 bg">
                             <input
                               id="file"
                               type="file"
@@ -116,7 +116,7 @@
                               class="w-full focus:outline-none rounded-md h-24"
                             >
                               <div
-                                class="flex space-x-2 items-center justify-center px-2 py-1"
+                                class="flex space-s-2 items-center justify-center px-2 py-1"
                               >
                                 <EditIcon class="text-gray-10" />
                                 <p class="text-sm text-gray-10">select File</p>
@@ -132,7 +132,7 @@
                               <p class="px-2">Cancel</p>
                             </button>
                           </div>
-                          <div class="flex space-x-2">
+                          <div class="flex space-s-2">
                             <div>
                               <button
                                 class="text-gray-70 border rounded-md h-8 border-red"

@@ -28,7 +28,7 @@
             leave-from="translate-x-0"
             leave-to="-translate-x-full"
           >
-            <DialogPanel class="relative flex flex-1 w-full max-w-xs mr-16">
+            <DialogPanel class="relative flex flex-1 w-full max-w-xs me-16">
               <TransitionChild
                 as="template"
                 enter="ease-in-out duration-300"
@@ -83,12 +83,12 @@
         </div>
         <div class="flex items-center h-16 shrink-0">
           <button
-            class="flex w-full px-3 py-3 mt-4 space-x-4 border rounded-md"
+            class="flex w-full px-3 py-3 mt-4 space-s-4 border rounded-md"
           >
             <AvatarsSquare />
             <div class="flex flex-col text-start">
               <p class="text-sm text-white">Coca Cola</p>
-              <div class="flex space-x-1">
+              <div class="flex space-s-1">
                 <p class="text-xs text-gray-60">Switch Brand</p>
                 <ArrowDownIcon class="w-4 h-4 text-gray-60" />
               </div>
@@ -131,7 +131,7 @@
               </template> -->
             </SingleNavLink>
             <!-- <div
-              class="ml-8 font-light transition-all duration-100 ease-linear transform text-gray-40 text-micro"
+              class="ms-8 font-light transition-all duration-100 ease-linear transform text-gray-40 text-micro"
               :class="
                 isBrandThemeSelected
                   ? 'h-[70px] opacity-100 pointer-events-auto'

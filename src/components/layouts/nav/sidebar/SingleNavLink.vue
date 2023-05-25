@@ -4,7 +4,7 @@
     class="flex items-center justify-between w-full px-3 py-2 rounded bg-opacity-[0.28]"
     :class="isActive ? 'text-white bg-blue-60' : 'text-gray-40'"
   >
-    <div class="flex items-center space-x-4">
+    <div class="flex items-center space-s-4">
       <slot name="icon"></slot>
       <div>{{ title }}</div>
     </div>
@@ -14,9 +14,8 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { ChevronRightIcon } from "../../../icons/AllIcons";
 import { useRouter, useRoute } from "vue-router";
-import { ROUTES, ROUTES_MAPPING } from "../../../../router/routes";
+import { ROUTES_MAPPING } from "../../../../router/routes";
 
 const router = useRouter();
 const vueRoute = useRoute();

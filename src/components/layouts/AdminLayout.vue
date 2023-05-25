@@ -1,6 +1,6 @@
 <template>
   <FullPrimarySidebar>
-    <div class="lg:pl-72">
+    <div class="lg:ps-72">
       <NavHeader/>
       <main class="py-10">
         <div class="sm:px-6 lg:px-4">

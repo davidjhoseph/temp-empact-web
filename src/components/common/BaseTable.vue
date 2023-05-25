@@ -2,8 +2,8 @@
     <div>
         <div class="flex items-center justify-between">
             <div class="text-black text-body font-bold">Table Title</div>
-            <div class="flex items-center space-x-6">
-                <div class="border pr-2 rounded">
+            <div class="flex items-center space-s-6">
+                <div class="border pe-2 rounded">
                     <select class="px-2 bg-transparent text-gray-70 py-1">
                         <option class="text-gray-70">Sort</option>
                     </select>
@@ -36,7 +36,7 @@
                     <div>Date</div>
                     <ChevronIcon class="w-5 h-5" />
                 </div>
-                <div class="w-10 mt-2 pr-4">
+                <div class="w-10 mt-2 pe-4">
                     <MoreIcon class="w-5 h-5 text-black" />
                 </div>
             </div>
@@ -44,7 +44,7 @@
                 <div class="w-10 mt-2 px-4">
                     <input type="checkbox" class="w-5 h-5">
                 </div>
-                <div class="flex-1 flex items-center px-3 space-x-3">
+                <div class="flex-1 flex items-center px-3 space-s-3">
                     <div
                         class="h-8 w-8 rounded-full bg-orange-10 flex items-center justify-center text-orange-70 text-micro font-medium">
                         UE</div>
@@ -62,7 +62,7 @@
                 <div class="flex-1 flex px-3">
                     <BaseInfoChip :title="StatusType.APPROVED" color="green" />
                 </div>
-                <div class="w-10 mt-2 pr-4">
+                <div class="w-10 mt-2 pe-4">
                     <MoreIcon class="w-5 h-5 text-black" />
 
                 </div>
@@ -71,7 +71,7 @@
                 <div class="w-10 mt-2 px-4">
                     <input type="checkbox" class="w-5 h-5">
                 </div>
-                <div class="flex-1 flex items-center px-3 space-x-3">
+                <div class="flex-1 flex items-center px-3 space-s-3">
                     <div
                         class="h-8 w-8 rounded-full bg-orange-10 flex items-center justify-center text-orange-70 text-micro font-medium">
                         UE</div>
@@ -89,7 +89,7 @@
                 <div class="flex-1 flex px-3">
                     <BaseInfoChip :title="StatusType.APPROVED" color="green" />
                 </div>
-                <div class="w-10 mt-2 pr-4">
+                <div class="w-10 mt-2 pe-4">
                     <MoreIcon class="w-5 h-5 text-black" />
 
                 </div>
@@ -98,7 +98,7 @@
                 <div class="w-10 mt-2 px-4">
                     <input type="checkbox" class="w-5 h-5">
                 </div>
-                <div class="flex-1 flex items-center px-3 space-x-3">
+                <div class="flex-1 flex items-center px-3 space-s-3">
                     <div
                         class="h-8 w-8 rounded-full bg-orange-10 flex items-center justify-center text-orange-70 text-micro font-medium">
                         UE</div>
@@ -116,7 +116,7 @@
                 <div class="flex-1 flex px-3">
                     <BaseInfoChip :title="StatusType.PENDING" color="orange" />
                 </div>
-                <div class="w-10 mt-2 pr-4">
+                <div class="w-10 mt-2 pe-4">
                     <MoreIcon class="w-5 h-5 text-black" />
 
                 </div>
@@ -125,7 +125,7 @@
                 <div class="w-10 mt-2 px-4">
                     <input type="checkbox" class="w-5 h-5">
                 </div>
-                <div class="flex-1 flex items-center px-3 space-x-3">
+                <div class="flex-1 flex items-center px-3 space-s-3">
                     <div
                         class="h-8 w-8 rounded-full bg-orange-10 flex items-center justify-center text-orange-70 text-micro font-medium">
                         UE</div>
@@ -143,7 +143,7 @@
                 <div class="flex-1 flex px-3">
                     <BaseInfoChip :title="StatusType.APPROVED" color="green" />
                 </div>
-                <div class="w-10 mt-2 pr-4">
+                <div class="w-10 mt-2 pe-4">
                     <MoreIcon class="w-5 h-5 text-black" />
 
                 </div>
@@ -152,7 +152,7 @@
                 <div class="w-10 mt-2 px-4">
                     <input type="checkbox" class="w-5 h-5">
                 </div>
-                <div class="flex-1 flex items-center px-3 space-x-3">
+                <div class="flex-1 flex items-center px-3 space-s-3">
                     <div
                         class="h-8 w-8 rounded-full bg-orange-10 flex items-center justify-center text-orange-70 text-micro font-medium">
                         UE</div>
@@ -170,7 +170,7 @@
                 <div class="flex-1 flex px-3">
                     <BaseInfoChip :title="StatusType.REJECTED" color="red" />
                 </div>
-                <div class="w-10 mt-2 pr-4">
+                <div class="w-10 mt-2 pe-4">
                     <MoreIcon class="w-5 h-5 text-black" />
                 </div>
             </div>

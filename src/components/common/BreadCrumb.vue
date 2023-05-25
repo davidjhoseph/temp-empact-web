@@ -1,11 +1,11 @@
 <template>
-  <div class="flex items-center space-x-5">
+  <div class="flex items-center space-s-5">
     <div
       @click="router.back()"
       class="flex items-center justify-center w-6 h-6 mt-2 border-2 rounded-full cursor-pointer border-gray-60">
       <Vector class="items-center w-6 h-6 px-1" />
     </div>
-    <div class="flex items-center space-x-4" v-for="(crumb, index) in breadcrumbs" :key="index">
+    <div class="flex items-center space-s-4" v-for="(crumb, index) in breadcrumbs" :key="index">
       <div class="h-5">
         <div class="text-base capitalize cursor-pointer" :class="index + 1 === breadcrumbs.length ? 'text-blue' : 'text-gray-60'"
           @click="goToLink(crumb)"> {{ stripRouteName(crumb) }}</div>

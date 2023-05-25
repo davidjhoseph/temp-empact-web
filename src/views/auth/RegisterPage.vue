@@ -53,7 +53,7 @@
                     class="h-4 w-4 rounded border-gray-40 text-indigo-600 focus:ring-indigo-600"
                   />
                 </div>
-                <div class="ml-1.5 text-sm leading-6">
+                <div class="ms-1.5 text-sm leading-6">
                   <label for="comments" class="text-black">Remember me</label>
                 </div>
               </div>

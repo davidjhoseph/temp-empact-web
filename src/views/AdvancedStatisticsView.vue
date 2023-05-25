@@ -4,13 +4,13 @@
       <!-- Your content -->
       <div class="flex justify-between pb-2 -mt-4 items-center">
         <div class="text-black text-xl font-bold">Content Statistics</div>
-        <div class="flex space-x-4">
+        <div class="flex space-s-4">
           <div>
             <Filter class=""><Calendar /></Filter>
           </div>
           <button class="">
             <div
-              class="flex justify-center items-center space-x-2 h-12 w-40 rounded-md border border-gray-40"
+              class="flex justify-center items-center space-s-2 h-12 w-40 rounded-md border border-gray-40"
             >
               <div><DownloadIcon /></div>
               <div class="text-gray-70 text-sm">Download Report</div>
@@ -19,12 +19,12 @@
         </div>
       </div>
       <div class="my-10">
-        <div class="flex justify-between space-x-2">
+        <div class="flex justify-between space-s-2">
           <div v-for="i in stats" :key="i.id">
             <div class="h-28 w-72 border-gray-50 border rounded-lg">
               <div class="my-7 px-3 flex flex-col">
                 <h3 class="text-blue text-lg">{{ i.value }}</h3>
-                <div class="flex space-x-2 items-center">
+                <div class="flex space-s-2 items-center">
                   <div><img :src="`/images/${i.icon}`" alt="" /></div>
                   <p class="text-gray-60">{{ i.name }}</p>
                 </div>
@@ -40,7 +40,7 @@
           </div>
           <div class="py-2 px-4" v-for="x in platforms" :key="x?.id">
             <div class="flex justify-between">
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <img :src="`/images/${x?.icon}`" alt="" class="" />
                 <div class="text-gray-80">{{ x?.name }}</div>
               </div>
@@ -52,7 +52,7 @@
           <div class="flex justify-between p-4">
             <div class="font-bold text-black">Recent Shares</div>
             <button class="text-gray-60">
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <div
                   @click="router.push({ path: '/content-management/platform' })"
                 >
@@ -64,11 +64,11 @@
           </div>
           <div class="py-2 px-4" v-for="x in recentShares" :key="x?.id">
             <div class="flex justify-between">
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <img :src="`/images/${x?.icon}`" alt="" class="" />
                 <div class="text-gray-80">{{ x?.name }}</div>
               </div>
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <div class="text-gray-80">{{ x?.date }}</div>
                 <div><Ellipse /></div>
                 <div class="text-gray-80">{{ x?.time }}</div>
@@ -80,7 +80,7 @@
           <div class="flex justify-between p-4">
             <div class="font-bold text-black">Recent Shares</div>
             <button class="text-gray-60">
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <div
                   @click="router.push({ path: '/content-management/platform' })"
                 >
@@ -92,11 +92,11 @@
           </div>
           <div class="py-2 px-4" v-for="x in recentLikes" :key="x?.id">
             <div class="flex justify-between">
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <img :src="`/images/${x?.icon}`" alt="" class="" />
                 <div class="text-gray-80">{{ x?.name }}</div>
               </div>
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <div class="text-gray-80">{{ x?.date }}</div>
                 <div><Ellipse /></div>
                 <div class="text-gray-80">{{ x?.time }}</div>

@@ -1,6 +1,6 @@
 <template>
   <div class="grid gap-y-2 bg-white shadow-lg py-4">
-    <button class="flex space-x-2 items-center pl-2">
+    <button class="flex space-s-2 items-center ps-2">
       <EditIcon />
       <button @click="showModal = !showModal" class="text-gray-70 text-sm">
         Edit
@@ -8,7 +8,7 @@
       <!-- <EditContent v-if="showModal" /> -->
     </button>
     <button
-      class="flex space-x-2 items-center pl-2"
+      class="flex space-s-2 items-center ps-2"
       @click="openArchive = !openArchive"
     >
       <ArchiveIcon />
@@ -17,7 +17,7 @@
     <!-- <ArchiveContent v-if="openArchive" /> -->
 
     <button
-      class="flex space-x-2 items-center px-2"
+      class="flex space-s-2 items-center px-2"
       @click="openDelete = !openDelete"
     >
       <DeleteIcon />

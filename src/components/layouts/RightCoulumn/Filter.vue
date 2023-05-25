@@ -24,7 +24,7 @@
         <form action="" class="px-4 pb-4">
           <CalendarDate label="start date" class="py-6" />
           <CalendarDate label="end date" />
-          <div class="pt-10 flex justify-end space-x-4">
+          <div class="pt-10 flex justify-end space-s-4">
             <div>
               <button
                 class="rounded-md border border-gray-40 h-8 capitalize text-gray-70"

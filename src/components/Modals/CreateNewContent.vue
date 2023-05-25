@@ -60,7 +60,7 @@
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 placeholder:text-gray-70 placeholder:pl-3 rounded-md h-12"
+                            class="w-full focus:outline-none border border-gray-40 placeholder:text-gray-70 placeholder:ps-3 rounded-md h-12"
                             placeholder="Enter a title"
                           />
                         </div>
@@ -73,7 +73,7 @@
                             id=""
                             cols=""
                             rows=""
-                            class="w-full h-48 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:pl-3 placeholder:pt-2"
+                            class="w-full h-48 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2"
                             placeholder="Enter details of this post"
                           ></textarea>
                         </div>
@@ -97,7 +97,7 @@
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 rounded-md placeholder:text-gray-70 placeholder:pl-3 placeholder:pt-2 h-12"
+                            class="w-full focus:outline-none border border-gray-40 rounded-md placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2 h-12"
                             placeholder="Paste URL to the media file"
                           />
                         </div>
@@ -105,7 +105,7 @@
                           <label for="upload-file" class="text-black capitalize"
                             >upload a file</label
                           >
-                          <div class="flex space-x-2">
+                          <div class="flex space-s-2">
                             <input
                               id="file"
                               type="file"
@@ -115,10 +115,10 @@
                             />
                             <button
                               @click.prevent="attachFile"
-                              class="w-full focus:outline-none bg-gray-10 rounded-md placeholder:text-gray-70 placeholder:pl-3 placeholder:pt-2 h-32"
+                              class="w-full focus:outline-none bg-gray-10 rounded-md placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2 h-32"
                             >
                               <div
-                                class="flex space-x-2 items-center justify-center px-2 py-1"
+                                class="flex space-s-2 items-center justify-center px-2 py-1"
                               >
                                 <SelectFileIcon />
                                 <p class="text-sm text-blue">select File</p>
@@ -137,13 +137,13 @@
                               <p class="px-2">Cancel</p>
                             </button>
                           </div>
-                          <div class="flex space-x-2">
+                          <div class="flex space-s-2">
                             <div>
                               <button
                                 class="text-gray-70 border rounded-md h-8 border-gray-40"
                               >
-                                <div class="flex space-x-2 items-center">
-                                  <SaveIcon class="ml-3" />
+                                <div class="flex space-s-2 items-center">
+                                  <SaveIcon class="ms-3" />
                                   <p class="px-2 capitalize text-gray-70">
                                     Save as Draft
                                   </p>
