@@ -186,5 +186,5 @@ import BaseInput from './BaseInput.vue'
 import Pagination from './Pagination.vue'
 import BaseInfoChip from './BaseInfoChip.vue'
 import { ChevronIcon, MoreIcon, SearchIcon } from '../icons/AllIcons'
-import { StatusType } from '../../types'
+import { StatusType } from '../../config/types'
 </script>

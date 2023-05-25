@@ -1,69 +1,66 @@
 <template>
-  <BaseLabel :labelFor="id" :required="required" :text="label" v-if="label" />
-  <div v-if="description" class="text-caption description text-gray-60">
-    {{ description }}
-  </div>
-  <div class="relative inline-block w-full">
-    <div
-      v-if="icon"
-      class="absolute top-0 bottom-0 left-0 my-auto flex h-full items-center rounded-r-lg px-2"
-    >
-      <slot name="icon" />
+  <div>
+    <BaseLabel :labelFor="id" :required="required" :text="label" v-if="label" />
+    <div v-if="description" class="text-caption description text-gray-60">
+      {{ description }}
     </div>
-    <input
-      v-if="type !== 'date'"
-      ref="baseInput"
-      :name="name"
-      v-bind="$attrs"
-      :type="inputType"
-      :placeholder="placeholder"
-      :value="value"
-      @input="changeInput($event)"
-      :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
-      class="text-caption placeholder:text-gray-70 w-full rounded border border-gray-40 bg-gray-10 px-3 outline-none focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70"
-    />
-    <input
-      v-else
-      ref="baseInput"
-      :name="name"
-      v-bind="$attrs"
-      :type="inputType"
-      :value="value"
-      :max="max"
-      :min="min"
-      @input="changeInput($event)"
-      :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
-      class="text-caption placeholder:text-gray-70 w-full rounded-lg border border-gray-40 bg-gray-10 px-3 outline-none focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70"
-    />
-    <!-- <button
-			type="button"
-			class="absolute top-0 bottom-0 right-0 my-auto h-full rounded-r-lg px-2"
-			v-if="type == 'password'"
-			@click="showPassword = !showPassword"
-		>
-			<EyeOffIcon v-if="showPassword" class="h-5 w-5 text-gray-50" />
-			<EyeIcon v-else class="h-5 w-5 text-gray-50" />
-		</button> -->
-    <!-- eslint-disable-next-line -->
-    <button
-      type="button"
-      class="absolute top-0 bottom-0 right-0 my-auto h-full rounded-r-lg px-2"
-      v-if="type == 'date'"
-      @click="showPicker()"
-    >
-      <CalendarIcon class="h-5 w-5 text-gray-50" />
-    </button>
+    <div class="relative inline-block w-full">
+      <div
+        v-if="icon"
+        class="absolute top-0 bottom-0 left-0 flex items-center h-full px-2 my-auto rounded-r-lg">
+        <slot name="icon" />
+      </div>
+      <input
+        v-if="type !== 'date'"
+        ref="baseInput"
+        :name="name"
+        v-bind="$attrs"
+        :type="inputType"
+        :placeholder="placeholder"
+        :value="value"
+        @input="changeInput($event)"
+        :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
+        class="w-full px-3 border rounded outline-none text-caption placeholder:text-gray-70 border-gray-40 bg-gray-10 focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70" />
+      <input
+        v-else
+        ref="baseInput"
+        :name="name"
+        v-bind="$attrs"
+        :type="inputType"
+        :value="value"
+        :max="max"
+        :min="min"
+        @input="changeInput($event)"
+        :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
+        class="w-full px-3 border rounded-lg outline-none text-caption placeholder:text-gray-70 border-gray-40 bg-gray-10 focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70" />
+      <!-- <button
+        type="button"
+        class="absolute top-0 bottom-0 right-0 h-full px-2 my-auto rounded-r-lg"
+        v-if="type == 'password'"
+        @click="showPassword = !showPassword"
+      >
+        <EyeOffIcon v-if="showPassword" class="w-5 h-5 text-gray-50" />
+        <EyeIcon v-else class="w-5 h-5 text-gray-50" />
+      </button> -->
+      <!-- eslint-disable-next-line -->
+      <button
+        type="button"
+        class="absolute top-0 bottom-0 right-0 h-full px-2 my-auto rounded-r-lg"
+        v-if="type == 'date'"
+        @click="showPicker()">
+        <CalendarIcon class="w-5 h-5 text-gray-50" />
+      </button>
+    </div>
+    <HelpText
+      type="error"
+      :text="errorMessage"
+      v-if="errorMessage"
+      class="mt-1" />
   </div>
-  <HelpText
-    type="error"
-    :text="errorMessage"
-    v-if="errorMessage"
-    class="mt-1"
-  />
 </template>
 
 <script setup lang="ts">
-import type { HTMLInputTypeAttribute } from "../../types.js";
+import type { HTMLInputTypeAttribute } from "../../config/types.js";
 import { computed, type PropType, ref, toRef } from "vue";
 import { useField } from "vee-validate";
 import HelpText from "./HelpText.vue";

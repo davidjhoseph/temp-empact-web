@@ -6,9 +6,9 @@
                 <div class="flex items-center space-s-4">
                     <div class="text-right">
                         <div class="font-medium text-black text-micro">
-                            David Carrasco
+                            {{user?.firstName + ' ' + user?.lastName}}
                         </div>
-                        <div class="text-gray-60 text-nano">davidcarrasco@mail.com</div>
+                        <div class="text-gray-60 text-nano">{{user?.email}}</div>
                     </div>
                     <div class="w-14 h-14">
                         <img
@@ -40,15 +40,6 @@
                         ]">Your profile
                     </span>
                     </MenuItem>
-                    <MenuItem
-
-                        v-slot="{ active }">
-                    <span
-                        :class="[
-                            active ? 'bg-gray-50' : '',
-                            'block px-3 py-1 text-sm leading-6 text-gray-900',
-                        ]">Sign out</span>
-                    </MenuItem>
                     <MenuItem @click="toggleLayout"
                         v-slot="{ active }">
                     <span
@@ -56,6 +47,15 @@
                             active ? 'bg-gray-50' : '',
                             'block px-3 py-1 text-sm leading-6 text-gray-900',
                         ]">Toggle Layout</span>
+                    </MenuItem>
+                    <MenuItem
+                        @click="logout"
+                        v-slot="{ active }">
+                    <span
+                        :class="[
+                            active ? 'bg-gray-50' : '',
+                            'block px-3 py-1 text-sm leading-6 text-gray-900',
+                        ]">Sign out</span>
                     </MenuItem>
                 </MenuItems>
             </transition>
@@ -66,8 +66,22 @@
 import { ArrowDownIcon } from "../../../icons/AllIcons";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { useMainStore } from '../../../../store';
+import { useAuthStore } from "../../../../store/auth";
+import { useRouter } from "vue-router";
+import { computed } from "vue";
+import { ROUTES } from "../../../../router/routes";
 
 const store = useMainStore();
+const authStore = useAuthStore();
+const router = useRouter();
+
+const user = computed(() => authStore.currentUser);
+
+
+const logout = () => {
+	authStore.logout();
+	router.push({ name: ROUTES.LOGIN });
+};
 
 const toggleLayout = () => {
     if (document.body.dir === 'rtl') {
