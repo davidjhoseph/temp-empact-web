@@ -16,10 +16,16 @@
       <!-- list view layout -->
       <div class="flex pb-4 space-s-10" v-if="layout === 'list'">
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
           @click="currentContentTab = 'AllContentListView'"
         >
-          <div class="text-gray-60">All Content</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('allContent')"
+            :class="{ isActive: allContent }"
+          >
+            All Content
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -27,10 +33,16 @@
           </div>
         </div>
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
           @click="currentContentTab = 'Publish'"
         >
-          <div class="text-gray-60">Publish</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('Publish')"
+            :class="{ isActive: publish }"
+          >
+            Publish
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -38,10 +50,16 @@
           </div>
         </div>
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
           @click="currentContentTab = 'Drafts'"
         >
-          <div class="text-gray-60">Drafts</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('Drafts')"
+            :class="{ isActive: drafts }"
+          >
+            Drafts
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -49,10 +67,16 @@
           </div>
         </div>
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
           @click="currentContentTab = 'Archive'"
         >
-          <div class="text-gray-60">Archive</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('Archive')"
+            :class="{ isActive: archive }"
+          >
+            Archive
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -63,10 +87,16 @@
       <!-- grid view layout -->
       <div class="flex pb-4 space-s-10" v-if="layout === 'grid'">
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
-          @click="currentTab = 'GridListView'"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
+          @click="currentTab = 'GridContentView'"
         >
-          <div class="text-gray-60">All Content</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('allContent')"
+            :class="{ isActive: allContent }"
+          >
+            All Content
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -74,10 +104,16 @@
           </div>
         </div>
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
           @click="currentTab = 'GridPublish'"
         >
-          <div class="text-gray-60">Publish</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('Publish')"
+            :class="{ isActive: publish }"
+          >
+            Publish
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -85,10 +121,16 @@
           </div>
         </div>
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
           @click="currentTab = 'GridDrafts'"
         >
-          <div class="text-gray-60">Drafts</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('Drafts')"
+            :class="{ isActive: drafts }"
+          >
+            Drafts
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -96,10 +138,16 @@
           </div>
         </div>
         <div
-          class="flex items-center space-s-2 cursor-pointer hover:underline hover:underline-blue"
+          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
           @click="currentTab = 'GridArchive'"
         >
-          <div class="text-gray-60">Archive</div>
+          <div
+            class="text-gray-60"
+            @click="selectTab('Archive')"
+            :class="{ isActive: archive }"
+          >
+            Archive
+          </div>
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
@@ -141,12 +189,14 @@
       <div class="flex items-center mt-2 space-s-4">
         <div class="text-gray-60">View</div>
         <div @click="layout = 'list'">
-          <button>
-            <ListIcon />
+          <button v-if="layout === 'list'"><ListIcon /></button>
+          <button v-else>
+            <GrayListIcon />
           </button>
         </div>
         <div @click="layout = 'grid'">
-          <button>
+          <button v-if="layout === 'grid'"><ColoredGridIcon /></button>
+          <button v-else>
             <GridIcon />
           </button>
         </div>
@@ -182,8 +232,30 @@ import MediaDropdown from "../components/layouts/Dropdown/MediaDropdown.vue";
 import GridPublish from "../components/layouts/GridPublish.vue";
 import GridDrafts from "../components/layouts/GridDraft.vue";
 import GridArchive from "../components/layouts/GridArchive.vue";
-const layout = ref("list");
+import ColoredGridIcon from "../components/icons/ColoredGridIcon.vue";
+import GrayListIcon from "../components/icons/GrayListIcon.vue";
 
+const layout = ref("list");
+const allContent = ref(false);
+const publish = ref(false);
+const drafts = ref(false);
+const archive = ref(false);
+
+function selectTab(box: any) {
+  if (box === "allContent") {
+    allContent.value = !allContent.value;
+    console.log(allContent.value);
+  } else if (box === "Publish") {
+    publish.value = !publish.value;
+    console.log(publish.value);
+  } else if (box === "Drafts") {
+    drafts.value = !drafts.value;
+    console.log(drafts.value);
+  } else if (box === "Archive") {
+    archive.value = !archive.value;
+    console.log(archive.value);
+  }
+}
 const showModal = ref(false);
 const contentList = reactive([
   {
@@ -334,3 +406,11 @@ const contents = reactive({
 });
 const currentContentTab = ref("AllContentListView");
 </script>
+<style scoped>
+.inActive {
+  color: #020d1c;
+  text-decoration: underline;
+  text-decoration-color: #2c79ec;
+  text-decoration-style: solid;
+}
+</style>

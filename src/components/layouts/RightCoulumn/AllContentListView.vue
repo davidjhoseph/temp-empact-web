@@ -80,9 +80,11 @@
             <div class="flex space-s-10">
               <div>
                 <button
-                  class="w-12 h-5 rounded-s-sm rounded-e-sm bg-green-10 text-green-70"
+                  class="w-12 h-6 rounded-s-md rounded-e-md bg-green-10 text-green-70"
                 >
-                  <p class="ps-2 pe- text-sm text-center">
+                  <p
+                    class="ps-2 pe-2 text-sm text-center flex justify-center items-center"
+                  >
                     {{ list.imageText }}
                   </p>
                 </button>
