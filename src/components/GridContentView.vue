@@ -12,14 +12,14 @@
           />
         </div>
         <div class="flex flex-col">
-          <p class="text-black text-left">{{ list.title }}</p>
+          <p class="text-black text-start">{{ list.title }}</p>
 
-          <p class="text-gray-60 text-left">
+          <p class="text-gray-60 text-start">
             <small>{{ list.desc }}</small>
           </p>
         </div>
         <div class="flex flex-col space-y-12">
-          <div class="absolute bottom-56 right-16">
+          <div class="absolute bottom-56 end-16">
             <button class="bg-green-10 text-green-70 h-5 w-12 rounded-sm">
               <p class="text-center text-sm pe-2 ps-2 text-red">
                 {{ list.imageText }}
@@ -43,11 +43,11 @@
         </div>
         <div class="flex justify-between items-center">
           <div class="flex space-s-2 mt-6 items-center">
-            <div class="text-sm text-gray-60 text-left">
+            <div class="text-sm text-gray-60 text-start">
               <small>{{ list.date }}</small>
             </div>
-            <div class="text-sm text-gray-60 text-left"><Ellipse /></div>
-            <div class="text-sm text-gray-60 text-left">
+            <div class="text-sm text-gray-60 text-start"><Ellipse /></div>
+            <div class="text-sm text-gray-60 text-start">
               <small>{{ list.time }}</small>
             </div>
           </div>
@@ -63,7 +63,7 @@
             >
               view
             </button>
-            <Menu as="div" class="relative inline-block h-6 text-left">
+            <Menu as="div" class="relative inline-block h-6 text-start">
               <div>
                 <MenuButton
                   class="w-8 h-6 ps-1 text-sm text-center border rounded-s-sm rounded-e-sm text-gray-70 border-gray-40"
@@ -84,7 +84,7 @@
                 leave-to-class="transform scale-95 opacity-0"
               >
                 <MenuItems
-                  class="absolute right-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-s-md rounded-e-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  class="absolute end-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-s-md rounded-e-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 >
                   <div><MenuDropdownView /></div>
                 </MenuItems>
@@ -101,7 +101,7 @@ import { ref } from "vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import LikesIcon from "./icons/LikesIcon.vue";
 import LoveIcon from "./icons/LoveIcon.vue";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import { Menu, MenuButton, MenuItems } from "@headlessui/vue";
 import MenuDropdownView from "./layouts/Dropdown/MenuDropdownView.vue";
 
 import { useRouter } from "vue-router";
