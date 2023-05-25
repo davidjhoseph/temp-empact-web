@@ -23,7 +23,7 @@
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
-            0
+            {{ contentList.length }}
           </div>
         </div>
         <div
@@ -70,7 +70,7 @@
           <div
             class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
           >
-            0
+            {{ contentList.length }}
           </div>
         </div>
         <div
@@ -185,8 +185,140 @@ import GridArchive from "../components/layouts/GridArchive.vue";
 const layout = ref("list");
 
 const showModal = ref(false);
-const listView = ref(false);
-const gridView = ref(false);
+const contentList = reactive([
+  {
+    id: 1,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 2,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 3,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 4,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 5,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 6,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 7,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 8,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 9,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 10,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+  {
+    id: 11,
+    title: "This is the title of the post",
+    desc: "Description text just long enough to make this two lines.",
+    date: "Mar 20, 2023",
+    time: "12:30 PM",
+    imageText: "Image",
+    image: "image.png",
+    likes: "500",
+    favourite: "5,126",
+    view: false,
+  },
+]);
 const tabs = ref({
   GridContentView,
   GridPublish,

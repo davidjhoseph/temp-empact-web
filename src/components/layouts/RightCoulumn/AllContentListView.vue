@@ -114,11 +114,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import GridContentView from "../../GridContentView.vue";
+import { reactive } from "vue";
 import { useRouter, useRoute, RouterLink } from "vue-router";
 import { ROUTES } from "../../../router/routes";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import { Menu, MenuButton, MenuItems } from "@headlessui/vue";
 import MenuIcon from "../../icons/MenuIcon.vue";
 import MenuDropdownView from "../../layouts/Dropdown/MenuDropdownView.vue";
 
