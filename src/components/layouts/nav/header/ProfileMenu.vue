@@ -84,11 +84,10 @@ const logout = () => {
 };
 
 const toggleLayout = () => {
-    if (document.body.dir === 'rtl') {
-        store.updateLayoutDir('ltr');
-        return;
-    }
-    store.updateLayoutDir('rtl');
-}
+  if (document.body.dir === "rtl") {
+    store.updateLayoutDir("ltr");
+    return;
+  }
+  store.updateLayoutDir("rtl");
+};
 </script>
-  

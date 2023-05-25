@@ -1,7 +1,7 @@
 <template>
   <button
     @click="clickedLink"
-    class="flex items-center justify-between w-full px-3 py-2 rounded bg-opacity-[0.28]"
+    class="flex items-center justify-between w-full ps-3 pe-3 py-2 rounded bg-opacity-[0.28]"
     :class="isActive ? 'text-white bg-blue-60' : 'text-gray-40'"
   >
     <div class="flex items-center space-s-4">

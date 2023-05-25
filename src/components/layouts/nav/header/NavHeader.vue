@@ -1,10 +1,10 @@
 <template>
-  <div class="flex items-center justify-between px-6 shadow">
-    <BreadCrumb/>
-    <ProfileMenu/>
+  <div class="flex items-center justify-between ps-12 pe-12 shadow">
+    <BreadCrumb />
+    <ProfileMenu />
   </div>
 </template>
 <script setup lang="ts">
-import BreadCrumb from '../../../common/BreadCrumb.vue'
-import ProfileMenu from './ProfileMenu.vue'
+import BreadCrumb from "../../../common/BreadCrumb.vue";
+import ProfileMenu from "./ProfileMenu.vue";
 </script>

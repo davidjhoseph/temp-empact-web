@@ -1,7 +1,7 @@
 <template>
   <div class="relative">
     <div
-      class="md:flex md:px-20 space-s-20 items-center md:py-10 mx-auto h-screen w-screen"
+      class="md:flex md:ps-20 md:pe-20 space-s-20 items-center md:py-10 me-auto ms-auto h-screen w-screen"
     >
       <main class="flex-1">
         <RouterView v-slot="{ Component }">

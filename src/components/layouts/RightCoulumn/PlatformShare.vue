@@ -1,12 +1,12 @@
 <template>
-  <div class="flex justify-between px-9 pt-2">
+  <div class="flex justify-between ps-9 pe-9 pt-2">
     <h1 class="capitalize text-black text-xl font-bold">Platform Shares</h1>
     <Filter />
   </div>
-  <main class="py-10 px-6">
-    <div class="sm:px-6 lg:px-4">
+  <main class="py-10 ps-6 pe-6">
+    <div class="sm:ps-6 sm:pe-6 lg:ps-4 lg:pe-6">
       <!-- Your content -->
-      <div class="px-6 border border-gray-70 rounded-md">
+      <div class="pe-6 ps-6 border border-gray-70 rounded-s-md rounded-e-md">
         <div>
           <div class="text-lg text-black font-semibold pt-4 pb-4 ps-4">
             All Shares
@@ -39,12 +39,6 @@ import { ref } from "vue";
 import Filter from "../../layouts/RightCoulumn/Filter.vue";
 
 import Ellipse from "../../icons/Ellipse.vue";
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
-const sidebarOpen = ref(false);
-
 const recentShares = ref([
   {
     id: 1,
@@ -167,10 +161,10 @@ const recentShares = ref([
     id: 14,
     name: "David Green",
     value: 1567,
-    icon: "Whatsaspp.png",
+    icon: "Whatsapp.png",
     date: "May 20,2023",
     time: "12:30 PM",
-    platform: "whatsapp",
+    platform: "Whatsapp",
   },
   {
     id: 15,

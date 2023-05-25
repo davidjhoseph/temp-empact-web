@@ -2,7 +2,7 @@
   <Menu as="div" class="relative inline-block text-left">
     <div>
       <MenuButton
-        class="inline-flex px-3 items-center justify-center gap-x-1.5 rounded-md bg-white text-sm text-gray-80 shadow-sm border border-gray-40 py-3.5"
+        class="inline-flex ps-3 pe-3 items-center justify-center gap-x-1.5 rounded-s-md rounded-e-md bg-white text-sm text-gray-80 shadow-sm border border-gray-40 py-3.5"
         >{{ props.name }}
         <slot name="icon"></slot>
       </MenuButton>
@@ -17,7 +17,7 @@
       leave-to-class="transform scale-95 opacity-0"
     >
       <MenuItems
-        class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-s-md rounded-e-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
       >
         <slot></slot>
       </MenuItems>

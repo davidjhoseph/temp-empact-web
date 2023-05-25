@@ -29,7 +29,7 @@
             leave-to="opacity-0 translat e-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden bg-white px-4 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6 sm:h-full"
+              class="relative transform overflow-hidden bg-white px-4 pb-4 text-start shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6 sm:h-full"
             >
               <div>
                 <div class="mt-3 sm:mt-5">
@@ -118,7 +118,7 @@
                               class="w-full focus:outline-none bg-gray-10 rounded-md placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2 h-32"
                             >
                               <div
-                                class="flex space-s-2 items-center justify-center px-2 py-1"
+                                class="flex space-s-2 items-center justify-center pe-2 ps-2 py-1"
                               >
                                 <SelectFileIcon />
                                 <p class="text-sm text-blue">select File</p>
@@ -132,9 +132,9 @@
                         <div class="flex justify-between">
                           <div>
                             <button
-                              class="text-gray-70 border rounded-md h-8 border-gray-40"
+                              class="text-gray-70 border rounded-s-md round-e-md h-8 border-gray-40"
                             >
-                              <p class="px-2">Cancel</p>
+                              <p class="pe-2 ps-2">Cancel</p>
                             </button>
                           </div>
                           <div class="flex space-s-2">

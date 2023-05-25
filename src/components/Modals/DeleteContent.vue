@@ -29,7 +29,7 @@
             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden rounded-lg bg-white pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:px-5 sm:py-6"
+              class="relative transform overflow-hidden rounded-lg bg-white pb-4 pt-5 text-start shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:px-5 sm:py-6"
             >
               <div class="absolute right-0 top-4 hidden pe-4 pt-4 sm:block">
                 <button
@@ -50,14 +50,14 @@
                     aria-hidden="true"
                   />
                 </div>
-                <div class="mt-3 text-center sm:ms-1 sm:mt-2 sm:text-left">
+                <div class="mt-3 text-center sm:ms-1 sm:mt-2 sm:text-start">
                   <DialogTitle
                     as="h3"
                     class="text-xl font-semibold leading-6 text-gray-80"
                     >Delete Content</DialogTitle
                   >
                   <div class="mt-6 mb-10 -ms-10">
-                    <p class="text-lg text-black text-left">
+                    <p class="text-lg text-black text-start">
                       Deleting this content will permanently unpublish and
                       delete it from your content. This action cannot be undone.
                       Do you want to proceed?

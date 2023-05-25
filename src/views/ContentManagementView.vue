@@ -114,7 +114,7 @@
       <div class="flex space-s-6">
         <div class="relative rounded-md">
           <div
-            class="absolute left-0 flex items-center ps-3 pointer-events-none top-3"
+            class="absolute start-0 flex items-center ps-3 pointer-events-none top-3"
           >
             <Search class="w-5 h-5 text-gray-400" aria-hidden="true" />
           </div>
