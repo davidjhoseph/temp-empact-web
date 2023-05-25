@@ -28,15 +28,15 @@
               </p>
             </button>
           </div>
-          <div class="flex space-x-10">
+          <div class="flex space-s-10">
             <div>
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <LikesIcon />
                 <div class="text-gray-60">{{ list.likes }}</div>
               </div>
             </div>
             <div>
-              <div class="flex space-x-2 items-center">
+              <div class="flex space-s-2 items-center">
                 <LoveIcon />
                 <div class="text-gray-60">{{ list.favourite }}</div>
               </div>
@@ -44,7 +44,7 @@
           </div>
         </div>
         <div class="flex justify-between items-center">
-          <div class="flex space-x-2 mt-6 items-center">
+          <div class="flex space-s-2 mt-6 items-center">
             <div class="text-sm text-gray-60 text-left">
               <small>{{ list.date }}</small>
             </div>
@@ -53,7 +53,7 @@
               <small>{{ list.time }}</small>
             </div>
           </div>
-          <div class="flex space-x-4 mt-5">
+          <div class="flex space-s-4 mt-5">
             <button
               class="text-gray-70 h-6 w-10 text-sm border-gray-40 rounded-sm border px-1"
               @click="
@@ -68,10 +68,10 @@
             <Menu as="div" class="relative inline-block h-6 text-left">
               <div>
                 <MenuButton
-                  class="w-8 h-6 pl-1 text-sm text-center border rounded-sm text-gray-70 border-gray-40"
+                  class="w-8 h-6 ps-1 text-sm text-center border rounded-sm text-gray-70 border-gray-40"
                 >
                   <MenuIcon
-                    class="w-5 h-5 -mr-1 text-gray-400"
+                    class="w-5 h-5 -me-1 text-gray-400"
                     aria-hidden="true"
                   />
                 </MenuButton>

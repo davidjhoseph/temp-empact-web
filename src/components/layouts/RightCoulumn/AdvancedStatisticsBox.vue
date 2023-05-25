@@ -6,7 +6,7 @@
     </div>
     <div class="py-2 px-4" v-for="i in platforms" :key="i.id">
       <div class="flex justify-between">
-        <div class="flex space-x-2 items-center">
+        <div class="flex space-s-2 items-center">
           <div>
             <img :src="`/images/${i.icon}`" alt="" class="" />
           </div>

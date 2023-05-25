@@ -88,7 +88,7 @@
             </ul>
           </div>
 
-          <div class="flex mt-5 ml-auto w-44 gap-2">
+          <div class="flex mt-5 ms-auto w-44 gap-2">
             <BaseButton
               class="w-1/2 border border-gray-50 bg-inherit"
               @click="closeModal"

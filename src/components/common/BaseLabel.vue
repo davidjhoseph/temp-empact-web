@@ -4,7 +4,7 @@
     class="text-caption mb-1 flex align-middle text-black font-semibold text-sm"
   >
     {{ text }}
-    <span v-if="required" class="text-caption my-auto ml-1 text-red"> * </span>
+    <span v-if="required" class="text-caption my-auto ms-1 text-red"> * </span>
   </label>
 </template>
 

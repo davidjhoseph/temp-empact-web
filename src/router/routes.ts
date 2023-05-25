@@ -69,7 +69,7 @@ export default [
         name: ROUTES.HOME_DASHBOARD,
         component: HomePage,
         meta: {
-          breadcrumbs: ['Home']
+          breadcrumbs: [ROUTES.HOME]
         }
       },
       {
@@ -77,7 +77,7 @@ export default [
         name: ROUTES.CONTENT_MANAGEMENT,
         component: ContentManagementView,
         meta: {
-          breadcrumbs: ['Content Management']
+          breadcrumbs: [ROUTES.CONTENT_MANAGEMENT]
         },
         children: [
           
@@ -88,7 +88,7 @@ export default [
         name: ROUTES.CONTENT_VIEW,
         component: ContentView,
         meta: {
-          breadcrumbs: ['Content Management', 'Details']
+          breadcrumbs: [ROUTES.CONTENT_MANAGEMENT, 'Details']
         }
       },
       {
@@ -96,7 +96,7 @@ export default [
         name: ROUTES.ADVANCED_STATISTICS_VIEW,
         component: AdvanceStatisticsView,
         meta: {
-          breadcrumbs: ['Content Management', 'Details', 'Statistics']
+          breadcrumbs: [ROUTES.CONTENT_MANAGEMENT, 'Details', 'Statistics']
         }
       },
       {
@@ -104,7 +104,7 @@ export default [
         name: ROUTES.PLATFORM_VIEW,
         component: PlatformView,
         meta: {
-          breadcrumbs: ['Content Management', 'Platform']
+          breadcrumbs: [ROUTES.CONTENT_MANAGEMENT, 'Platform']
         }
       },
       {
@@ -112,7 +112,7 @@ export default [
         name: ROUTES.BRAND_THEME,
         component: BrandTheme,
         meta: {
-          breadcrumbs: ['Brand Theme']
+          breadcrumbs: [ROUTES.BRAND_THEME]
         }
       },
       {
@@ -120,7 +120,7 @@ export default [
         name: ROUTES.RECOMMENDATION,
         component: Recommendation,
         meta: {
-          breadcrumbs: ['Recommendation']
+          breadcrumbs: [ROUTES.RECOMMENDATION]
         }
       },
       {
@@ -128,7 +128,7 @@ export default [
         name: ROUTES.SETTINGS,
         component: Settings,
         meta: {
-          breadcrumbs: ['Settings']
+          breadcrumbs: [ROUTES.SETTINGS]
         }
       },
       {
@@ -136,7 +136,7 @@ export default [
         name: ROUTES.SETTING,
         component: Setting,
         meta: {
-          breadcrumbs: ['Settings']
+          breadcrumbs: [ROUTES.SETTING]
         }
       },
       {
@@ -144,7 +144,7 @@ export default [
         name: ROUTES.TASK,
         component: Task,
         meta: {
-          breadcrumbs: ['Task']
+          breadcrumbs: [ROUTES.TASK]
         }
       },
 

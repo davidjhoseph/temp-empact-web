@@ -5,7 +5,7 @@
         <div
           class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"
         >
-          <div class="flex py-4 space-x-4">
+          <div class="flex py-4 space-s-4">
             <input type="checkbox" name="" id="" class="-mt-28" />
             <div class="relative w-32 h-32">
               <img
@@ -21,7 +21,7 @@
                 <small>{{ list.desc }}</small>
               </p>
               <div class="justify-between">
-                <div class="flex items-center mt-16 space-x-2">
+                <div class="flex items-center mt-16 space-s-2">
                   <div class="text-sm text-left text-gray-60">
                     <small>{{ list.date }}</small>
                   </div>
@@ -37,7 +37,7 @@
           </div>
 
           <div class="flex flex-col space-y-12">
-            <div class="flex justify-end space-x-4">
+            <div class="flex justify-end space-s-4">
               <button
                 @click="
                   router.push({
@@ -52,10 +52,10 @@
               <Menu as="div" class="relative inline-block h-6 text-left">
                 <div>
                   <MenuButton
-                    class="w-8 h-6 pl-1 text-sm text-center border rounded-sm text-gray-70 border-gray-30"
+                    class="w-8 h-6 ps-1 text-sm text-center border rounded-sm text-gray-70 border-gray-30"
                   >
                     <MenuIcon
-                      class="w-5 h-5 -mr-1 text-gray-400"
+                      class="w-5 h-5 -me-1 text-gray-400"
                       aria-hidden="true"
                     />
                   </MenuButton>
@@ -77,7 +77,7 @@
                 </transition>
               </Menu>
             </div>
-            <div class="flex space-x-10">
+            <div class="flex space-s-10">
               <div>
                 <button class="w-12 h-5 rounded-sm bg-green-10 text-green-70">
                   <p class="px-2 text-sm text-center">
@@ -86,13 +86,13 @@
                 </button>
               </div>
               <div>
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-s-2">
                   <LikesIcon />
                   <div class="text-gray-60">{{ list.likes }}</div>
                 </div>
               </div>
               <div>
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-s-2">
                   <LoveIcon />
                   <div class="text-gray-60">{{ list.favourite }}</div>
                 </div>

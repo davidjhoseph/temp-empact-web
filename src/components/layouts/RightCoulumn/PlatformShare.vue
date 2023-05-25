@@ -8,22 +8,22 @@
       <!-- Your content -->
       <div class="px-6 border border-gray-70 rounded-md">
         <div>
-          <div class="text-lg text-black font-semibold pt-4 pb-4 pl-4">
+          <div class="text-lg text-black font-semibold pt-4 pb-4 ps-4">
             All Shares
           </div>
           <div
             class="grid grid-cols-3 gap-y-4 gap-x-96 pb-6"
             v-for="x in recentShares"
           >
-            <div class="flex space-x-2 items-center pl-4">
+            <div class="flex space-s-2 items-center ps-4">
               <img :src="`/images/${x.icon}`" alt="" class="h-4 w-4" />
               <p class="capitalize text-blacK">{{ x?.platform }}</p>
             </div>
-            <div class="flex space-x-2 items-end">
+            <div class="flex space-s-2 items-end">
               <img src="/images/DG.png" alt="" />
               <div class="text-gray-80 capitalize">{{ x?.name }}</div>
             </div>
-            <div class="flex space-x-2 items-center ml-6">
+            <div class="flex space-s-2 items-center ms-6">
               <div class="text-gray-80">{{ x?.date }}</div>
               <div><Ellipse /></div>
               <div class="text-gray-80">{{ x?.time }}</div>

@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="text-caption flex items-center space-x-1 rounded border py-0.5 px-1"
+		class="text-caption flex items-center space-s-1 rounded border py-0.5 px-1"
 		:class="[baseStyle]"
 	>
 		<slot />

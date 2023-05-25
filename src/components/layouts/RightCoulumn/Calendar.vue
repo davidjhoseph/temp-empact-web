@@ -8,7 +8,7 @@
     <VueDatePicker
       v-model="date"
       placeholder="Select date"
-      class="placeholder:pl-3 placeholder:text-gray-70 rounded-none pt-2"
+      class="placeholder:ps-3 placeholder:text-gray-70 rounded-none pt-2"
     ></VueDatePicker>
   </div>
 </template>

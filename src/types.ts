@@ -24,3 +24,5 @@ export type HTMLInputTypeAttribute =
 		PENDING = 'pending',
 		REJECTED = 'rejected'
 	}
+
+	export type LayoutDirection = "rtl" | "ltr";

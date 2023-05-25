@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="relative flex items-end border-b-2 px-4 my-4 mb-6 md:px-0 md:mb-10 border-gray-30 space-x-2">
+        <div class="relative flex items-end border-b-2 px-4 my-4 mb-6 md:px-0 md:mb-10 border-gray-30 space-s-2">
             <button v-for="customTab in tabs" :key="customTab.tab" :class="customTab.tab === tab ? 'border-b-2 border-blue bg-white rounded-tr rounded-tl pt-1.5 text-black' : 'text-gray-60 border-transparent'" @click="handleTabChange(customTab)" class="border-b-2">
-                <div class="absolute flex items-center mb-2 space-x-2 left-4 -top-7 md:left-0 md:top-0 md:relative px-3">
+                <div class="absolute flex items-center mb-2 space-s-2 left-4 -top-7 md:left-0 md:top-0 md:relative px-3">
                     <HomeIcon class="w-4 h-4" />
                     <div class="text-caption">
                         {{ customTab.label }}</div>

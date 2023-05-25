@@ -19,7 +19,7 @@
       :placeholder="placeholder"
       :value="value"
       @input="changeInput($event)"
-      :class="[{ 'pl-9': icon }, small ? 'py-1' : 'py-2']"
+      :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
       class="text-caption placeholder:text-gray-70 w-full rounded border border-gray-40 bg-gray-10 px-3 outline-none focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70"
     />
     <input
@@ -32,7 +32,7 @@
       :max="max"
       :min="min"
       @input="changeInput($event)"
-      :class="[{ 'pl-9': icon }, small ? 'py-1' : 'py-2']"
+      :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
       class="text-caption placeholder:text-gray-70 w-full rounded-lg border border-gray-40 bg-gray-10 px-3 outline-none focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70"
     />
     <!-- <button

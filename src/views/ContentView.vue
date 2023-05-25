@@ -7,7 +7,7 @@
           <h1 class="text-3xl font-bold text-black">
             10 [Holiday] Gifts for People Who Love Paintings
           </h1>
-          <div class="flex items-center mt-4 space-x-4">
+          <div class="flex items-center mt-4 space-s-4">
             <button class="h-6 rounded-md bg-green-10 text-green-70 w-14">
               <p class="px-2 text-sm text-center">Image</p>
             </button>
@@ -17,9 +17,9 @@
             <p>12:30 PM</p>
           </div>
         </div>
-        <div class="flex space-x-4">
+        <div class="flex space-s-4">
           <button
-            class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
+            class="flex space-s-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
           >
             <EditIcon />
             <button
@@ -31,7 +31,7 @@
             <EditContent v-if="showModal" />
           </button>
           <button
-            class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
+            class="flex space-s-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
             @click="openArchive = !openArchive"
           >
             <ArchiveIcon />
@@ -40,7 +40,7 @@
           <ArchiveContent v-if="openArchive" />
 
           <button
-            class="flex space-x-2 items-center h-7 w-auto border rounded-sm border-red px-2"
+            class="flex space-s-2 items-center h-7 w-auto border rounded-sm border-red px-2"
             @click="openDelete = !openDelete"
           >
             <DeleteIcon />
@@ -49,7 +49,7 @@
           <DeleteContent v-if="openDelete" />
         </div>
       </div>
-      <div class="flex mt-14 space-x-72">
+      <div class="flex mt-14 space-s-72">
         <div class="w-1/2">
           <p class="text-gray-80">
             Paintings are a form of visual art that have been around for
@@ -74,7 +74,7 @@
             and viewers alike.
           </p>
           <hr />
-          <div class="flex mt-8 space-x-4">
+          <div class="flex mt-8 space-s-4">
             <div>
               <img
                 src="https://ui-avatars.com/api/?name=John+Doe"
@@ -92,7 +92,7 @@
           <div>
             <img src="/images/Rectangle.png" alt="" class="w-full" />
           </div>
-          <div class="flex mt-2 space-x-4">
+          <div class="flex mt-2 space-s-4">
             <img
               v-for="i in 4"
               :key="i"
@@ -106,7 +106,7 @@
             <div>
               <h2 class="text-xl font-bold text-black">Content Stats</h2>
             </div>
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-s-2">
               <a
                 href="#"
                 @click="
@@ -127,7 +127,7 @@
             >
               <div class="flex flex-col items-center justify-center px-3 my-7">
                 <h3 class="text-lg text-blue">{{ i.value }}</h3>
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-s-2">
                   <img :src="`/images/${i.icon}`" alt="" />
                   <p class="text-gray-60">{{ i.name }}</p>
                 </div>
