@@ -1,5 +1,6 @@
 <template>
   <div>
+    <BrandModal @closeModal="close" :open="open" />
     <TransitionRoot as="template" :show="sidebarOpen">
       <Dialog
         as="div"
@@ -63,7 +64,7 @@
                   />
                 </div>
                 <nav class="flex flex-col flex-1">
-                  <ul role="list" class="-ms-2 -me-2 space-y-1"></ul>
+                  <ul role="list" class="space-y-1 -ms-2 -me-2"></ul>
                 </nav>
               </div>
             </DialogPanel>
@@ -83,11 +84,14 @@
         </div>
         <div class="flex items-center h-16 shrink-0">
           <button
-            class="flex w-full ps-3 pe-s py-3 mt-4 space-s-4 border rounded-md"
+            class="flex w-full py-3 mt-4 border rounded-md ps-3 pe-s space-s-4"
+            @click="open = true"
           >
-            <AvatarsSquare />
+            <div class="w-16 h-12 rounded overflow-clip">
+              <img :src="selectedBrand?.brand_logo" class="object-cover w-full h-full" />
+            </div>
             <div class="flex flex-col text-start">
-              <p class="text-sm text-white">Coca Cola</p>
+              <p class="text-sm text-white">{{selectedBrand?.actualName}}</p>
               <div class="flex space-s-1">
                 <p class="text-xs text-gray-60">Switch Brand</p>
                 <ArrowDownIcon class="w-4 h-4 text-gray-60" />
@@ -131,7 +135,7 @@
               </template> -->
             </SingleNavLink>
             <!-- <div
-              class="ms-8 font-light transition-all duration-100 ease-linear transform text-gray-40 text-micro"
+              class="font-light transition-all duration-100 ease-linear transform ms-8 text-gray-40 text-micro"
               :class="
                 isBrandThemeSelected
                   ? 'h-[70px] opacity-100 pointer-events-auto'
@@ -172,10 +176,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { ROUTES } from "../../../../router/routes";
 import SingleNavLink from "./SingleNavLink.vue";
-import { ArrowRightIcon, Vector } from "../../../icons/AllIcons";
+import BrandModal from "../../../../components/common/auth/BrandModal.vue";
 import {
   HomeIcon,
   Person,
@@ -199,24 +203,30 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/vue/24/outline";
-const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
-];
-const teams = [
-  { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-  { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-  { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
-];
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
+import { useAuthStore } from "../../../../store/auth";
+
+
+const authStore = useAuthStore();
+const open = ref(false);
+// const navigation = [
+//   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
+//   { name: "Team", href: "#", icon: UsersIcon, current: false },
+//   { name: "Projects", href: "#", icon: FolderIcon, current: false },
+//   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+//   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
+//   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+// ];
+// const teams = [
+//   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
+//   { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
+//   { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
+// ];
+
+const close = () => {
+  open.value = false;
+};
 
 const sidebarOpen = ref(false);
 const isBrandThemeSelected = ref(false);
+const selectedBrand = computed(() => authStore.selectedBrand);
 </script>

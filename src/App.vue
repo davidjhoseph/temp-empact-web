@@ -10,14 +10,31 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { RouterView } from 'vue-router';
+import { RouterView, useRouter } from 'vue-router';
 import { useMainStore } from './store';
+import { useAuthStore } from './store/auth';
+import { ROUTES } from './router/routes';
 const store = useMainStore();
-onMounted(() => {
+const authStore = useAuthStore();
+const router = useRouter();
+
+const managePageLayout = () => {
 	if (store.appLayout === 'rtl') {
 		document.body.dir = 'rtl';
 		return;
 	}
 	document.body.dir = 'ltl';
+}
+
+const logout = () => {
+	authStore.logout();
+	router.push({ name: ROUTES.LOGIN });
+};
+
+onMounted(() => {
+	managePageLayout();
+	if(!authStore.selectedBrand){
+		logout();
+	}
 })
 </script>

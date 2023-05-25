@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto w-[525px] flex flex-col h-screen py-20">
-    <Modal @closeModal="close" :open="open" />
+    <BrandModal @closeModal="close" :open="open" />
     <!--  -->
     <div class="relative right-3">
       <img src="../../assets/logo/empact_logo.png" class="pb-16" />
@@ -98,7 +98,7 @@
 import { ref } from "vue";
 import BaseButton from "../../components/common/BaseButton.vue";
 import BaseInput from "../../components/common/BaseInput.vue";
-import Modal from "../../components/common/auth/BrandModal.vue";
+import BrandModal from "../../components/common/auth/BrandModal.vue";
 import { useRouter } from "vue-router";
 import { ROUTES } from "../../router/routes";
 import { LockIcon, MailIcon } from "../../components/icons/AllIcons";
@@ -120,13 +120,14 @@ const close = () => {
 };
 
 
+
 const login = async () => {
-  // open.value = true;
-	loading.value = true;
+  loading.value = true;
   // router.push({ name: ROUTES.HOME });
 	try {
     await authStore.login(email.value, password.value);
-		router.push({ name: ROUTES.HOME });
+    open.value = true;
+		// router.push({ name: ROUTES.HOME });
 	} finally {
     loading.value = false;
 	}

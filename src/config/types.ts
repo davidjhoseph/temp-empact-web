@@ -42,3 +42,15 @@ export type HTMLInputTypeAttribute =
 			this.image = jsonData.user_image;
 		}
 	}
+
+	export interface ManagedBrand {
+		id: number;
+		brendID: number;
+		brand: Brand;
+	}
+	export interface Brand {
+		id: number;
+		actualName: string;
+		name: string;
+		brand_logo: string;
+	}

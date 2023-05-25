@@ -1,18 +1,18 @@
 <template>
   <div
-    class="relative z-10"
+    class="relative z-[9999999999999]"
     aria-labelledby="modal-title"
     role="dialog"
     aria-modal="true"
     v-if="open"
   >
     <div
-      class="fixed inset-0 bg-gray-80 bg-opacity-75 transition-opacity"
+      class="fixed inset-0 transition-opacity bg-opacity-75 bg-gray-80"
       @click="closeModal"
     ></div>
 
-    <div class="fixed inset-0 z-10 overflow-y-auto">
-      <div class="flex min-h-full items-center justify-center p-4 text-center">
+    <div class="fixed inset-0 z-[9999999999999] overflow-y-auto">
+      <div class="flex items-center justify-center min-h-full p-4 text-center">
         <div
           class="relative transform overflow-hidden rounded-lg bg-white w-[36rem] p-6 text-left shadow-xl transition-all"
         >
@@ -46,49 +46,58 @@
                   v-model="searchQuery"
                 >
                   <template #icon>
-                    <SearchIcon class="h-5 w-5 text-gray-70" />
+                    <SearchIcon class="w-5 h-5 text-gray-70" />
                   </template>
                 </BaseInput>
               </div>
             </div>
           </div>
-
-          <div class="overflow-y-scroll p-3 h-96 hide">
-            <h3 class="my-5 text-black font-bold">
-              {{ brands.length }} brands
-            </h3>
-            <ul class="grid w-full gap-6 md:grid-cols-3">
-              <li
-                v-for="brand in filteredBrands"
-                :key="brand.id"
-                class="hover:shadow-lg"
-              >
-                <input
-                  type="checkbox"
-                  :id="brand.id.toString()"
-                  :value="brand.id"
-                  :checked="selectedBrandId === brand.id"
-                  @change="handleBrandSelection(brand.id)"
-                  class="hidden peer"
-                />
-                <label
-                  :for="brand.id.toString()"
-                  class="flex flex-col items-center justify-center w-full p-5 border border-1 rounded-lg cursor-pointer peer-checked:border-blue-30 gap-2"
-                >
-                  <div>
-                    <img
-                      :src="brand.logoUrl"
-                      alt="brand logo"
-                      class="w-full h-full"
-                    />
-                  </div>
-                  <p class="text-sm">{{ brand.name }}</p>
-                </label>
-              </li>
-            </ul>
-          </div>
-
-          <div class="flex mt-5 ms-auto w-44 gap-2">
+          <template v-if="brands?.length">
+              <template v-if="filteredBrands.length">
+                <div class="p-3 overflow-y-scroll h-96 hide">
+                  <h3 class="my-5 font-bold text-black">
+                    {{ filteredBrands.length }} {{ filteredBrands.length > 1 ? 'brands' : 'brand' }}
+                  </h3>
+                  <ul class="grid w-full gap-6 md:grid-cols-3">
+                    <li
+                      v-for="brand in filteredBrands"
+                      :key="brand.id"
+                      class="hover:shadow-lg"
+                    >
+                      <input
+                        type="checkbox"
+                        :id="brand.id.toString()"
+                        :value="brand.id"
+                        :checked="selectedBrandId === brand.id"
+                        @change="handleBrandSelection(brand)"
+                        class="hidden peer"
+                      />
+                      <label
+                        :for="brand.id.toString()"
+                        class="flex flex-col items-center justify-center w-full gap-2 p-5 border rounded-lg cursor-pointer border-1 peer-checked:border-blue-30"
+                      >
+                        <div>
+                          <img
+                            :src="brand.brand.brand_logo"
+                            alt="brand logo"
+                            class="w-full h-full"
+                          />
+                        </div>
+                        <p class="text-sm">{{ brand.brand.actualName }}</p>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+    
+              </template>
+              <template v-else>
+                <div class="py-6">Brand not found for that search</div>
+              </template>
+          </template>
+          <template v-else>
+            <div class="py-6">No Managed Brands for you yet!</div>
+          </template>
+          <div class="flex gap-2 mt-5 ms-auto w-44">
             <BaseButton
               class="w-1/2 border border-gray-50 bg-inherit"
               @click="closeModal"
@@ -116,8 +125,11 @@ import BaseButton from "../BaseButton.vue";
 import BaseInput from "../BaseInput.vue";
 import SearchIcon from "../../icons/SearchIcon.vue";
 import CloseIcon from "../../icons/CloseIcon.vue";
+import { useAuthStore } from "../../../store/auth";
+import { ManagedBrand } from "../../../config/types";
+import toast from "../../../helpers/toast";
 
-const props = defineProps({
+defineProps({
   open: {
     type: Boolean,
     default: false,
@@ -128,74 +140,74 @@ const router = useRouter();
 
 const emit = defineEmits(["closeModal"]);
 
-interface Brands {
-  id: number;
-  name: string;
-  logoUrl: string;
-}
+const authStore = useAuthStore();
 
 const searchQuery = ref("");
 
 const selectedBrandId = ref<number | null>(null);
 
-const handleBrandSelection = (brandId: number) => {
-  selectedBrandId.value = selectedBrandId.value === brandId ? null : brandId;
+const handleBrandSelection = (brand: ManagedBrand) => {
+  selectedBrandId.value = selectedBrandId.value === brand.id ? null : brand.id;
 };
 
-const brands: Brands[] = reactive<Brands[]>([
-  {
-    id: 1,
-    name: "McDonald's",
-    logoUrl: "/images/mac.png",
-  },
-  {
-    id: 2,
-    name: "Mercedes-Benz",
-    logoUrl: "/images/benz.png",
-  },
+const brands = computed(() => authStore.managedBrands);
 
-  {
-    id: 3,
-    name: "Coca-Cola",
-    logoUrl: "/images/coke.png",
-  },
+// const brands: Brands[] = reactive<Brands[]>([
+//   {
+//     id: 1,
+//     name: "McDonald's",
+//     logoUrl: "/images/mac.png",
+//   },
+//   {
+//     id: 2,
+//     name: "Mercedes-Benz",
+//     logoUrl: "/images/benz.png",
+//   },
 
-  {
-    id: 4,
-    name: "Domino's",
-    logoUrl: "/images/dominos.png",
-  },
-  {
-    id: 5,
-    name: "Starbucks",
-    logoUrl: "/images/starbucks.png",
-  },
-  {
-    id: 6,
-    name: "Adidas",
-    logoUrl: "/images/adidas.png",
-  },
-  {
-    id: 7,
-    name: "Mercedes-Benz",
-    logoUrl: "/images/mac.png",
-  },
-  {
-    id: 8,
-    name: "Mercedes-Benz",
-    logoUrl: "/images/mac.png",
-  },
-  {
-    id: 9,
-    name: "Mercedes-Benz",
-    logoUrl: "/images/mac.png",
-  },
-]);
+//   {
+//     id: 3,
+//     name: "Coca-Cola",
+//     logoUrl: "/images/coke.png",
+//   },
+
+//   {
+//     id: 4,
+//     name: "Domino's",
+//     logoUrl: "/images/dominos.png",
+//   },
+//   {
+//     id: 5,
+//     name: "Starbucks",
+//     logoUrl: "/images/starbucks.png",
+//   },
+//   {
+//     id: 6,
+//     name: "Adidas",
+//     logoUrl: "/images/adidas.png",
+//   },
+//   {
+//     id: 7,
+//     name: "Mercedes-Benz",
+//     logoUrl: "/images/mac.png",
+//   },
+//   {
+//     id: 8,
+//     name: "Mercedes-Benz",
+//     logoUrl: "/images/mac.png",
+//   },
+//   {
+//     id: 9,
+//     name: "Mercedes-Benz",
+//     logoUrl: "/images/mac.png",
+//   },
+// ]);
 
 const filteredBrands = computed(() => {
-  return brands.filter((brand) => {
-    return brand.name.toLowerCase().includes(searchQuery.value.toLowerCase());
+  const gottenBrands = brands.value?.filter((brand: ManagedBrand) => {
+    return brand.brand.name.toLowerCase().includes(searchQuery.value.toLowerCase());
   });
+  if(!gottenBrands?.length) return [];
+  return gottenBrands;
 });
 
 const closeModal = () => {
@@ -203,7 +215,14 @@ const closeModal = () => {
 };
 
 const gotoDashboard = () => {
-  router.push({ name: ROUTES.HOME_DASHBOARD });
+  const brand = brands.value?.filter((brand: ManagedBrand) => brand.id === selectedBrandId.value)[0];
+  console.log(brand);
+  if(!brand){
+    toast.error('Please select a brand to continue!');
+    return;
+  }
+  authStore.selectBrand(brand.brand);
+  router.push({ name: ROUTES.HOME });
   closeModal();
 };
 </script>
