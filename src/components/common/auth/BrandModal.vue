@@ -139,7 +139,6 @@ const searchQuery = ref("");
 const selectedBrandId = ref<number | null>(null);
 
 const handleBrandSelection = (brandId: number) => {
-  console.log(brandId);
   selectedBrandId.value = selectedBrandId.value === brandId ? null : brandId;
 };
 
@@ -147,49 +146,49 @@ const brands: Brands[] = reactive<Brands[]>([
   {
     id: 1,
     name: "McDonald's",
-    logoUrl: "/src/assets/mac.png",
+    logoUrl: "/images/mac.png",
   },
   {
     id: 2,
     name: "Mercedes-Benz",
-    logoUrl: "/src/assets/benz.png",
+    logoUrl: "/images/benz.png",
   },
 
   {
     id: 3,
     name: "Coca-Cola",
-    logoUrl: "/src/assets/coke.png",
+    logoUrl: "/images/coke.png",
   },
 
   {
     id: 4,
     name: "Domino's",
-    logoUrl: "/src/assets/dominos.png",
+    logoUrl: "/images/dominos.png",
   },
   {
     id: 5,
     name: "Starbucks",
-    logoUrl: "/src/assets/starbucks.png",
+    logoUrl: "/images/starbucks.png",
   },
   {
     id: 6,
     name: "Adidas",
-    logoUrl: "/src/assets/adidas.png",
+    logoUrl: "/images/adidas.png",
   },
   {
     id: 7,
     name: "Mercedes-Benz",
-    logoUrl: "/src/assets/mac.png",
+    logoUrl: "/images/mac.png",
   },
   {
     id: 8,
     name: "Mercedes-Benz",
-    logoUrl: "/src/assets/mac.png",
+    logoUrl: "/images/mac.png",
   },
   {
     id: 9,
     name: "Mercedes-Benz",
-    logoUrl: "/src/assets/mac.png",
+    logoUrl: "/images/mac.png",
   },
 ]);
 

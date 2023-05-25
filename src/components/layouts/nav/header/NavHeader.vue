@@ -16,7 +16,7 @@
               <img
                 src="https://ui-avatars.com/api/?name=John+Doe"
                 alt="user image"
-                class="w-full h-full"
+                class="w-full h-full rounded-full"
               />
             </div>
             <button>

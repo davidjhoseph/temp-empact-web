@@ -23,7 +23,11 @@ const vueRoute = useRoute();
 
 const currentRoute = computed(() => vueRoute.name);
 
-const isActive = computed(() =>currentRoute.value === props.route || ROUTES_MAPPING[props.route]?.includes(currentRoute.value as string));
+const isActive = computed(
+  () =>
+    currentRoute.value === props.route ||
+    ROUTES_MAPPING[props.route]?.includes(currentRoute.value as string)
+);
 const props = defineProps({
   title: {
     type: String,
@@ -39,10 +43,8 @@ const props = defineProps({
   },
 });
 
-
 const clickedLink = () => {
   // emits('clicked');
-  console.log(props.route);
-  router.push({ name: props.route })
-}
+  router.push({ name: props.route });
+};
 </script>

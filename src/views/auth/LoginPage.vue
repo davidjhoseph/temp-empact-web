@@ -76,13 +76,13 @@
         <button
           class="w-full border rounded-md p-3 justify-center flex items-center gap-3"
         >
-          <img src="../../assets/Google.png" alt="" />
+          <img src="/images/Google.png" alt="" />
           <span> Sign in with Google</span>
         </button>
         <button
           class="w-full border rounded-md p-3 justify-center flex items-center gap-3"
         >
-          <img src="../../assets/Facebook.png" alt="" />
+          <img src="/images/Facebook.png" alt="" />
           <span> Sign in with Facebook </span>
         </button>
       </div>

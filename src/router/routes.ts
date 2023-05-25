@@ -79,6 +79,9 @@ export default [
         meta: {
           breadcrumbs: [ROUTES.CONTENT_MANAGEMENT]
         },
+        children: [
+          
+        ]
       },
       {
         path: "/content-management/:id",

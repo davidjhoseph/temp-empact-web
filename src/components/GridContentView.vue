@@ -1,9 +1,11 @@
 <template>
-  <div class="grid grid-cols-4 gap-x-14 gap-y-6">
+  <div class="grid grid-cols-4 gap-x-14 gap-y-6 px-9">
+    <!-- <AllContent v-if="AllContent" />
+    <Publish v-else-if="Publish" />
+    <Drafts v-else-if="Drafts" />
+    <Archive v-else-if="Archive" /> -->
     <div class="py-4" v-for="list in contentList" :key="list.id">
-      <!-- left column -->
       <div class="grid gap-y-2 p-4 border rounded-md border-gray-30">
-        <!-- <input type="checkbox" name="" id="" class="-mt-16" /> -->
         <div class="w-full h-40 relative">
           <img
             class="absolute inset-0 w-full h-full object-cover"
@@ -19,7 +21,7 @@
           </p>
         </div>
         <div class="flex flex-col space-y-12">
-          <div class="absolute top-4 right-2">
+          <div class="absolute bottom-56 right-16">
             <button class="bg-green-10 text-green-70 h-5 w-12 rounded-sm">
               <p class="text-center text-sm px-2 text-red">
                 {{ list.imageText }}
@@ -54,15 +56,42 @@
           <div class="flex space-x-4 mt-5">
             <button
               class="text-gray-70 h-6 w-10 text-sm border-gray-40 rounded-sm border px-1"
-              @click=""
+              @click="
+                router.push({
+                  name: ROUTES.CONTENT_VIEW,
+                  params: { id: list.id },
+                })
+              "
             >
               view
             </button>
-            <button
-              class="text-gray-70 h-6 w-7 px-2 border-gray-40 rounded-sm border text-center"
-            >
-              <MenuIcon />
-            </button>
+            <Menu as="div" class="relative inline-block h-6 text-left">
+              <div>
+                <MenuButton
+                  class="w-8 h-6 pl-1 text-sm text-center border rounded-sm text-gray-70 border-gray-40"
+                >
+                  <MenuIcon
+                    class="w-5 h-5 -mr-1 text-gray-400"
+                    aria-hidden="true"
+                  />
+                </MenuButton>
+              </div>
+
+              <transition
+                enter-active-class="transition duration-100 ease-out"
+                enter-from-class="transform scale-95 opacity-0"
+                enter-to-class="transform scale-100 opacity-100"
+                leave-active-class="transition duration-75 ease-in"
+                leave-from-class="transform scale-100 opacity-100"
+                leave-to-class="transform scale-95 opacity-0"
+              >
+                <MenuItems
+                  class="absolute right-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                >
+                  <div><MenuDropdownView /></div>
+                </MenuItems>
+              </transition>
+            </Menu>
           </div>
         </div>
       </div>
@@ -70,11 +99,21 @@
   </div>
 </template>
 <script setup lang="ts">
-import { reactive } from "vue";
+import { ref } from "vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import LikesIcon from "./icons/LikesIcon.vue";
 import LoveIcon from "./icons/LoveIcon.vue";
-const contentList = reactive([
+// import AllContent from "./layouts/RightCoulumn/AllContent.vue";
+import Publish from "./layouts/RightCoulumn/Publish.vue";
+import Drafts from "./layouts/RightCoulumn/Drafts.vue";
+import Archive from "./layouts/RightCoulumn/Archive.vue";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import MenuDropdownView from "./layouts/Dropdown/MenuDropdownView.vue";
+
+import { useRouter } from "vue-router";
+import { ROUTES } from "../router/routes";
+const router = useRouter();
+const contentList = ref([
   {
     id: 1,
     title: "This is the title of the post",
@@ -208,11 +247,4 @@ const contentList = reactive([
     view: false,
   },
 ]);
-const getContentList = () => {
-  if (contentList.length > 0) {
-    return contentList;
-  } else if ((contentList.length = 0)) {
-    return;
-  }
-};
 </script>
