@@ -1,4 +1,4 @@
-import { LayoutDirection } from './../types';
+import { LayoutDirection } from '../config/types';
 import { defineStore, acceptHMRUpdate } from 'pinia';
 
 export const useMainStore = defineStore({

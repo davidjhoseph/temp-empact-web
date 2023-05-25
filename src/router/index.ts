@@ -1,6 +1,6 @@
 import { nextTick } from 'vue';
 import { createRouter, createWebHistory, type RouteLocation } from 'vue-router';
-import routes from './routes';
+import routes, { ROUTES } from './routes';
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,16 +14,23 @@ const router = createRouter({
 	},
 });
 
-const DEFAULT_TITLE = 'Empact';
-router.afterEach((to: RouteLocation, from: RouteLocation) => {
-	let pageTitle = DEFAULT_TITLE;
-	if (to.meta.title) {
-		pageTitle = `${to.meta.title} | ${pageTitle}`;
+// const DEFAULT_TITLE = 'Empact';
+// router.afterEach((to: RouteLocation, from: RouteLocation) => {
+// 	let pageTitle = DEFAULT_TITLE;
+// 	if (to.meta.title) {
+// 		pageTitle = `${to.meta.title} | ${pageTitle}`;
+// 	}
+
+// 	nextTick(() => {
+// 		document.title = pageTitle;
+// 	});
+
+// });
+
+router.beforeEach(async (to, from) => {
+	const token = localStorage.getItem('token');
+    if(to.name === ROUTES.LOGIN && token) {
+		return from.path;
 	}
-
-	nextTick(() => {
-		document.title = pageTitle;
-	});
-
 });
 export default router;

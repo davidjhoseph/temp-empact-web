@@ -19,6 +19,7 @@ import Settings from "../views/Settings.vue";
 import ContentView from "../views/ContentView.vue";
 import AdvanceStatisticsView from "../views/AdvancedStatisticsView.vue";
 import PlatformView from "../../src/components/layouts/RightCoulumn/PlatformShare.vue";
+import { mustBeLoggedIn } from "./guards";
 export const ROUTES = {
   HOME: "home",
   HOME_ADMIN: "home-admin",
@@ -63,6 +64,7 @@ export default [
     redirect: (to: RouteLocation) => {
       return { name: ROUTES.HOME_DASHBOARD };
     },
+		beforeEnter: [mustBeLoggedIn],
     children: [
       {
         path: "/dashboard",
