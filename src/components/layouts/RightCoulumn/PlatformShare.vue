@@ -167,10 +167,10 @@ const recentShares = ref([
     id: 14,
     name: "David Green",
     value: 1567,
-    icon: "Whatsaspp.png",
+    icon: "Whatsapp.png",
     date: "May 20,2023",
     time: "12:30 PM",
-    platform: "whatsapp",
+    platform: "Whatsapp",
   },
   {
     id: 15,
