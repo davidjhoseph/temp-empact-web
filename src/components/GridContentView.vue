@@ -103,7 +103,7 @@ import { ref } from "vue";
 import MenuIcon from "./icons/MenuIcon.vue";
 import LikesIcon from "./icons/LikesIcon.vue";
 import LoveIcon from "./icons/LoveIcon.vue";
-import AllContent from "./layouts/RightCoulumn/AllContent.vue";
+// import AllContent from "./layouts/RightCoulumn/AllContent.vue";
 import Publish from "./layouts/RightCoulumn/Publish.vue";
 import Drafts from "./layouts/RightCoulumn/Drafts.vue";
 import Archive from "./layouts/RightCoulumn/Archive.vue";
