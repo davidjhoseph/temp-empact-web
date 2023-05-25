@@ -1,9 +1,9 @@
 <template>
-  <div class="px-9 py-10 w-full overflow-y-auto">
+  <div class="ps-9 pe-9 py-10 w-full overflow-y-auto">
     <div v-if="getContentList()">
       <div class="py-4" v-for="list in contentList" :key="list.id">
         <div
-          class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"
+          class="flex justify-between ps-2 pe-2 space-y-6 border rounded-s-md rounded-e-md border-gray-30"
         >
           <div class="flex py-4 space-s-4">
             <input type="checkbox" name="" id="" class="-mt-28" />
@@ -45,14 +45,14 @@
                     params: { id: list.id },
                   })
                 "
-                class="w-10 h-6 px-1 text-sm border rounded-sm text-gray-70 border-gray-40"
+                class="w-10 h-6 ps-1 pe-1 text-sm border rounded-s-sm rounded-e-sm text-gray-70 border-gray-40"
               >
                 view
               </button>
               <Menu as="div" class="relative inline-block h-6 text-left">
                 <div>
                   <MenuButton
-                    class="w-8 h-6 ps-1 text-sm text-center border rounded-sm text-gray-70 border-gray-30"
+                    class="w-8 h-6 ps-1 text-sm text-center border rounded-s-sm rounded-e-sm text-gray-70 border-gray-30"
                   >
                     <MenuIcon
                       class="w-5 h-5 -me-1 text-gray-400"
@@ -70,7 +70,7 @@
                   leave-to-class="transform scale-95 opacity-0"
                 >
                   <MenuItems
-                    class="absolute right-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    class="absolute right-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-s-md rounded-e-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
                     <div><MenuDropdownView /></div>
                   </MenuItems>
@@ -79,8 +79,10 @@
             </div>
             <div class="flex space-s-10">
               <div>
-                <button class="w-12 h-5 rounded-sm bg-green-10 text-green-70">
-                  <p class="px-2 text-sm text-center">
+                <button
+                  class="w-12 h-5 rounded-s-sm rounded-e-sm bg-green-10 text-green-70"
+                >
+                  <p class="ps-2 pe- text-sm text-center">
                     {{ list.imageText }}
                   </p>
                 </button>

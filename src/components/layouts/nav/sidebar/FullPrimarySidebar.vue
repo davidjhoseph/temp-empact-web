@@ -63,7 +63,7 @@
                   />
                 </div>
                 <nav class="flex flex-col flex-1">
-                  <ul role="list" class="-mx-2 space-y-1"></ul>
+                  <ul role="list" class="-ms-2 -me-2 space-y-1"></ul>
                 </nav>
               </div>
             </DialogPanel>
@@ -83,7 +83,7 @@
         </div>
         <div class="flex items-center h-16 shrink-0">
           <button
-            class="flex w-full px-3 py-3 mt-4 space-s-4 border rounded-md"
+            class="flex w-full ps-3 pe-s py-3 mt-4 space-s-4 border rounded-md"
           >
             <AvatarsSquare />
             <div class="flex flex-col text-start">

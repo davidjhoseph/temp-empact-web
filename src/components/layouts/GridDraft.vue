@@ -1,1 +1,1 @@
-<template><div>grid draft</div></template>
+<template><div class="ps-9 pe-9">grid draft</div></template>
