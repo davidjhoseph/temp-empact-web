@@ -10,11 +10,15 @@
                         </div>
                         <div class="text-gray-60 text-nano">{{user?.email}}</div>
                     </div>
-                    <div class="w-14 h-14">
-                        <img
+                    <div class="rounded-full w-14 h-14 overflow-clip">
+                        <!-- <img
                             src="https://ui-avatars.com/api/?name=John+Doe"
                             alt="user image"
-                            class="w-full h-full rounded-full" />
+                            class="w-full h-full rounded-full" /> -->
+                        <img
+                            :src="user?.image"
+                            alt="user image"
+                            class="w-full h-full object cover" />
                     </div>
                     <button>
                         <ArrowDownIcon class="w-8 h-8 text-gray-60" />
