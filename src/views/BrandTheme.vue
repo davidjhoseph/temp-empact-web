@@ -46,7 +46,7 @@
               />
               <img
                 v-else
-                :src="previewImage"
+                src="/images/preview.png"
                 alt="Preview"
                 class="mb-5 border rounded-md w-60 h-60"
               />
@@ -158,13 +158,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, Ref } from "vue";
+import { ref, Ref } from "vue";
 import UploadIcon from "../components/icons/UploadIcon.vue";
 import TrashIcon from "../components/icons/TrashIcon.vue";
 import SaveIcon from "../components/icons/SaveIcon.vue";
 import { ColorsIcon, BrandIcon } from "../components/icons/AllIcons";
-
-import previewimage from '../../public/images/preview.png'
 
 const previewImage = ref("");
 
