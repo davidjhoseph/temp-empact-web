@@ -20,7 +20,7 @@
             </button>
           </div>
           <div class="absolute top-2 end-2" v-if="list.imageText == 'Video'">
-            <button class="h-6 w-12 rounded-md">
+            <button class="h-6 w-12">
               <p
                 class="text-center text-sm pe-2 ps-2 flex justify-center items-center bg-red-10 text-red rounded-md"
               >
