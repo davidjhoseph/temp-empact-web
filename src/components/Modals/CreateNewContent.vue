@@ -29,10 +29,10 @@
             leave-to="opacity-0 translat e-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden bg-white px-4 pb-4 text-start shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6 sm:h-full"
+              class="relative transform overflow-hidden bg-white px-4 pb-4 text-start shadow-xl transition-all sm:w-full sm:max-w-xl sm:p-6 sm:h-screen"
             >
               <div>
-                <div class="mt-3 sm:mt-5">
+                <div class="">
                   <DialogTitle
                     as="h3"
                     class="text-base font-semibold leading-6 text-gray-80 capitalize"
@@ -73,7 +73,7 @@
                             id=""
                             cols=""
                             rows=""
-                            class="w-full h-48 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2"
+                            class="w-full h-96 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2"
                             placeholder="Enter details of this post"
                           ></textarea>
                         </div>
