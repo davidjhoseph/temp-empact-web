@@ -4,13 +4,23 @@
       <div
         class="grid gap-y-2 py-4 pe-4 ps-4 border rounded-s-md rounded-e-md border-gray-30"
       >
-        <div class="w-full h-40 relative">
+        <div class="relative w-full h-40">
           <img
-            class="absolute inset-0 w-full h-full object-cover"
+            class="w-full h-full object-cover"
             :src="`https://picsum.photos/200/300`"
             alt="content image"
           />
+          <div class="absolute top-2 end-2">
+            <button class="h-6 w-12 rounded-md" :class="list.class">
+              <p
+                class="text-center text-sm pe-2 ps-2 flex justify-center items-center"
+              >
+                {{ list.imageText }}
+              </p>
+            </button>
+          </div>
         </div>
+
         <div class="flex flex-col">
           <p class="text-black text-start">{{ list.title }}</p>
 
@@ -19,15 +29,8 @@
           </p>
         </div>
         <div class="flex flex-col space-y-12">
-          <div class="absolute bottom-56 end-16">
-            <button class="bg-green-10 text-green-70 h-5 w-12 rounded-sm">
-              <p class="text-center text-sm pe-2 ps-2 text-red">
-                {{ list.imageText }}
-              </p>
-            </button>
-          </div>
-          <div class="flex space-s-10">
-            <div>
+          <div class="flex space-s-10 pt-2">
+            <div class="">
               <div class="flex space-s-2 items-center">
                 <LikesIcon />
                 <div class="text-gray-60">{{ list.likes }}</div>
@@ -117,6 +120,7 @@ const contentList = ref([
     imageText: "Image",
     image: "image.png",
     likes: "500",
+    class: "bg-green-10 text-green",
     favourite: "5,126",
     view: false,
   },
@@ -126,9 +130,10 @@ const contentList = ref([
     desc: "Description text just long enough to make this two lines.",
     date: "Mar 20, 2023",
     time: "12:30 PM",
-    imageText: "Image",
+    imageText: "Video",
     image: "image.png",
     likes: "500",
+    class: "bg-red-10 text-red",
     favourite: "5,126",
     view: false,
   },
@@ -141,6 +146,7 @@ const contentList = ref([
     imageText: "Image",
     image: "image.png",
     likes: "500",
+    class: "bg-green-10 text-green",
     favourite: "5,126",
     view: false,
   },
@@ -150,9 +156,10 @@ const contentList = ref([
     desc: "Description text just long enough to make this two lines.",
     date: "Mar 20, 2023",
     time: "12:30 PM",
-    imageText: "Image",
+    imageText: "Text",
     image: "image.png",
     likes: "500",
+    class: "bg-orange-20 text-orange-60",
     favourite: "5,126",
     view: false,
   },
@@ -165,6 +172,7 @@ const contentList = ref([
     imageText: "Image",
     image: "image.png",
     likes: "500",
+    class: "bg-green-10 text-green",
     favourite: "5,126",
     view: false,
   },
@@ -174,9 +182,10 @@ const contentList = ref([
     desc: "Description text just long enough to make this two lines.",
     date: "Mar 20, 2023",
     time: "12:30 PM",
-    imageText: "Image",
+    imageText: "Text",
     image: "image.png",
     likes: "500",
+    class: "bg-orange-20 text-orange-60",
     favourite: "5,126",
     view: false,
   },
@@ -186,9 +195,10 @@ const contentList = ref([
     desc: "Description text just long enough to make this two lines.",
     date: "Mar 20, 2023",
     time: "12:30 PM",
-    imageText: "Image",
+    imageText: "Video",
     image: "image.png",
     likes: "500",
+    class: "bg-red-10 text-red",
     favourite: "5,126",
     view: false,
   },
@@ -201,6 +211,7 @@ const contentList = ref([
     imageText: "Image",
     image: "image.png",
     likes: "500",
+    class: "bg-green-10 text-green",
     favourite: "5,126",
     view: false,
   },
@@ -213,6 +224,7 @@ const contentList = ref([
     imageText: "Image",
     image: "image.png",
     likes: "500",
+    class: "bg-green-10 text-green",
     favourite: "5,126",
     view: false,
   },
@@ -225,6 +237,7 @@ const contentList = ref([
     imageText: "Image",
     image: "image.png",
     likes: "500",
+    class: "bg-red-10 text-red",
     favourite: "5,126",
     view: false,
   },
@@ -234,9 +247,10 @@ const contentList = ref([
     desc: "Description text just long enough to make this two lines.",
     date: "Mar 20, 2023",
     time: "12:30 PM",
-    imageText: "Image",
+    imageText: "Text",
     image: "image.png",
     likes: "500",
+    class: "bg-orange-20 text-orange-60",
     favourite: "5,126",
     view: false,
   },
