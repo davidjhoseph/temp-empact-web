@@ -125,7 +125,7 @@
               :key="i.id"
               class="w-48 rounded-lg h-28 bg-blue-10"
             >
-              <div class="flex flex-col items-center justify-center px-3 my-7">
+              <div class="flex flex-col items-start justify-center px-3 my-7">
                 <h3 class="text-lg text-blue">{{ i.value }}</h3>
                 <div class="flex items-center space-s-2">
                   <img :src="`/images/${i.icon}`" alt="" />
