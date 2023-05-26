@@ -2,12 +2,12 @@
   <div class="mx-auto w-[525px] flex flex-col h-screen py-12">
     <!--  -->
     <div class="relative right-3">
-      <img src="/images/logo/empact_logo.png" class="pb-12" />
+      <img src="images/logo/empact_logo.png" class="pb-12" />
     </div>
 
     <form>
       <div class="space-y-4">
-        <h1 class="text-header3 text-blue font-bold">Welcome back to Empact</h1>
+        <h1 class="font-bold text-header3 text-blue">Welcome back to Empact</h1>
         <h2 class="text-gray-60">Sign in to continue to your account</h2>
       </div>
 
@@ -20,7 +20,7 @@
             icon
           >
             <template #icon>
-              <MailIcon class="h-5 w-5 text-gray-70" />
+              <MailIcon class="w-5 h-5 text-gray-70" />
             </template>
           </BaseInput>
         </div>
@@ -32,7 +32,7 @@
             icon
           >
             <template #icon>
-              <LockIcon class="h-5 w-5 text-gray-70" />
+              <LockIcon class="w-5 h-5 text-gray-70" />
             </template>
           </BaseInput>
         </div>
@@ -44,13 +44,13 @@
           <div class="space-y-5">
             <div class="relative flex items-center justify-between">
               <div class="flex items-center">
-                <div class="flex h-6 items-center">
+                <div class="flex items-center h-6">
                   <input
                     id="comments"
                     aria-describedby="comments-description"
                     name="comments"
                     type="checkbox"
-                    class="h-4 w-4 rounded border-gray-40 text-indigo-600 focus:ring-indigo-600"
+                    class="w-4 h-4 text-indigo-600 rounded border-gray-40 focus:ring-indigo-600"
                   />
                 </div>
                 <div class="ms-1.5 text-sm leading-6">
@@ -70,15 +70,15 @@
         <BaseButton class="w-full">Sign In</BaseButton>
       </div>
 
-      <div class="flex gap-3 w-full pb-5 pt-10">
+      <div class="flex w-full gap-3 pt-10 pb-5">
         <button
-          class="w-full border rounded-md p-3 justify-center flex items-center gap-3"
+          class="flex items-center justify-center w-full gap-3 p-3 border rounded-md"
         >
           <img src="/images/Google.png" alt="" />
           <span> Sign in with Google</span>
         </button>
         <button
-          class="w-full border rounded-md p-3 justify-center flex items-center gap-3"
+          class="flex items-center justify-center w-full gap-3 p-3 border rounded-md"
         >
           <img src="/images/Facebook.png" alt="" />
           <span> Sign in with Facebook </span>
