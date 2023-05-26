@@ -19,32 +19,32 @@
         </div>
         <div class="flex space-s-4">
           <button
-            class="flex space-s-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
+            class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-gray-60"
           >
             <EditIcon />
             <button
               @click="showModal = !showModal"
-              class="text-gray-70 text-sm"
+              class="text-sm text-gray-70"
             >
               Edit
             </button>
             <EditContent v-if="showModal" />
           </button>
           <button
-            class="flex space-s-2 items-center h-7 w-auto border rounded-sm border-gray-60 px-2"
+            class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-gray-60"
             @click="openArchive = !openArchive"
           >
             <ArchiveIcon />
-            <p class="text-gray-70 text-sm">Archive</p>
+            <p class="text-sm text-gray-70">Archive</p>
           </button>
           <ArchiveContent v-if="openArchive" />
 
           <button
-            class="flex space-s-2 items-center h-7 w-auto border rounded-sm border-red px-2"
+            class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-red"
             @click="openDelete = !openDelete"
           >
             <DeleteIcon />
-            <p class="text-red text-sm">Delete</p>
+            <p class="text-sm text-red">Delete</p>
           </button>
           <DeleteContent v-if="openDelete" />
         </div>
@@ -83,8 +83,8 @@
               />
             </div>
             <div class="grid">
-              <div class="text-gray-60 text-xs">Posted By</div>
-              <div class="text-gray-80 text-sm">David Green</div>
+              <div class="text-xs text-gray-60">Posted By</div>
+              <div class="text-sm text-gray-80">David Green</div>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@
               <ArrowRightIcon />
             </div>
           </div>
-          <div class="flex justify-between mt-4">
+          <div class="flex justify-between mt-4 space-s-4">
             <div
               v-for="i in stats"
               :key="i.id"
