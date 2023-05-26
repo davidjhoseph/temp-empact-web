@@ -14,151 +14,64 @@
     </div>
     <div class="px-9 pt-6">
       <!-- list view layout -->
-      <div class="flex pb-4 space-s-10" v-if="layout === 'list'">
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentContentTab = 'AllContentListView'"
-        >
+      <div class="flex space-s-10" v-if="layout === 'list'">
+        <div v-for="i in tabHeadings" :key="i.name" @click="changeTab(i.name)">
           <div
-            class="text-gray-60"
-            @click="selectTab('allContent')"
-            :class="{ isActive: allContent }"
+            class="flex items-center space-s-2 cursor-pointer"
+            :class="[
+              tabValue == i.name
+                ? 'border-blue text-black text-base'
+                : 'border-transparent text-gray-500 hover:border-blue hover:text-gray-60',
+              'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
+            ]"
           >
-            All Content
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            {{ contentList.length }}
-          </div>
-        </div>
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentContentTab = 'Publish'"
-        >
-          <div
-            class="text-gray-60"
-            @click="selectTab('Publish')"
-            :class="{ isActive: publish }"
-          >
-            Publish
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            0
-          </div>
-        </div>
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentContentTab = 'Drafts'"
-        >
-          <div
-            class="text-gray-60"
-            @click="selectTab('Drafts')"
-            :class="{ isActive: drafts }"
-          >
-            Drafts
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            0
-          </div>
-        </div>
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentContentTab = 'Archive'"
-        >
-          <div
-            class="text-gray-60"
-            @click="selectTab('Archive')"
-            :class="{ isActive: archive }"
-          >
-            Archive
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            0
+            <div>{{ i.name }}</div>
+            <div
+              class="flex items-center justify-center text-center"
+              :class="[
+                tabValue == i.name
+                  ? 'text-white rounded-sm bg-blue w-5 h-5'
+                  : 'text-black rounded-sm bg-gray-30 w-5 h-5',
+                ,
+              ]"
+            >
+              {{ i.listLength }}
+            </div>
           </div>
         </div>
       </div>
+
       <!-- grid view layout -->
-      <div class="flex pb-4 space-s-10" v-if="layout === 'grid'">
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentTab = 'GridContentView'"
-        >
+      <div class="flex space-s-10" v-if="layout === 'grid'">
+        <div v-for="i in tabHeadings" :key="i.id" @click="changeTab(i.name)">
           <div
-            class="text-gray-60"
-            @click="selectTab('allContent')"
-            :class="{ isActive: allContent }"
+            class="flex items-center space-s-2 cursor-pointer"
+            :class="[
+              tabValue == i.name
+                ? 'border-blue text-black text-base'
+                : 'border-transparent text-gray-500 hover:border-blue hover:text-gray-60',
+              'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
+            ]"
           >
-            All Content
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            {{ contentList.length }}
-          </div>
-        </div>
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentTab = 'GridPublish'"
-        >
-          <div
-            class="text-gray-60"
-            @click="selectTab('Publish')"
-            :class="{ isActive: publish }"
-          >
-            Publish
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            0
-          </div>
-        </div>
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentTab = 'GridDrafts'"
-        >
-          <div
-            class="text-gray-60"
-            @click="selectTab('Drafts')"
-            :class="{ isActive: drafts }"
-          >
-            Drafts
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            0
-          </div>
-        </div>
-        <div
-          class="flex items-center space-s-2 cursor-pointer hover:border-b-2 hover:border-b-blue"
-          @click="currentTab = 'GridArchive'"
-        >
-          <div
-            class="text-gray-60"
-            @click="selectTab('Archive')"
-            :class="{ isActive: archive }"
-          >
-            Archive
-          </div>
-          <div
-            class="flex items-center justify-center w-5 h-5 text-center text-white rounded-sm bg-blue"
-          >
-            0
+            <div>{{ i.name }}</div>
+            <div
+              class="flex items-center justify-center text-center"
+              :class="[
+                tabValue == i.name
+                  ? 'text-white rounded-sm bg-blue w-5 h-5'
+                  : 'text-black rounded-sm bg-gray-30 w-5 h-5',
+                ,
+              ]"
+            >
+              {{ i.listLength }}
+            </div>
           </div>
         </div>
       </div>
       <hr />
     </div>
 
-    <div class="flex justify-between px-9 pt-6">
+    <div class="flex justify-between px-9 pt-10">
       <div class="flex space-s-6">
         <div class="relative rounded-md">
           <div
@@ -202,14 +115,34 @@
         </div>
       </div>
     </div>
-    <component
-      v-if="layout === 'list'"
-      :is="contents[currentContentTab as keyof typeof contents]"
-    ></component>
-    <component
-      v-if="layout === 'grid'"
-      :is="tabs[currentTab as keyof typeof tabs]"
-    ></component>
+    <!-- list view component -->
+    <div class="" v-if="layout === 'list'">
+      <div v-if="tabValue === 'All Content'">
+        <AllContentListView />
+      </div>
+      <div v-else-if="tabValue === 'Publish'">
+        <Publish />
+      </div>
+      <div v-else-if="tabValue === 'Drafts'">
+        <Drafts />
+      </div>
+      <div v-else-if="tabValue === 'Archive'"><Archive /></div>
+      <!-- grid view component -->
+    </div>
+    <div class="" v-if="layout === 'grid'">
+      <div v-if="tabValue === 'All Content'">
+        <GridContentView />
+      </div>
+      <div v-else-if="tabValue === 'Publish'">
+        <GridPublish />
+      </div>
+      <div v-else-if="tabValue === 'Drafts'">
+        <GridDrafts />
+      </div>
+      <div v-else-if="tabValue === 'Archive'">
+        <GridArchive />
+      </div>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
@@ -236,26 +169,6 @@ import ColoredGridIcon from "../components/icons/ColoredGridIcon.vue";
 import GrayListIcon from "../components/icons/GrayListIcon.vue";
 
 const layout = ref("list");
-const allContent = ref(false);
-const publish = ref(false);
-const drafts = ref(false);
-const archive = ref(false);
-
-function selectTab(box: any) {
-  if (box === "allContent") {
-    allContent.value = !allContent.value;
-    console.log(allContent.value);
-  } else if (box === "Publish") {
-    publish.value = !publish.value;
-    console.log(publish.value);
-  } else if (box === "Drafts") {
-    drafts.value = !drafts.value;
-    console.log(drafts.value);
-  } else if (box === "Archive") {
-    archive.value = !archive.value;
-    console.log(archive.value);
-  }
-}
 const showModal = ref(false);
 const contentList = reactive([
   {
@@ -391,26 +304,44 @@ const contentList = reactive([
     view: false,
   },
 ]);
-const tabs = ref({
-  GridContentView,
-  GridPublish,
-  GridDrafts,
-  GridArchive,
-});
-const currentTab = ref("GridContentView");
-const contents = reactive({
-  AllContentListView,
-  Archive,
-  Drafts,
-  Publish,
-});
-const currentContentTab = ref("AllContentListView");
+const tabValue = ref("All Content");
+const tabHeadings = ref([
+  {
+    id: 1,
+    name: "All Content",
+    value: false,
+    listLength: contentList.length,
+  },
+  {
+    id: 2,
+    name: "Publish",
+    value: false,
+    listLength: 0,
+  },
+  {
+    id: 3,
+    name: "Drafts",
+    value: false,
+    listLength: 0,
+  },
+  {
+    id: 4,
+    name: "Archive",
+    value: false,
+    listLength: 0,
+  },
+]);
+const changeTab = (name: string) => {
+  tabValue.value = name;
+};
 </script>
 <style scoped>
-.inActive {
+.isActive {
   color: #020d1c;
-  text-decoration: underline;
-  text-decoration-color: #2c79ec;
-  text-decoration-style: solid;
+  border-bottom: 2px;
+  border-color: #2c79ec;
+}
+.isActive:hover {
+  border: #2c79ec;
 }
 </style>
