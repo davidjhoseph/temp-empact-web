@@ -2,41 +2,45 @@
   <Menu as="div" class="relative inline-block text-start">
     <div>
       <MenuButton
-        class="inline-flex w-40 items-center justify-center gap-x-2 rounded-s-md rounded-e-md bg-white pe-3 ps-3 py-2 text-sm font-semibold text-gray-70 capitalize border border-gray-40 h-12"
+        class="inline-flex items-center justify-center w-40 h-12 py-2 text-sm font-semibold capitalize bg-white border gap-x-2 rounded-s-md rounded-e-md pe-3 ps-3 text-gray-70 border-gray-40"
       >
         <FilterIcon /> Filter by date
       </MenuButton>
     </div>
 
     <transition
-      enter-active-class="transition ease-out duration-100"
-      enter-from-class="transform opacity-0 scale-95"
-      enter-to-class="transform opacity-100 scale-100"
-      leave-active-class="transition ease-in duration-75"
-      leave-from-class="transform opacity-100 scale-100"
-      leave-to-class="transform opacity-0 scale-95"
+      enter-active-class="transition duration-100 ease-out"
+      enter-from-class="transform scale-95 opacity-0"
+      enter-to-class="transform scale-100 opacity-100"
+      leave-active-class="transition duration-75 ease-in"
+      leave-from-class="transform scale-100 opacity-100"
+      leave-to-class="transform scale-95 opacity-0"
     >
       <MenuItems
+<<<<<<< HEAD
         class="absolute z-20 mt-4 w-82 rounded-s-md rounded-e-md bg-white shadow-lg"
+=======
+        class="absolute mt-4 bg-white shadow-lg w-82 rounded-s-md rounded-e-md"
+>>>>>>> 7d1d78c030b12920c1411e299407f11b840f3e08
       >
-        <div class="flex items-center justify-between ps-4 pe-4 pt-2">
-          <div class="capitalize font-bold text-gray-80">Filter by date</div>
-          <CloseIcon @click="open" class="cursor-pointer" />
+        <div class="flex items-center justify-between pt-2 ps-4 pe-4">
+          <div class="font-bold capitalize text-gray-80">Filter by date</div>
+          <CloseIcon @click="open = false" class="cursor-pointer" />
         </div>
-        <form action="" class="ps-4 pe-4 pb-4">
+        <form action="" class="pb-4 ps-4 pe-4">
           <CalendarDate label="start date" class="py-6" />
           <CalendarDate label="end date" />
-          <div class="pt-10 flex justify-end space-s-4">
+          <div class="flex justify-end pt-10 space-s-4">
             <div>
               <button
-                class="rounded-s-md rounded-e-md border border-gray-40 h-8 capitalize text-gray-70"
+                class="h-8 capitalize border rounded-s-md rounded-e-md border-gray-40 text-gray-70"
               >
                 <p class="ps-2 pe-2">cancel</p>
               </button>
             </div>
             <div>
               <button
-                class="bg-blue text-white rounded-s-md rounded-e-md h-8 capitalize"
+                class="h-8 text-white capitalize bg-blue rounded-s-md rounded-e-md"
               >
                 <p class="ps-3 pe-3">Apply Filter</p>
               </button>

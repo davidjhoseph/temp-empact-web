@@ -23,7 +23,7 @@
         <div class="flex flex-col gap-5 p-5 border rounded-md">
           <div class="flex items-center gap-3">
             <div
-              class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center"
+              class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full"
             >
               <BrandIcon class="w-5 h-5 text-blue" />
             </div>
@@ -46,7 +46,7 @@
               />
               <img
                 v-else
-                src="images/preview.png"
+                src="/images/preview.png"
                 alt="Preview"
                 class="mb-5 border rounded-md w-60 h-60"
               />
@@ -93,7 +93,7 @@
         <div class="p-5 border rounded-md space-y-7">
           <div class="flex items-center gap-3 pb-2">
             <div
-              class="bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center"
+              class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full"
             >
               <ColorsIcon class="w-5 h-5 text-blue" />
             </div>
@@ -158,7 +158,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, Ref } from "vue";
+import { ref, Ref } from "vue";
 import UploadIcon from "../components/icons/UploadIcon.vue";
 import TrashIcon from "../components/icons/TrashIcon.vue";
 import SaveIcon from "../components/icons/SaveIcon.vue";

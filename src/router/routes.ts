@@ -6,7 +6,7 @@ import ComponentsView from "../views/ComponentsView.vue";
 import ContentManagementView from "../views/ContentManagementView.vue";
 import AuthView from "../views/auth/AuthView.vue";
 import LoginPage from "../views/auth/LoginPage.vue";
-import RegisterPage from "../views/auth/RegisterPage.vue";
+// import RegisterPage from "../views/auth/RegisterPage.vue";
 import ForgotPassword from "../views/auth/ForgotPassword.vue";
 import ResetPasswordConfirmation from "../views/auth/ResetPasswordConfirmation.vue";
 import SetNewPassword from "../views/auth/SetNewPassword.vue";
@@ -171,11 +171,11 @@ export default [
         name: ROUTES.LOGIN,
         component: LoginPage,
       },
-      {
-        path: "register",
-        name: ROUTES.REGISTER,
-        component: RegisterPage,
-      },
+      // {
+      //   path: "register",
+      //   name: ROUTES.REGISTER,
+      //   component: RegisterPage,
+      // },
       {
         path: "reset-password",
         name: ROUTES.RESET_PASSWORD,
