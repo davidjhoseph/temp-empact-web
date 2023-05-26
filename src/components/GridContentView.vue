@@ -10,10 +10,29 @@
             :src="`https://picsum.photos/200/300`"
             alt="content image"
           />
-          <div class="absolute top-2 end-2">
-            <button class="h-6 w-12 rounded-md" :class="list.class">
+          <div class="absolute top-2 end-2" v-if="list.imageText == 'Image'">
+            <button class="h-6 w-12">
               <p
-                class="text-center text-sm pe-2 ps-2 flex justify-center items-center"
+                class="text-center text-sm pe-2 ps-2 flex justify-center items-center bg-green-10 text-green rounded-md"
+              >
+                {{ list.imageText }}
+              </p>
+            </button>
+          </div>
+          <div class="absolute top-2 end-2" v-if="list.imageText == 'Video'">
+            <button class="h-6 w-12 rounded-md">
+              <p
+                class="text-center text-sm pe-2 ps-2 flex justify-center items-center bg-red-10 text-red rounded-md"
+              >
+                {{ list.imageText }}
+              </p>
+            </button>
+          </div>
+
+          <div class="absolute top-2 end-2" v-if="list.imageText == 'Text'">
+            <button class="h-6 w-12 rounded-md">
+              <p
+                class="text-center text-sm pe-2 ps-2 flex justify-center items-center bg-orange-20 text-orange-60 rounded-md"
               >
                 {{ list.imageText }}
               </p>

@@ -90,7 +90,7 @@
         <Filter><FilterIcon /></Filter>
 
         <!-- Media type dropdown -->
-        <Dropdown name="Media type : All">
+        <Dropdown name="All">
           <template #icon>
             <ChevronDownIcon
               class="w-5 h-5 -me-1 text-gray-400"

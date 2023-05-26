@@ -84,6 +84,7 @@
                 >
                   <p
                     class="ps-2 pe-2 text-sm text-center flex justify-center items-center"
+                    :class="{}"
                   >
                     {{ list.imageText }}
                   </p>
@@ -124,6 +125,8 @@ import { ROUTES } from "../../../router/routes";
 import { Menu, MenuButton, MenuItems } from "@headlessui/vue";
 import MenuIcon from "../../icons/MenuIcon.vue";
 import MenuDropdownView from "../../layouts/Dropdown/MenuDropdownView.vue";
+import LoveIcon from "../../icons/LoveIcon.vue";
+import LikesIcon from "../../icons/LikesIcon.vue";
 
 const router = useRouter();
 const route = useRoute();
