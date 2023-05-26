@@ -53,46 +53,46 @@
             </div>
           </div>
           <template v-if="brands?.length">
-              <template v-if="filteredBrands.length">
-                <div class="p-3 overflow-y-scroll h-96 hide">
-                  <h3 class="my-5 font-bold text-black">
-                    {{ filteredBrands.length }} {{ filteredBrands.length > 1 ? 'brands' : 'brand' }}
-                  </h3>
-                  <ul class="grid w-full gap-6 md:grid-cols-3">
-                    <li
-                      v-for="brand in filteredBrands"
-                      :key="brand.id"
-                      class="hover:shadow-lg"
+            <template v-if="filteredBrands.length">
+              <div class="p-3 overflow-y-scroll h-96 hide">
+                <h3 class="my-5 font-bold text-black">
+                  {{ filteredBrands.length }}
+                  {{ filteredBrands.length > 1 ? "brands" : "brand" }}
+                </h3>
+                <ul class="grid w-full gap-6 md:grid-cols-3">
+                  <li
+                    v-for="brand in filteredBrands"
+                    :key="brand.id"
+                    class="hover:shadow-lg"
+                  >
+                    <input
+                      type="checkbox"
+                      :id="brand.id.toString()"
+                      :value="brand.id"
+                      :checked="selectedBrandId === brand.id"
+                      @change="handleBrandSelection(brand)"
+                      class="hidden peer"
+                    />
+                    <label
+                      :for="brand.id.toString()"
+                      class="flex flex-col items-center justify-center w-full gap-2 p-5 border rounded-lg cursor-pointer border-1 peer-checked:border-blue-30"
                     >
-                      <input
-                        type="checkbox"
-                        :id="brand.id.toString()"
-                        :value="brand.id"
-                        :checked="selectedBrandId === brand.id"
-                        @change="handleBrandSelection(brand)"
-                        class="hidden peer"
-                      />
-                      <label
-                        :for="brand.id.toString()"
-                        class="flex flex-col items-center justify-center w-full gap-2 p-5 border rounded-lg cursor-pointer border-1 peer-checked:border-blue-30"
-                      >
-                        <div>
-                          <img
-                            :src="brand.brand.brand_logo"
-                            alt="brand logo"
-                            class="w-full h-full"
-                          />
-                        </div>
-                        <p class="text-sm">{{ brand.brand.actualName }}</p>
-                      </label>
-                    </li>
-                  </ul>
-                </div>
-    
-              </template>
-              <template v-else>
-                <div class="py-6">Brand not found for that search</div>
-              </template>
+                      <div>
+                        <img
+                          :src="brand.brand.brand_logo"
+                          alt="brand logo"
+                          class="w-full h-full"
+                        />
+                      </div>
+                      <p class="text-sm">{{ brand.brand.actualName }}</p>
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </template>
+            <template v-else>
+              <div class="py-6">Brand not found for that search</div>
+            </template>
           </template>
           <template v-else>
             <div class="py-6">No Managed Brands for you yet!</div>
@@ -152,61 +152,13 @@ const handleBrandSelection = (brand: ManagedBrand) => {
 
 const brands = computed(() => authStore.managedBrands);
 
-// const brands: Brands[] = reactive<Brands[]>([
-//   {
-//     id: 1,
-//     name: "McDonald's",
-//     logoUrl: "/images/mac.png",
-//   },
-//   {
-//     id: 2,
-//     name: "Mercedes-Benz",
-//     logoUrl: "/images/benz.png",
-//   },
-
-//   {
-//     id: 3,
-//     name: "Coca-Cola",
-//     logoUrl: "/images/coke.png",
-//   },
-
-//   {
-//     id: 4,
-//     name: "Domino's",
-//     logoUrl: "/images/dominos.png",
-//   },
-//   {
-//     id: 5,
-//     name: "Starbucks",
-//     logoUrl: "/images/starbucks.png",
-//   },
-//   {
-//     id: 6,
-//     name: "Adidas",
-//     logoUrl: "/images/adidas.png",
-//   },
-//   {
-//     id: 7,
-//     name: "Mercedes-Benz",
-//     logoUrl: "/images/mac.png",
-//   },
-//   {
-//     id: 8,
-//     name: "Mercedes-Benz",
-//     logoUrl: "/images/mac.png",
-//   },
-//   {
-//     id: 9,
-//     name: "Mercedes-Benz",
-//     logoUrl: "/images/mac.png",
-//   },
-// ]);
-
 const filteredBrands = computed(() => {
   const gottenBrands = brands.value?.filter((brand: ManagedBrand) => {
-    return brand.brand.name.toLowerCase().includes(searchQuery.value.toLowerCase());
+    return brand.brand.name
+      .toLowerCase()
+      .includes(searchQuery.value.toLowerCase());
   });
-  if(!gottenBrands?.length) return [];
+  if (!gottenBrands?.length) return [];
   return gottenBrands;
 });
 
@@ -215,10 +167,12 @@ const closeModal = () => {
 };
 
 const gotoDashboard = () => {
-  const brand = brands.value?.filter((brand: ManagedBrand) => brand.id === selectedBrandId.value)[0];
+  const brand = brands.value?.filter(
+    (brand: ManagedBrand) => brand.id === selectedBrandId.value
+  )[0];
   console.log(brand);
-  if(!brand){
-    toast.error('Please select a brand to continue!');
+  if (!brand) {
+    toast.error("Please select a brand to continue!");
     return;
   }
   authStore.selectBrand(brand.brand);

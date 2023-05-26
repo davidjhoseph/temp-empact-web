@@ -25,7 +25,7 @@ export const ROUTES = {
   HOME_ADMIN: "home-admin",
   HOME_DASHBOARD: "home-dashboard",
   CONTENT_MANAGEMENT: "content-management",
-  BRAND_THEME: "board-team",
+  BRAND_THEME: "brand-theme",
   RECOMMENDATION: "recommendation",
   SETTINGS: "settings",
   SETTING: "setting",
