@@ -127,18 +127,30 @@
                   @input="updateColor(colorConfig)"
                 />
               </div>
-              <div class="flex gap-2">
+              <div class="flex items-center gap-2">
                 <button
                   class="border text-gray-60 p-1.5 w-1/3 rounded-md"
                   @click="resetColor(colorConfig)"
                 >
                   Reset
                 </button>
-                <button
-                  class="border p-1.5 w-2/3 rounded-md bg-blue text-white"
-                >
-                  Custom Color
-                </button>
+
+                <div class="w-2/3 text-white relative">
+                  <input
+                    type="color"
+                    v-model="colorConfig.input"
+                    class="opacity-0 absolute"
+                    placeholder="Enter a color value (hex, RGB, or HSL)"
+                    @input="updateColor(colorConfig)"
+                    :id="colorConfig.label"
+                  />
+                  <label
+                    :for="colorConfig.label"
+                    class="w-full text-gray bg-blue rounded-md cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-1.5 text-center"
+                  >
+                    Custom Color
+                  </label>
+                </div>
               </div>
             </div>
           </div>
