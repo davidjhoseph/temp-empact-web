@@ -17,7 +17,7 @@
       leave-to-class="transform scale-95 opacity-0"
     >
       <MenuItems
-        class="absolute mt-4 bg-white shadow-lg w-82 rounded-s-md rounded-e-md"
+        class="absolute z-20 mt-4 w-82 rounded-s-md rounded-e-md bg-white shadow-lg"
       >
         <div class="flex items-center justify-between pt-2 ps-4 pe-4">
           <div class="font-bold capitalize text-gray-80">Filter by date</div>
