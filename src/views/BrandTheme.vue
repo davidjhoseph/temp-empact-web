@@ -83,7 +83,7 @@
                 class="flex flex-col items-center justify-center pb-6"
                 v-show="previewImage.length == 0"
               >
-                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"></p>
+                <p class="mb-2 text-sm text-gray-500"></p>
                 <p class="text-xs text-gray-60">JPG, PNG, less than 10MB</p>
               </div>
             </label>

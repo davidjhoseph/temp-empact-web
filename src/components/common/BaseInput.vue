@@ -20,7 +20,7 @@
         :value="value"
         @input="changeInput($event)"
         :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
-        class="w-full px-3 border rounded outline-none text-caption placeholder:text-gray-70 border-gray-40 bg-gray-10 focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70" />
+        class="w-full px-3 border rounded outline-none text-caption placeholder:text-gray-70 border-gray-40 bg-gray-10 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70" />
       <input
         v-else
         ref="baseInput"
@@ -32,7 +32,7 @@
         :min="min"
         @input="changeInput($event)"
         :class="[{ 'ps-9': icon }, small ? 'py-1' : 'py-2']"
-        class="w-full px-3 border rounded-lg outline-none text-caption placeholder:text-gray-70 border-gray-40 bg-gray-10 focus:outline-none focus:ring-2 focus:ring-green focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70" />
+        class="w-full px-3 border rounded-lg outline-none text-caption placeholder:text-gray-70 border-gray-40 bg-gray-10 focus:outline-none focus:ring-2 focus:ring-blue focus:ring-offset-transparent disabled:cursor-not-allowed disabled:border-gray-50 disabled:bg-gray-30 disabled:text-gray-80 text-gray-70" />
       <!-- <button
         type="button"
         class="absolute top-0 bottom-0 right-0 h-full px-2 my-auto rounded-r-lg"
