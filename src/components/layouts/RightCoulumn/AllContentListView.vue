@@ -20,7 +20,7 @@
               <p class="text-left text-gray-60">
                 <small>{{ list.desc }}</small>
               </p>
-              <div class="justify-between">
+              <div class="flex justify-between">
                 <div class="flex items-center mt-16 space-s-2">
                   <div class="text-sm text-left text-gray-60">
                     <small>{{ list.date }}</small>
@@ -77,7 +77,7 @@
                 </transition>
               </Menu>
             </div>
-            <div class="flex space-s-10">
+            <div class="flex space-s-10 pt-7">
               <div>
                 <button
                   class="w-12 h-6 rounded-s-md rounded-e-md bg-green-10 text-green-70"

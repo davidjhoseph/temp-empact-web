@@ -19,13 +19,13 @@
         </div>
       </div>
       <div class="my-10">
-        <div class="flex justify-between space-s-2">
-          <div v-for="i in stats" :key="i.id">
-            <div class="h-28 w-72 border-gray-50 border rounded-lg">
-              <div class="my-7 px-3 flex flex-col">
+        <div class="flex justify-between space-s-4">
+          <div v-for="i in stats" :key="i.id" class="w-1/5">
+            <div class="h-28 w-full border-gray-30 border rounded-lg">
+              <div class="my-7 px-2 flex flex-col">
                 <h3 class="text-blue text-lg">{{ i.value }}</h3>
-                <div class="flex space-s-2 items-center">
-                  <div><img :src="`/images/${i.icon}`" alt="" /></div>
+                <div class="flex space-s-1 items-center">
+                  <div><img :src="`/images/${i.icon}`" alt="" class="" /></div>
                   <p class="text-gray-60">{{ i.name }}</p>
                 </div>
               </div>
@@ -34,7 +34,7 @@
         </div>
       </div>
       <div class="grid grid-cols-2 gap-6">
-        <div class="border border-gray-70 rounded-md">
+        <div class="border border-gray-30 rounded-md">
           <div class="flex justify-between p-4">
             <div class="font-bold text-black">Platform Shares</div>
           </div>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </div>
-        <div class="border border-gray-70 rounded-md">
+        <div class="border border-gray-30 rounded-md">
           <div class="flex justify-between p-4">
             <div class="font-bold text-black">Recent Shares</div>
             <button class="text-gray-60">
@@ -76,7 +76,7 @@
             </div>
           </div>
         </div>
-        <div class="border border-gray-70 rounded-md">
+        <div class="border border-gray-30 rounded-md">
           <div class="flex justify-between p-4">
             <div class="font-bold text-black">Recent Shares</div>
             <button class="text-gray-60">

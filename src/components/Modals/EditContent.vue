@@ -29,7 +29,7 @@
             leave-to="opacity-0 translat e-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-start shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6 sm:h-full"
+              class="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-start shadow-xl transition-all sm:w-full sm:max-w-xl sm:p-6 sm:h-screen"
             >
               <div>
                 <div class="mt-3 sm:mt-5">
@@ -47,38 +47,48 @@
                       </div></div
                   ></DialogTitle>
                   <div class="">
-                    <p class="text-sm capitalize text-gray-60">Description</p>
+                    <!-- <p class="text-sm capitalize text-gray-60">Description</p> -->
                     <form action="" class="pt-4">
                       <div class="grid gap-y-6">
                         <div>
-                          <label for="title" class="text-black text-sm"
-                            >Title</label
-                          >
+                          <div class="mb-2">
+                            <label for="title" class="text-black text-sm pb-2"
+                              >Title</label
+                            >
+                          </div>
                           <input
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 placeholder:text-gray-70 placeholder:ps-3 rounded-md h-12"
+                            class="w-full focus:outline-none border border-gray-40 ps-4 placeholder:text-gray-70 placeholder:ps-2 rounded-md h-12"
                             placeholder="Enter a title"
                           />
                         </div>
                         <div class="">
-                          <label for="description" class="capitalize text-black"
-                            >content description</label
-                          >
+                          <div class="mb-2">
+                            <label
+                              for="description"
+                              class="capitalize text-black pb-2"
+                              >content description</label
+                            >
+                          </div>
                           <textarea
                             name=""
                             id=""
                             cols=""
                             rows=""
-                            class="w-full h-48 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2"
+                            class="w-full h-80 border border-gray-40 rounded-md pt-2 ps-4 focus:outline-none placeholder:text-gray-70 placeholder:ps-2 placeholder:pt-32"
                             placeholder="Enter details of this post"
                           ></textarea>
                         </div>
                         <div>
-                          <label for="media-type" class="capitalize text-black"
-                            >Media type</label
-                          >
+                          <div class="mb-2">
+                            <label
+                              for="media-type"
+                              class="capitalize text-black pb-2"
+                              >Media type</label
+                            >
+                          </div>
                           <select
                             name=""
                             id=""
@@ -88,14 +98,16 @@
                           </select>
                         </div>
                         <div>
-                          <label for="media-url" class="text-black capitalize"
-                            >Media URL</label
-                          >
+                          <div class="mb-2">
+                            <label for="media-url" class="text-black capitalize"
+                              >Media URL</label
+                            >
+                          </div>
                           <input
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 rounded-md placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2 h-12"
+                            class="w-full focus:outline-none border border-gray-40 ps-4 rounded-md placeholder:text-gray-70 placeholder:ps-2 placeholder:pt-2 h-12"
                             placeholder="Paste URL to the media file"
                           />
                         </div>
@@ -103,7 +115,7 @@
                           <label for="upload-file" class="text-black capitalize"
                             >upload a file</label
                           >
-                          <div class="flex space-s-2 bg">
+                          <div class="flex space-s-2 bg mt-2">
                             <input
                               id="file"
                               type="file"
@@ -113,7 +125,7 @@
                             />
                             <button
                               @click.prevent="attachFile"
-                              class="w-full focus:outline-none rounded-md h-24"
+                              class="w-full focus:outline-none rounded-md h-40"
                             >
                               <div
                                 class="flex space-s-2 items-center justify-center px-2 py-1"

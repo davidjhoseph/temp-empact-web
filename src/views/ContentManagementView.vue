@@ -1,13 +1,15 @@
 <template>
   <div>
-    <div class="flex justify-between px-9 pt-4">
+    <div class="flex justify-between px-9 pt-4 items-center">
       <h1 class="text-xl font-bold capitalize text-black-DEFAULT">
         Content Manager
       </h1>
-      <button class="w-32 h-10 text-white rounded-md bg-blue">
+      <button class="w-32 h-8 text-white rounded-md bg-blue">
         <div class="flex justify-center space-s-2">
           <PlusIcon class="w-6 h-6" />
-          <button @click="showModal = !showModal">Create New</button>
+          <button @click="showModal = !showModal" class="text-sm">
+            Create New
+          </button>
           <CreateNewContent v-if="showModal" />
         </div>
       </button>
