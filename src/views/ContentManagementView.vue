@@ -89,7 +89,38 @@
             placeholder="Search"
           />
         </div>
-        <Filter><FilterIcon /></Filter>
+        <Filter>
+          <MenuItems
+            class="absolute z-20 mt-4 w-82 rounded-md bg-white shadow-lg"
+          >
+            <div class="flex items-center justify-between pt-2 px-4">
+              <div class="font-bold capitalize text-gray-80">
+                Filter by date
+              </div>
+              <CloseIcon @click="open = false" class="cursor-pointer" />
+            </div>
+            <form action="" class="pb-4 ps-4 pe-4">
+              <CalendarDate label="start date" class="py-6" />
+              <CalendarDate label="end date" />
+              <div class="flex justify-end pt-10 space-s-4">
+                <div>
+                  <button
+                    class="h-8 capitalize border rounded-s-md rounded-e-md border-gray-40 text-gray-70"
+                  >
+                    <p class="ps-2 pe-2">cancel</p>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="h-8 text-white capitalize bg-blue rounded-s-md rounded-e-md"
+                  >
+                    <button class="ps-3 pe-3" @click="">Apply Filter</button>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </MenuItems>
+        </Filter>
 
         <!-- Media type dropdown -->
         <Dropdown name="All">
@@ -163,12 +194,16 @@ import Publish from "../components/layouts/RightCoulumn/Publish.vue";
 import CreateNewContent from "../components/Modals/CreateNewContent.vue";
 import Dropdown from "../components/Dropdown.vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import CloseIcon from "../components/icons/CloseIcon.vue";
+import CalendarDate from "../components/layouts/RightCoulumn/Calendar.vue";
 import MediaDropdown from "../components/layouts/Dropdown/MediaDropdown.vue";
 import GridPublish from "../components/layouts/GridPublish.vue";
 import GridDrafts from "../components/layouts/GridDraft.vue";
 import GridArchive from "../components/layouts/GridArchive.vue";
 import ColoredGridIcon from "../components/icons/ColoredGridIcon.vue";
 import GrayListIcon from "../components/icons/GrayListIcon.vue";
+const open = ref(false);
 
 const layout = ref("list");
 const showModal = ref(false);

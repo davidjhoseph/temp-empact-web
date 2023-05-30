@@ -20,14 +20,10 @@
         <div class="flex space-s-4">
           <button
             class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-gray-60"
+            @click="showModal = !showModal"
           >
             <EditIcon />
-            <button
-              @click="showModal = !showModal"
-              class="text-sm text-gray-70"
-            >
-              Edit
-            </button>
+            <button class="text-sm text-gray-70">Edit</button>
             <EditContent v-if="showModal" />
           </button>
           <button
@@ -49,7 +45,7 @@
           <DeleteContent v-if="openDelete" />
         </div>
       </div>
-      <div class="flex mt-14 space-s-20">
+      <div class="flex mt-14 space-s-24">
         <div class="w-1/2">
           <p class="text-gray-80">
             Paintings are a form of visual art that have been around for

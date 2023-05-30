@@ -1,12 +1,41 @@
 <template>
-  <div class="flex justify-between ps-9 pe-9 pt-2">
+  <div class="flex justify-between px-9 pt-2">
     <h1 class="capitalize text-black text-xl font-bold">Platform Shares</h1>
-    <Filter />
+    <Filter>
+      <MenuItems
+        class="absolute z-20 mt-4 w-82 rounded-md bg-white shadow-lg -end-1"
+      >
+        <div class="flex items-center justify-between pt-2 px-4">
+          <div class="font-bold capitalize text-gray-80">Filter by date</div>
+          <CloseIcon @click="open = false" class="cursor-pointer" />
+        </div>
+        <form action="" class="pb-4 ps-4 pe-4">
+          <CalendarDate label="start date" class="py-6" />
+          <CalendarDate label="end date" />
+          <div class="flex justify-end pt-10 space-s-4">
+            <div>
+              <button
+                class="h-8 capitalize border rounded-s-md rounded-e-md border-gray-40 text-gray-70"
+              >
+                <p class="ps-2 pe-2">cancel</p>
+              </button>
+            </div>
+            <div>
+              <button
+                class="h-8 text-white capitalize bg-blue rounded-s-md rounded-e-md"
+              >
+                <button class="ps-3 pe-3" @click="">Apply Filter</button>
+              </button>
+            </div>
+          </div>
+        </form>
+      </MenuItems>
+    </Filter>
   </div>
-  <main class="py-10 ps-6 pe-6">
-    <div class="sm:ps-6 sm:pe-6 lg:ps-4 lg:pe-6">
+  <main class="py-10">
+    <div class="sm:px-6 lg:px-6">
       <!-- Your content -->
-      <div class="pe-6 ps-6 border border-gray-70 rounded-s-md rounded-e-md">
+      <div class="px-9 border border-gray-30 rounded-md">
         <div>
           <div class="text-lg text-black font-semibold pt-4 pb-4 ps-4">
             All Shares
@@ -37,8 +66,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Filter from "../../layouts/RightCoulumn/Filter.vue";
-
 import Ellipse from "../../icons/Ellipse.vue";
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import Calendar from "../../icons/calendar.vue";
+import FilterIcon from "../../icons/FilterIcon.vue";
+import CloseIcon from "../../icons/CloseIcon.vue";
+import CalendarDate from "../RightCoulumn/Calendar.vue";
+const open = ref(false);
 const recentShares = ref([
   {
     id: 1,
