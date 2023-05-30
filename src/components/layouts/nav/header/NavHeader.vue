@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-between ps-12 pe-12 shadow">
+  <div class="flex items-center justify-between py-2 shadow ps-12 pe-12">
     <BreadCrumb />
     <ProfileMenu />
   </div>

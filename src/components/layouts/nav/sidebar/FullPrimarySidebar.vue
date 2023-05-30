@@ -55,7 +55,7 @@
               <div
                 class="flex flex-col px-6 pb-4 overflow-y-auto bg-gray-900 grow gap-y-5 ring-1 ring-white/10"
               >
-                <div class="flex items-center h-16 shrink-0 mt-4">
+                <div class="flex items-center h-16 mt-4 shrink-0">
                   <div class="py-4">
                     <img src="/images/logo-export.png" alt="" />
                   </div>
@@ -174,7 +174,7 @@
       @click="sidebarOpen = true"
     >
       <span class="sr-only">Open sidebar</span>
-      <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+      <Bars3Icon class="w-6 h-6" aria-hidden="true" />
     </button>
 
     <div
@@ -271,7 +271,6 @@
         </nav>
       </div>
     </div>
-    <slot> </slot>
   </div>
 </template>
 
