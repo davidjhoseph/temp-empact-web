@@ -1,7 +1,7 @@
 <template>
   <FullPrimarySidebar>
     <div class="lg:ps-72">
-      <NavHeader/>
+      <NavHeader />
       <main class="py-10">
         <div class="sm:px-6 lg:px-4">
           <RouterView v-slot="{ Component }">
@@ -10,8 +10,7 @@
             </transition>
           </RouterView>
         </div>
-      </main>
-    </div
+      </main></div
   ></FullPrimarySidebar>
 </template>
 

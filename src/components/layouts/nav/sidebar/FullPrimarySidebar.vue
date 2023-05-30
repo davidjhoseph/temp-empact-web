@@ -52,19 +52,115 @@
                   </button>
                 </div>
               </TransitionChild>
-              <!-- Sidebar component, swap this element with another sidebar if you like -->
               <div
                 class="flex flex-col px-6 pb-4 overflow-y-auto bg-gray-900 grow gap-y-5 ring-1 ring-white/10"
               >
+                <div class="flex items-center h-16 shrink-0 mt-4">
+                  <div class="py-4">
+                    <img src="/images/logo-export.png" alt="" />
+                  </div>
+                </div>
                 <div class="flex items-center h-16 shrink-0">
-                  <img
-                    class="w-auto h-8"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
+                  <button
+                    class="flex w-full py-3 mt-4 border rounded-md ps-3 pe-s space-s-4"
+                    @click="open = true"
+                  >
+                    <div class="w-16 h-12 rounded overflow-clip">
+                      <img
+                        :src="selectedBrand?.brand_logo"
+                        class="object-cover w-full h-full"
+                      />
+                    </div>
+                    <div class="flex flex-col text-start">
+                      <p class="text-sm text-white">
+                        {{ selectedBrand?.actualName }}
+                      </p>
+                      <div class="flex space-s-1">
+                        <p class="text-xs text-gray-60">Switch Brand</p>
+                        <ArrowDownIcon class="w-4 h-4 text-gray-60" />
+                      </div>
+                    </div>
+                  </button>
                 </div>
                 <nav class="flex flex-col flex-1">
-                  <ul role="list" class="space-y-1 -ms-2 -me-2"></ul>
+                  <ul role="list" class="space-y-1 -ms-2 -me-2">
+                    <li>
+                      <SingleNavLink
+                        title="Home"
+                        :route="ROUTES.HOME_DASHBOARD"
+                      >
+                        <template #icon>
+                          <HomeIcon />
+                        </template>
+                      </SingleNavLink>
+                    </li>
+                    <li>
+                      <SingleNavLink title="Task" :route="ROUTES.TASK">
+                        <template #icon>
+                          <Person />
+                        </template>
+                      </SingleNavLink>
+                    </li>
+                    <li>
+                      <SingleNavLink
+                        title="Content Manager"
+                        :route="ROUTES.CONTENT_MANAGEMENT"
+                      >
+                        <template #icon>
+                          <HomeIcon />
+                        </template>
+                      </SingleNavLink>
+                    </li>
+                    <li>
+                      <SingleNavLink
+                        @click="isBrandThemeSelected = !isBrandThemeSelected"
+                        title="Brand Theme"
+                        :route="ROUTES.BRAND_THEME"
+                      >
+                        <template #icon>
+                          <HomeIcon />
+                        </template>
+                        <template #arrowIcon>
+                          <OutlineArrowDownIcon
+                            class="w-4 h-4 transition-all ease-linear transform"
+                            :class="{ 'rotate-180': !isBrandThemeSelected }"
+                          />
+                        </template>
+                      </SingleNavLink>
+                      <div
+                        class="font-light transition-all duration-100 ease-linear transform ms-8 text-gray-40 text-micro"
+                        :class="
+                          isBrandThemeSelected
+                            ? 'h-[70px] opacity-100 pointer-events-auto'
+                            : 'h-0 opacity-0 pointer-events-none'
+                        "
+                      >
+                        <div class="py-2 tracking-wider cursor-pointer">
+                          Content Manager
+                        </div>
+                        <div class="py-2 tracking-wider cursor-pointer">
+                          Theme Manager
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <SingleNavLink
+                        title="Recommendations"
+                        :route="ROUTES.RECOMMENDATION"
+                      >
+                        <template #icon>
+                          <RecommendationIcon />
+                        </template>
+                      </SingleNavLink>
+                    </li>
+                    <li>
+                      <SingleNavLink title="Settings" :route="ROUTES.SETTING">
+                        <template #icon>
+                          <SettingIcon />
+                        </template>
+                      </SingleNavLink>
+                    </li>
+                  </ul>
                 </nav>
               </div>
             </DialogPanel>
@@ -72,12 +168,18 @@
         </div>
       </Dialog>
     </TransitionRoot>
+    <button
+      type="button"
+      class="-m-2.5 p-2.5 text-gray-700 lg:hidden absolute top-5"
+      @click="sidebarOpen = true"
+    >
+      <span class="sr-only">Open sidebar</span>
+      <Bars3Icon class="h-6 w-6" aria-hidden="true" />
+    </button>
 
-    <!-- Static sidebar for desktop -->
     <div
       class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
     >
-      <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex flex-col px-6 pb-4 overflow-y-auto grow bg-blue-80">
         <div class="py-4">
           <img src="/images/logo-export.png" alt="" />
@@ -88,10 +190,13 @@
             @click="open = true"
           >
             <div class="w-16 h-12 rounded overflow-clip">
-              <img :src="selectedBrand?.brand_logo" class="object-cover w-full h-full" />
+              <img
+                :src="selectedBrand?.brand_logo"
+                class="object-cover w-full h-full"
+              />
             </div>
             <div class="flex flex-col text-start">
-              <p class="text-sm text-white">{{selectedBrand?.actualName}}</p>
+              <p class="text-sm text-white">{{ selectedBrand?.actualName }}</p>
               <div class="flex space-s-1">
                 <p class="text-xs text-gray-60">Switch Brand</p>
                 <ArrowDownIcon class="w-4 h-4 text-gray-60" />
@@ -127,14 +232,14 @@
               <template #icon>
                 <HomeIcon />
               </template>
-              <!-- <template #arrowIcon>
+              <template #arrowIcon>
                 <OutlineArrowDownIcon
                   class="w-4 h-4 transition-all ease-linear transform"
                   :class="{ 'rotate-180': !isBrandThemeSelected }"
                 />
-              </template> -->
+              </template>
             </SingleNavLink>
-            <!-- <div
+            <div
               class="font-light transition-all duration-100 ease-linear transform ms-8 text-gray-40 text-micro"
               :class="
                 isBrandThemeSelected
@@ -148,12 +253,7 @@
               <div class="py-2 tracking-wider cursor-pointer">
                 Theme Manager
               </div>
-            </div> -->
-            <!-- <SingleNavLink title="Settings" :route="ROUTES.SETTINGS">
-              <template #icon>
-                <SettingIcon />
-              </template>
-            </SingleNavLink> -->
+            </div>
             <SingleNavLink
               title="Recommendations"
               :route="ROUTES.RECOMMENDATION"
@@ -171,7 +271,7 @@
         </nav>
       </div>
     </div>
-    <slot></slot>
+    <slot> </slot>
   </div>
 </template>
 
@@ -202,30 +302,16 @@ import {
   FolderIcon,
   UsersIcon,
   XMarkIcon,
+  Bars3Icon,
 } from "@heroicons/vue/24/outline";
 import { useAuthStore } from "../../../../store/auth";
 
-
 const authStore = useAuthStore();
 const open = ref(false);
-// const navigation = [
-//   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-//   { name: "Team", href: "#", icon: UsersIcon, current: false },
-//   { name: "Projects", href: "#", icon: FolderIcon, current: false },
-//   { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-//   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-//   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
-// ];
-// const teams = [
-//   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
-//   { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
-//   { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
-// ];
 
 const close = () => {
   open.value = false;
 };
-
 const sidebarOpen = ref(false);
 const isBrandThemeSelected = ref(false);
 const selectedBrand = computed(() => authStore.selectedBrand);
