@@ -163,7 +163,7 @@
         <h2 class="text-2xl font-bold text-center text-black">App Preview</h2>
 
         <div
-          class="mx-auto mt-2 w-full h-[38rem] flex flex-col rounded-3xl border-black border-4"
+          class="mx-auto mt-2 w-[22rem] h-[38rem] flex flex-col rounded-3xl border-black border-4"
           :style="{ color: brandColors.text }"
         >
           <div
