@@ -29,16 +29,16 @@
             leave-to="opacity-0 translat e-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-start shadow-xl transition-all sm:w-full sm:max-w-xl sm:p-6 sm:h-screen"
+              class="relative transform overflow-hidden bg-white px-4 pb-6 pt-5 text-start shadow-xl transition-all sm:w-full sm:max-w-xl sm:p-6 sm:h-screen"
             >
               <div>
-                <div class="mt-3 sm:mt-5">
+                <div class="">
                   <DialogTitle
                     as="h3"
                     class="text-base font-semibold leading-6 text-gray-80 capitalize"
                   >
                     <div class="flex justify-between">
-                      <div class="text-black text-xl">Create new content</div>
+                      <div class="text-black text-xl">Edit content</div>
                       <div>
                         <CloseIcon
                           @click="open = false"
@@ -115,13 +115,56 @@
                           <label for="upload-file" class="text-black capitalize"
                             >upload a file</label
                           >
-                          <div class="flex space-s-2 bg mt-2">
+                          <div
+                            v-if="selectedFile"
+                            class="flex space-s-2 mt-2 h-36 w-full bg-gray-20 rounded-md"
+                          >
                             <input
                               id="file"
                               type="file"
                               ref="file"
                               hidden
-                              @change="handleUploadFile"
+                              @change="handleFileUpload"
+                            />
+                            <button
+                              @click.prevent="attachFile"
+                              class="w-full focus:outline-none rounded-md h-40"
+                            >
+                              <div
+                                class="flex justify-between px-3 -mt-10 mb-4"
+                              >
+                                <div class="text-black-DEFAULT font-normal">
+                                  {{ fileName }}
+                                </div>
+                                <div
+                                  class="text-green font-normal text-sm"
+                                  v-if="selectedFile"
+                                >
+                                  uploaded
+                                </div>
+                              </div>
+                              <div
+                                class="flex space-s-2 items-center px-3 py-1"
+                              >
+                                <UploadIcon class="text-blue" />
+                                <p class="text-sm text-blue">
+                                  select a different file
+                                </p>
+                              </div>
+                              <div
+                                class="text-gray-60 font-normal text-start ps-3"
+                              >
+                                JPG, PNG, less than 10MB
+                              </div>
+                            </button>
+                          </div>
+                          <div v-else class="flex space-s-2 bg mt-2">
+                            <input
+                              id="file"
+                              type="file"
+                              ref="file"
+                              hidden
+                              @change="handleFileUpload"
                             />
                             <button
                               @click.prevent="attachFile"
@@ -180,7 +223,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import {
   Dialog,
   DialogPanel,
@@ -190,17 +233,31 @@ import {
 } from "@headlessui/vue";
 import CloseIcon from "../icons/CloseIcon.vue";
 import EditIcon from "../icons/EditIcon.vue";
+import UploadIcon from "../icons/UploadIcon.vue";
 const selectedFile = ref(null);
+const fileName = ref("");
 
 const open = ref(true);
 function attachFile() {
   document.getElementById("file")?.click();
 }
-const handleUploadFile = (e: any) => {
-  selectedFile.value = e.target.files[0];
-  console.log(selectedFile);
-  return selectedFile;
+
+const handleFileUpload = (event: Event) => {
+  const input = event.target as HTMLInputElement;
+  const file = input.files?.[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      selectedFile.value = reader.result as null;
+      fileName.value = file.name;
+      console.log(fileName);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    selectedFile.value = null;
+  }
 };
+const getfileName = computed(() => {});
 </script>
 <style scoped>
 .bg {

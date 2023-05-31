@@ -4,11 +4,11 @@
       <MenuButton class="-m-1.5 flex items-center p-1.5">
         <span class="sr-only">Open user menu</span>
         <div class="flex items-center space-s-4">
-          <div class="text-right">
+          <div class="text-end">
             <div class="font-medium text-black text-base">
               {{ user?.firstName + " " + user?.lastName }}
             </div>
-            <div class="text-gray-60 text-sm font-normal">
+            <div class="text-gray-60 text-sm font-normal -mt-1">
               {{ user?.email }}
             </div>
           </div>

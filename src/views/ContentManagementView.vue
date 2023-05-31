@@ -123,14 +123,14 @@
         </Filter>
 
         <!-- Media type dropdown -->
-        <Dropdown name="All">
-          <template #icon>
+        <!-- <Dropdown name="All"> -->
+        <!-- <template #icon>
             <ChevronDownIcon
               class="w-5 h-5 -me-1 text-gray-400"
               aria-hidden="true"
-          /></template>
-          <MediaDropdown />
-        </Dropdown>
+          /></template> -->
+        <MediaDropdown />
+        <!-- </Dropdown> -->
       </div>
       <div class="flex items-center mt-2 space-s-4">
         <div class="text-gray-60 font-medium text-lg">View</div>

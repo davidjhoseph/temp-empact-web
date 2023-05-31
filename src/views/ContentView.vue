@@ -45,7 +45,7 @@
           <DeleteContent v-if="openDelete" />
         </div>
       </div>
-      <div class="flex mt-20 space-s-24">
+      <div class="flex mt-20 space-s-20">
         <div class="w-1/2">
           <p class="text-gray-80 font-normal text-xl">
             Paintings are a form of visual art that have been around for
