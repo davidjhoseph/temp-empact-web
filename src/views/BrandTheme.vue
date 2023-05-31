@@ -131,7 +131,7 @@
               <div class="flex items-center gap-2">
                 <button
                   class="border text-gray-60 p-1.5 w-1/3 rounded-md"
-                  @click="resetColor()"
+                  @click="resetColor(colorConfig.type)"
                 >
                   Reset
                 </button>
@@ -158,31 +158,103 @@
       </div>
 
       <div
-        class="flex flex-col w-2/6 gap-8 p-5 mt-3 border rounded-md bg-gray-10 h-1/2"
+        class="sticky top-0 flex flex-col w-2/6 gap-8 p-5 mt-5 border rounded-md bg-gray-10 h-1/2"
       >
         <h2 class="text-2xl font-bold text-center text-black">App Preview</h2>
-        <div class="mx-auto mt-2">
-          <div class="flex flex-col w-[200px] h-[500px]">
-            <div :style="{ backgroundColor: brandColors.primary }" class="">
-              header
+
+        <div
+          class="mx-auto mt-2 w-full h-[38rem] flex flex-col rounded-3xl border-black border-4"
+          :style="{ color: brandColors.text }"
+        >
+          <div
+            :style="{ backgroundColor: brandColors.primary }"
+            class="rounded-tr-2xl rounded-tl-2xl px-2 py-5 flex justify-between text-xs"
+          >
+            <div class="flex items-center gap-2">
+              <img
+                src="https://picsum.photos/30/30?grayscale"
+                class="rounded-md"
+                alt=""
+              />
+              <span class="bg-gray-30 px-1.5 rounded-sm">13,000 pts</span>
             </div>
-            <div
-              :style="{ backgroundColor: brandColors.secondary }"
-              class="flex-1"
-            >
-              body
+            <div class="flex items-center gap-2">
+              <span class="font-semibold">Hello, it's me</span>
+              <img
+                src="https://picsum.photos/28/28"
+                class="rounded-full"
+                alt=""
+              />
             </div>
-            <div :style="{ backgroundColor: brandColors.text }">footer</div>
           </div>
-          <!-- <img src="/images/iphone.png" alt="" /> -->
+          <div
+            :style="{ backgroundColor: brandColors.secondary }"
+            class="flex-1 p-5"
+          >
+            <h2 class="font-semibold">Content</h2>
+            <div>
+              <div
+                class="rounded-md text-xs font-semibold bg-white flex gap-2 justify-between border shadow-2xl p-1"
+              >
+                <span class="w-1/2 text-center bg-gray-50 rounded-md p-1"
+                  >All Content</span
+                >
+                <span class="w-1/2 text-center">Favorites</span>
+              </div>
+              <!-- card -->
+              <div class="border p-2 bg-white mt-2 rounded-md">
+                <div
+                  class="rounded-tr-3xl rounded-tl-3xl px-2 py-1 flex justify-between text-xs"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      src="https://picsum.photos/25/25?grayscale"
+                      class="rounded-full"
+                      alt=""
+                    />
+                    <div class="border flex flex-col">
+                      <span class="text-xs font-semibold">13,000 pts</span>
+                      <span class="text-[.6rem]">13,000 pts</span>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <span class="font-semibold">Hello, it's me</span>
+                  </div>
+                </div>
+                <div>
+                  <img
+                    src="https://picsum.photos/200/120"
+                    alt=""
+                    class="w-full rounded-md"
+                  />
+                </div>
+                <div class="space-y-1.5 pt-2">
+                  <h4 class="text-sm font-semibold">Content Title</h4>
+                  <p class="text-sm">Lorem ipsum dolor sit amet consectetur.</p>
+                  <div class="flex justify-between">
+                    <span class="w-1/2 text-center text-sm">Favs</span>
+                    <span class="w-1/2 text-center text-sm">share</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-br-3xl rounded-bl-3xl p-3.5 justify-between flex text-xs font-semibold"
+          >
+            <span>Messages</span>
+            <span>Content</span>
+            <span>Tasks</span>
+          </div>
         </div>
+        <!-- <img src="/images/iphone.png" alt="" /> -->
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, Ref, computed } from "vue";
+import { ref, computed } from "vue";
 import UploadIcon from "../components/icons/UploadIcon.vue";
 import TrashIcon from "../components/icons/TrashIcon.vue";
 import SaveIcon from "../components/icons/SaveIcon.vue";
@@ -214,11 +286,13 @@ const deleteFile = () => {
   previewImage.value = "";
 };
 
+type ColorType = "primary" | "secondary" | "text";
+
 interface ColorConfig {
   id: number;
   label: string;
   color: string;
-  type: "primary" | "secondary" | "text";
+  type: ColorType;
 }
 
 const colorConfigs = computed<ColorConfig[]>(() => [
@@ -249,7 +323,9 @@ const updateColor = (colorConfig: ColorConfig) => {
   brandThemeStore.updateColor(colorConfig.color, colorConfig.type);
 };
 
-const resetColor = () => {};
+const resetColor = (type: ColorType) => {
+  brandThemeStore.resetColor(type);
+};
 </script>
 
 <style scoped>

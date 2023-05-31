@@ -5,6 +5,11 @@ interface Colors {
   secondary: string;
   text: string;
 }
+const defaultColors: Colors = {
+  primary: "#2C79EC",
+  secondary: "#FFF",
+  text: "#020D1C",
+};
 
 export const useBrandTheme = defineStore({
   id: "brandTheme",
@@ -27,6 +32,10 @@ export const useBrandTheme = defineStore({
   actions: {
     updateColor(color: string, type: "primary" | "secondary" | "text") {
       this.colors[type] = color;
+    },
+
+    resetColor(type: "primary" | "secondary" | "text") {
+      this.colors[type] = defaultColors[type];
     },
   },
 });
