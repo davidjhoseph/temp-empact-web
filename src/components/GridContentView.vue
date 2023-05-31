@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-4 gap-x-10 gap-y-1 pe-9 ps-9">
-    <div class="py-4" v-for="list in contentList" :key="list.id">
+  <div class="grid grid-cols-4 gap-x-10 gap-y-1 px-9">
+    <div class="py-7" v-for="list in contentList" :key="list.id">
       <div class="grid gap-y-2 py-4 px-4 border rounded-md border-gray-30">
         <div class="relative w-full h-40">
           <img

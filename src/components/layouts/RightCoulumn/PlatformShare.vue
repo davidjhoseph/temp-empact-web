@@ -33,29 +33,34 @@
     </Filter>
   </div>
   <main class="py-10">
-    <div class="sm:px-6 lg:px-6">
+    <div class="sm:px-9 lg:px-9">
       <!-- Your content -->
-      <div class="px-9 border border-gray-30 rounded-md">
+      <div class="px-4 border border-gray-30 rounded-md">
         <div>
-          <div class="text-lg text-black font-semibold pt-4 pb-4 ps-4">
+          <div class="text-lg text-black font-semibold pt-4 pb-4">
             All Shares
           </div>
-          <div
-            class="grid grid-cols-3 gap-y-4 gap-x-96 pb-6"
-            v-for="x in recentShares"
-          >
-            <div class="flex space-s-2 items-center ps-4">
-              <img :src="`/images/${x.icon}`" alt="" class="h-4 w-4" />
-              <p class="capitalize text-blacK">{{ x?.platform }}</p>
-            </div>
-            <div class="flex space-s-2 items-end">
-              <img src="/images/DG.png" alt="" />
-              <div class="text-gray-80 capitalize">{{ x?.name }}</div>
-            </div>
-            <div class="flex space-s-2 items-center ms-6">
-              <div class="text-gray-80">{{ x?.date }}</div>
-              <div><Ellipse /></div>
-              <div class="text-gray-80">{{ x?.time }}</div>
+          <div v-for="x in recentShares">
+            <div class="flex justify-between pb-6 ps-2">
+              <div class="w-1/3">
+                <div class="flex space-s-2 items-center">
+                  <img :src="`/images/${x.icon}`" alt="" class="h-4 w-4" />
+                  <p class="capitalize text-blacK">{{ x?.platform }}</p>
+                </div>
+              </div>
+              <div class="w-1/3">
+                <div class="flex space-s-2">
+                  <img src="/images/DG.png" alt="" />
+                  <div class="text-gray-80 capitalize">{{ x?.name }}</div>
+                </div>
+              </div>
+              <div class="">
+                <div class="flex space-s-2 items-center">
+                  <div class="text-gray-80">{{ x?.date }}</div>
+                  <div><Ellipse /></div>
+                  <div class="text-gray-80">{{ x?.time }}</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -67,10 +72,7 @@
 import { ref } from "vue";
 import Filter from "../../layouts/RightCoulumn/Filter.vue";
 import Ellipse from "../../icons/Ellipse.vue";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
-import { ChevronDownIcon } from "@heroicons/vue/20/solid";
-import Calendar from "../../icons/calendar.vue";
-import FilterIcon from "../../icons/FilterIcon.vue";
+import { MenuItems } from "@headlessui/vue";
 import CloseIcon from "../../icons/CloseIcon.vue";
 import CalendarDate from "../RightCoulumn/Calendar.vue";
 const open = ref(false);
