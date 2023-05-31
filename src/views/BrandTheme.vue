@@ -102,6 +102,7 @@
               <p class="text-gray-60">Customize the colors of your brand</p>
             </div>
           </div>
+
           <div
             v-for="colorConfig in colorConfigs"
             :key="colorConfig.id"
@@ -121,7 +122,7 @@
               <h3 class="mt-9 text-gray-50">Hex color</h3>
               <div>
                 <input
-                  v-model="colorConfig.input"
+                  v-model="colorConfig.color"
                   class="w-56 p-1 border rounded-md"
                   placeholder="Enter a color value (hex, RGB, or HSL)"
                   @input="updateColor(colorConfig)"
@@ -130,7 +131,7 @@
               <div class="flex items-center gap-2">
                 <button
                   class="border text-gray-60 p-1.5 w-1/3 rounded-md"
-                  @click="resetColor(colorConfig)"
+                  @click="resetColor()"
                 >
                   Reset
                 </button>
@@ -138,9 +139,8 @@
                 <div class="w-2/3 text-white relative">
                   <input
                     type="color"
-                    v-model="colorConfig.input"
+                    v-model="colorConfig.color"
                     class="opacity-0 absolute"
-                    placeholder="Enter a color value (hex, RGB, or HSL)"
                     @input="updateColor(colorConfig)"
                     :id="colorConfig.label"
                   />
@@ -162,7 +162,19 @@
       >
         <h2 class="text-2xl font-bold text-center text-black">App Preview</h2>
         <div class="mx-auto mt-2">
-          <img src="/images/iphone.png" alt="" />
+          <div class="flex flex-col w-[200px] h-[500px]">
+            <div :style="{ backgroundColor: brandColors.primary }" class="">
+              header
+            </div>
+            <div
+              :style="{ backgroundColor: brandColors.secondary }"
+              class="flex-1"
+            >
+              body
+            </div>
+            <div :style="{ backgroundColor: brandColors.text }">footer</div>
+          </div>
+          <!-- <img src="/images/iphone.png" alt="" /> -->
         </div>
       </div>
     </div>
@@ -170,13 +182,18 @@
 </template>
 
 <script setup lang="ts">
-import { ref, Ref } from "vue";
+import { ref, Ref, computed } from "vue";
 import UploadIcon from "../components/icons/UploadIcon.vue";
 import TrashIcon from "../components/icons/TrashIcon.vue";
 import SaveIcon from "../components/icons/SaveIcon.vue";
 import { ColorsIcon, BrandIcon } from "../components/icons/AllIcons";
+import { useBrandTheme } from "../store/brandTheme";
 
 const previewImage = ref("");
+
+const brandThemeStore = useBrandTheme();
+
+const brandColors = computed(() => brandThemeStore.brandColors);
 
 const handleFileUpload = (event: Event) => {
   const input = event.target as HTMLInputElement;
@@ -200,34 +217,39 @@ const deleteFile = () => {
 interface ColorConfig {
   id: number;
   label: string;
-  input: string;
   color: string;
+  type: "primary" | "secondary" | "text";
 }
 
-const colorConfigs: Ref<ColorConfig[]> = ref([
-  { id: 1, label: "Primary Color", input: "", color: "" },
-  { id: 2, label: "Secondary Color", input: "", color: "" },
-  { id: 3, label: "Text Color", input: "", color: "" },
+const colorConfigs = computed<ColorConfig[]>(() => [
+  {
+    id: 1,
+    label: "Primary Color",
+    input: "",
+    color: brandColors.value.primary,
+    type: "primary",
+  },
+  {
+    id: 2,
+    label: "Secondary Color",
+    input: "",
+    color: brandColors.value.secondary,
+    type: "secondary",
+  },
+  {
+    id: 3,
+    label: "Text Color",
+    input: "",
+    color: brandColors.value.text,
+    type: "text",
+  },
 ]);
 
 const updateColor = (colorConfig: ColorConfig) => {
-  const input = colorConfig.input.trim();
-  // Check if the input is a valid hex, RGB, or HSL color
-  if (
-    input.match(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/) ||
-    input.match(/^rgb\(\d{1,3}, \d{1,3}, \d{1,3}\)$/) ||
-    input.match(/^hsl\(\d{1,3}, \d{1,3}%, \d{1,3}%\)$/)
-  ) {
-    colorConfig.color = input;
-  } else {
-    colorConfig.color = "";
-  }
+  brandThemeStore.updateColor(colorConfig.color, colorConfig.type);
 };
 
-const resetColor = (colorConfig: ColorConfig) => {
-  colorConfig.input = "";
-  colorConfig.color = "";
-};
+const resetColor = () => {};
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <FullPrimarySidebar/>
+    <FullPrimarySidebar />
     <div class="lg:ps-72">
       <NavHeader />
       <main class="py-10">
@@ -11,7 +11,8 @@
             </transition>
           </RouterView>
         </div>
-      </main></div>
+      </main>
+    </div>
   </div>
 </template>
 
