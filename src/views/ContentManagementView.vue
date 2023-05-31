@@ -1,13 +1,13 @@
 <template>
   <div>
     <div class="flex justify-between px-9 pt-4">
-      <h1 class="text-xl font-bold capitalize text-black-DEFAULT">
+      <h1 class="text-2xl font-bold capitalize text-black-DEFAULT">
         Content Manager
       </h1>
       <button class="w-36 h-12 text-white rounded-md bg-blue">
         <div class="flex justify-center space-s-2">
           <PlusIcon class="w-6 h-6" />
-          <button @click="showModal = !showModal" class="text-sm">
+          <button @click="showModal = !showModal" class="text-base">
             Create New
           </button>
           <CreateNewContent v-if="showModal" />
@@ -27,7 +27,7 @@
               'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
             ]"
           >
-            <div>{{ i.name }}</div>
+            <div class="text-lg">{{ i.name }}</div>
             <div
               class="flex items-center justify-center text-center"
               :class="[
@@ -55,7 +55,7 @@
               'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
             ]"
           >
-            <div>{{ i.name }}</div>
+            <div class="text-lg">{{ i.name }}</div>
             <div
               class="flex items-center justify-center text-center"
               :class="[
@@ -85,7 +85,7 @@
             type="text"
             name="search"
             id="search"
-            class="block w-96 h-12 rounded-md border focus:outline-none py-1.5 ps-10 placeholder:text-gray-70 border-gray-40"
+            class="block w-96 h-12 rounded-md border focus:outline-none py-1.5 ps-10 placeholder:text-gray-70 placeholder:font-medium border-gray-40"
             placeholder="Search"
           />
         </div>
@@ -107,14 +107,14 @@
                   <button
                     class="h-8 capitalize border rounded-s-md rounded-e-md border-gray-40 text-gray-70"
                   >
-                    <p class="ps-2 pe-2">cancel</p>
+                    <p class="px-2 text-base">cancel</p>
                   </button>
                 </div>
                 <div>
                   <button
                     class="h-8 text-white capitalize bg-blue rounded-s-md rounded-e-md"
                   >
-                    <button class="ps-3 pe-3" @click="">Apply Filter</button>
+                    <button class="px-3" @click="">Apply Filter</button>
                   </button>
                 </div>
               </div>
@@ -133,7 +133,7 @@
         </Dropdown>
       </div>
       <div class="flex items-center mt-2 space-s-4">
-        <div class="text-gray-60">View</div>
+        <div class="text-gray-60 font-medium text-lg">View</div>
         <div @click="layout = 'list'">
           <button v-if="layout === 'list'"><ListIcon /></button>
           <button v-else>
@@ -371,13 +371,4 @@ const changeTab = (name: string) => {
   tabValue.value = name;
 };
 </script>
-<style scoped>
-.isActive {
-  color: #020d1c;
-  border-bottom: 2px;
-  border-color: #2c79ec;
-}
-.isActive:hover {
-  border: #2c79ec;
-}
-</style>
+<style scoped></style>

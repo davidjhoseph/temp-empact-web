@@ -39,9 +39,9 @@
         </div>
 
         <div class="flex flex-col">
-          <p class="text-black text-start">{{ list.title }}</p>
+          <p class="text-black text-start text-lg">{{ list.title }}</p>
 
-          <p class="text-gray-60 text-start">
+          <p class="text-gray-60 text-start text-base">
             <small>{{ list.desc }}</small>
           </p>
         </div>
@@ -63,11 +63,11 @@
         </div>
         <div class="flex justify-between items-center">
           <div class="flex space-s-2 mt-6 items-center">
-            <div class="text-sm text-gray-60 text-start">
+            <div class="text-base text-gray-60 text-start">
               <small>{{ list.date }}</small>
             </div>
-            <div class="text-sm text-gray-60 text-start"><Ellipse /></div>
-            <div class="text-sm text-gray-60 text-start">
+            <div class="text-base text-gray-60 text-start"><Ellipse /></div>
+            <div class="text-base text-gray-60 text-start">
               <small>{{ list.time }}</small>
             </div>
           </div>

@@ -2,7 +2,7 @@
   <Menu as="div" class="relative inline-block text-start">
     <div>
       <MenuButton
-        class="inline-flex items-center justify-center w-40 h-12 py-2 text-sm font-semibold capitalize bg-white border gap-x-2 rounded-s-md rounded-e-md pe-3 ps-3 text-gray-70 border-gray-40"
+        class="inline-flex items-center justify-center w-40 h-12 py-2 text-base font-medium capitalize bg-white border gap-x-2 rounded-md px-3 text-gray-70 border-gray-40"
       >
         <FilterIcon /> Filter by date
       </MenuButton>

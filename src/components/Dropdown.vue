@@ -2,7 +2,7 @@
   <Menu as="div" class="relative inline-block text-left">
     <div>
       <MenuButton
-        class="inline-flex ps-3 pe-3 items-center justify-center gap-x-1.5 rounded-s-md rounded-e-md bg-white text-sm text-gray-80 shadow-sm border border-gray-40 py-3.5"
+        class="inline-flex px-3 items-center justify-center gap-x-1.5 rounded-md bg-white text-base font-medium text-gray-80 shadow-sm border border-gray-40 py-3"
         >Media Type :{{ props.name }}
         <slot name="icon"></slot>
       </MenuButton>

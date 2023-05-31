@@ -3,7 +3,7 @@
     <div class="sm:px-9 lg:px-4">
       <!-- Your content -->
       <div class="flex justify-between pb-2 -mt-4 items-center">
-        <div class="text-black text-xl font-bold">Content Statistics</div>
+        <div class="text-black text-2xl font-bold">Content Statistics</div>
         <div class="flex space-s-4">
           <div>
             <Filter>
@@ -11,7 +11,7 @@
                 class="absolute z-20 mt-4 w-82 rounded-md bg-white shadow-lg"
               >
                 <div class="flex items-center justify-between pt-2 px-4">
-                  <div class="font-bold capitalize text-gray-80">
+                  <div class="font-normal text-lg capitalize text-gray-80">
                     Filter by date
                   </div>
                   <CloseIcon @click="open = false" class="cursor-pointer" />
@@ -24,7 +24,7 @@
                       <button
                         class="h-8 capitalize border rounded-s-md rounded-e-md border-gray-40 text-gray-70"
                       >
-                        <p class="ps-2 pe-2">cancel</p>
+                        <p class="px-2">cancel</p>
                       </button>
                     </div>
                     <div>
@@ -41,10 +41,12 @@
           </div>
           <button class="">
             <div
-              class="flex justify-center items-center space-s-2 h-12 w-40 rounded-md border border-gray-40"
+              class="flex justify-center items-center space-s-2 h-12 w-44 rounded-md border border-gray-40 px-2"
             >
               <div><DownloadIcon /></div>
-              <div class="text-gray-70 text-sm">Download Report</div>
+              <div class="text-gray-70 text-lg font-normal">
+                Download Report
+              </div>
             </div>
           </button>
         </div>
@@ -53,8 +55,8 @@
         <div class="flex justify-between items-center space-s-3">
           <div v-for="i in stats" :key="i.id" class="w-1/5">
             <div class="h-28 border-gray-30 border rounded-lg">
-              <div class="py-7 px-2 flex flex-col space-y-2">
-                <h3 class="text-blue text-lg">{{ i.value }}</h3>
+              <div class="py-5 px-4 flex flex-col space-y-2">
+                <h3 class="text-blue text-xl font-medium">{{ i.value }}</h3>
                 <div class="flex space-s-1 items-center">
                   <div>
                     <EyeIcon v-if="i.id == 1" />
@@ -63,7 +65,7 @@
                     <EyeIcon v-if="i.id == 4" />
                     <EyeIcon v-if="i.id == 5" />
                   </div>
-                  <p class="text-gray-60">{{ i.name }}</p>
+                  <p class="text-gray-60 text-lg font-medium">{{ i.name }}</p>
                 </div>
               </div>
             </div>
@@ -73,22 +75,28 @@
       <div class="grid grid-cols-2 gap-6">
         <div class="border border-gray-30 rounded-md">
           <div class="flex justify-between p-4">
-            <div class="font-bold text-black">Platform Shares</div>
+            <div class="font-bold text-black-DEFAULT text-xl">
+              Platform Shares
+            </div>
           </div>
           <div class="py-2 px-4" v-for="x in platforms" :key="x?.id">
             <div class="flex justify-between">
               <div class="flex space-s-2 items-center">
                 <img :src="`/images/${x?.icon}`" alt="" class="" />
-                <div class="text-black-DEFAULT">{{ x?.name }}</div>
+                <div class="text-black-DEFAULT font-normal text-lg">
+                  {{ x?.name }}
+                </div>
               </div>
-              <div class="text-gray-80">{{ x?.value }}</div>
+              <div class="text-gray-80 font-normal text-lg">{{ x?.value }}</div>
             </div>
           </div>
         </div>
         <div class="border border-gray-30 rounded-md">
           <div class="flex justify-between p-4">
-            <div class="font-bold text-black">Recent Shares</div>
-            <button class="text-gray-60">
+            <div class="font-bold text-black-DEFAULT text-xl">
+              Recent Shares
+            </div>
+            <button class="text-gray-60 font-normal text-lg">
               <div class="flex space-s-2 items-center">
                 <div
                   @click="router.push({ path: '/content-management/platform' })"
@@ -103,20 +111,28 @@
             <div class="flex justify-between">
               <div class="flex space-s-2 items-center">
                 <img :src="`/images/${x?.icon}`" alt="" class="" />
-                <div class="text-black-DEFAULT">{{ x?.name }}</div>
+                <div class="text-black-DEFAULT font-normal text-lg">
+                  {{ x?.name }}
+                </div>
               </div>
               <div class="flex space-s-2 items-center">
-                <div class="text-gray-80">{{ x?.date }}</div>
+                <div class="text-gray-80 font-normal text-lg">
+                  {{ x?.date }}
+                </div>
                 <div><Ellipse /></div>
-                <div class="text-gray-80">{{ x?.time }}</div>
+                <div class="text-gray-80 font-normal text-lg">
+                  {{ x?.time }}
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div class="border border-gray-30 rounded-md">
           <div class="flex justify-between p-4">
-            <div class="font-bold text-black">Recent Shares</div>
-            <button class="text-gray-60">
+            <div class="font-bold text-black-DEFAULT text-xl">
+              Recent Shares
+            </div>
+            <button class="text-gray-60 font-normal text-lg">
               <div class="flex space-s-2 items-center">
                 <div
                   @click="router.push({ path: '/content-management/platform' })"
@@ -131,12 +147,18 @@
             <div class="flex justify-between">
               <div class="flex space-s-2 items-center">
                 <img :src="`/images/${x?.icon}`" alt="" class="" />
-                <div class="text-black-DEFAULT">{{ x?.name }}</div>
+                <div class="text-black-DEFAULT font-normal text-lg">
+                  {{ x?.name }}
+                </div>
               </div>
               <div class="flex space-s-2 items-center">
-                <div class="text-gray-80">{{ x?.date }}</div>
-                <div><Ellipse /></div>
-                <div class="text-gray-80">{{ x?.time }}</div>
+                <div class="text-gray-80 font-normal text-lg">
+                  {{ x?.date }}
+                </div>
+                <div><Ellipse class="" /></div>
+                <div class="text-gray-80 font-normal text-lg">
+                  {{ x?.time }}
+                </div>
               </div>
             </div>
           </div>

@@ -14,21 +14,21 @@
                 alt="content image"
               />
             </div>
-            <div class="flex flex-col">
-              <p class="text-left text-black">{{ list.title }}</p>
+            <div class="flex flex-col -mt-1">
+              <p class="text-start text-black text-lg">{{ list.title }}</p>
 
-              <p class="text-left text-gray-60">
+              <p class="text-start text-gray-60 text-base">
                 <small>{{ list.desc }}</small>
               </p>
               <div class="flex justify-between">
-                <div class="flex items-center mt-6 space-s-2">
-                  <div class="text-sm text-left text-gray-60">
+                <div class="flex items-center mt-5 space-s-2">
+                  <div class="text-base text-start text-gray-60">
                     <small>{{ list.date }}</small>
                   </div>
-                  <div class="text-sm text-left text-gray-60">
+                  <div class="text-base text-start text-gray-60">
                     <Ellipse />
                   </div>
-                  <div class="text-sm text-left text-gray-60">
+                  <div class="text-base text-start text-gray-60">
                     <small>{{ list.time }}</small>
                   </div>
                 </div>
@@ -45,14 +45,14 @@
                     params: { id: list.id },
                   })
                 "
-                class="w-10 h-6 ps-1 pe-1 text-sm border rounded-s-sm rounded-e-sm text-gray-70 border-gray-40"
+                class="w-10 h-6 px-1 text-sm border rounded-sm text-gray-70 border-gray-40"
               >
                 view
               </button>
-              <Menu as="div" class="relative inline-block h-6 text-left">
+              <Menu as="div" class="relative inline-block h-6 text-start">
                 <div>
                   <MenuButton
-                    class="w-8 h-6 ps-1 text-sm text-center border rounded-s-sm rounded-e-sm text-gray-70 border-gray-30"
+                    class="w-8 h-6 ps-1 text-sm text-center border rounded-sm text-gray-70 border-gray-30"
                   >
                     <MenuIcon
                       class="w-5 h-5 -me-1 text-gray-400"
