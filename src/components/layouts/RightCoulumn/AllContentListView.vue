@@ -1,13 +1,13 @@
 <template>
-  <div class="ps-9 pe-9 py-10 w-full overflow-y-auto">
+  <div class="px-9 py-5 w-full overflow-y-auto">
     <div v-if="getContentList()">
-      <div class="py-4" v-for="list in contentList" :key="list.id">
+      <div class="py-2" v-for="list in contentList" :key="list.id">
         <div
-          class="flex justify-between ps-2 pe-2 space-y-6 border rounded-s-md rounded-e-md border-gray-30"
+          class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"
         >
           <div class="flex py-4 space-s-4">
-            <input type="checkbox" name="" id="" class="-mt-28" />
-            <div class="relative w-32 h-32">
+            <input type="checkbox" name="" id="" class="-mt-20" />
+            <div class="relative" style="width: 88px; height: 88px">
               <img
                 class="absolute inset-0 object-cover w-full h-full"
                 :src="`https://picsum.photos/200/300`"
@@ -21,7 +21,7 @@
                 <small>{{ list.desc }}</small>
               </p>
               <div class="flex justify-between">
-                <div class="flex items-center mt-16 space-s-2">
+                <div class="flex items-center mt-6 space-s-2">
                   <div class="text-sm text-left text-gray-60">
                     <small>{{ list.date }}</small>
                   </div>
@@ -36,7 +36,7 @@
             </div>
           </div>
 
-          <div class="flex flex-col space-y-12">
+          <div class="flex flex-col space-y-8">
             <div class="flex justify-end space-s-4">
               <button
                 @click="
@@ -77,13 +77,13 @@
                 </transition>
               </Menu>
             </div>
-            <div class="flex space-s-10 pt-7">
+            <div class="flex space-s-10">
               <div>
                 <button
                   class="w-12 h-6 rounded-s-md rounded-e-md bg-green-10 text-green-70"
                 >
                   <p
-                    class="ps-2 pe-2 text-sm text-center flex justify-center items-center"
+                    class="px-2 text-sm text-center flex justify-center items-center"
                     :class="{}"
                   >
                     {{ list.imageText }}

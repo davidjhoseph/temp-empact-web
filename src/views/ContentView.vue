@@ -20,11 +20,11 @@
         <div class="flex space-s-4">
           <button
             class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-gray-60"
-            @click="showModal = !showModal"
+            @click="openEdit = !openEdit"
           >
             <EditIcon />
             <button class="text-sm text-gray-70">Edit</button>
-            <EditContent v-if="showModal" />
+            <EditContent v-if="openEdit" />
           </button>
           <button
             class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-gray-60"
@@ -121,7 +121,9 @@
               :key="i.id"
               class="w-48 rounded-lg h-28 bg-blue-10"
             >
-              <div class="flex flex-col items-start justify-center px-3 my-7">
+              <div
+                class="flex flex-col items-start justify-center space-y-2 px-3 my-5"
+              >
                 <h3 class="text-lg text-blue">{{ i.value }}</h3>
                 <div class="flex items-center space-s-2">
                   <img :src="`/images/${i.icon}`" alt="" />
@@ -149,7 +151,7 @@ import ArchiveContent from "../components/Modals/ArchiveContent.vue";
 
 const router = useRouter();
 const route = useRoute();
-const showModal = ref(false);
+const openEdit = ref(false);
 const openDelete = ref(false);
 const openArchive = ref(false);
 const stats = ref([

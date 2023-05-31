@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="flex justify-between px-9 pt-4 items-center">
+    <div class="flex justify-between px-9 pt-4">
       <h1 class="text-xl font-bold capitalize text-black-DEFAULT">
         Content Manager
       </h1>
-      <button class="w-32 h-8 text-white rounded-md bg-blue">
+      <button class="w-36 h-12 text-white rounded-md bg-blue">
         <div class="flex justify-center space-s-2">
           <PlusIcon class="w-6 h-6" />
           <button @click="showModal = !showModal" class="text-sm">
@@ -73,7 +73,7 @@
       <hr />
     </div>
 
-    <div class="flex justify-between px-9 pt-10">
+    <div class="flex justify-between px-9 pt-7">
       <div class="flex space-s-6">
         <div class="relative rounded-md">
           <div
@@ -185,7 +185,6 @@ import Filter from "../components/layouts/RightCoulumn/Filter.vue";
 import ListIcon from "../components/icons/ListIcon.vue";
 import GridIcon from "../components/icons/gridIcon.vue";
 import GridContentView from "../components/GridContentView.vue";
-import { FilterIcon } from "../components/icons/AllIcons";
 import PlusIcon from "../components/icons/PlusIcon.vue";
 import AllContentListView from "../components/layouts/RightCoulumn/AllContentListView.vue";
 import Archive from "../components/layouts/RightCoulumn/Archive.vue";
@@ -194,7 +193,7 @@ import Publish from "../components/layouts/RightCoulumn/Publish.vue";
 import CreateNewContent from "../components/Modals/CreateNewContent.vue";
 import Dropdown from "../components/Dropdown.vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import { MenuItems } from "@headlessui/vue";
 import CloseIcon from "../components/icons/CloseIcon.vue";
 import CalendarDate from "../components/layouts/RightCoulumn/Calendar.vue";
 import MediaDropdown from "../components/layouts/Dropdown/MediaDropdown.vue";
