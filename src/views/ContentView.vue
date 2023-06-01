@@ -4,38 +4,34 @@
       <!-- Your content -->
       <div class="flex justify-between">
         <div>
-          <h1 class="text-3xl font-bold text-black">
+          <h1 class="text-3xl font-bold text-black-DEFAULT">
             10 [Holiday] Gifts for People Who Love Paintings
           </h1>
-          <div class="flex items-center mt-4 space-s-4">
+          <div class="flex items-center mt-8 space-s-4">
             <button class="h-6 rounded-md bg-green-10 text-green-70 w-14">
               <p class="px-2 text-sm text-center">Image</p>
             </button>
-            <Ellipse />
-            <p class="text-gray-60">March 20, 2023</p>
-            <Ellipse />
-            <p>12:30 PM</p>
+            <Ellipse class="h-2 w-2" />
+            <p class="text-gray-60 text-lg font-normal">March 20, 2023</p>
+            <Ellipse class="h-2 w-2" />
+            <p class="text-gray-60 text-lg font-normal">12:30 PM</p>
           </div>
         </div>
         <div class="flex space-s-4">
           <button
             class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-gray-60"
+            @click="openEdit = !openEdit"
           >
             <EditIcon />
-            <button
-              @click="showModal = !showModal"
-              class="text-sm text-gray-70"
-            >
-              Edit
-            </button>
-            <EditContent v-if="showModal" />
+            <button class="text-base text-gray-70 font-normal">Edit</button>
+            <EditContent v-if="openEdit" />
           </button>
           <button
             class="flex items-center w-auto px-2 border rounded-sm space-s-2 h-7 border-gray-60"
             @click="openArchive = !openArchive"
           >
             <ArchiveIcon />
-            <p class="text-sm text-gray-70">Archive</p>
+            <p class="text-base font-normal text-gray-70">Archive</p>
           </button>
           <ArchiveContent v-if="openArchive" />
 
@@ -44,14 +40,14 @@
             @click="openDelete = !openDelete"
           >
             <DeleteIcon />
-            <p class="text-sm text-red">Delete</p>
+            <p class="text-base font-normal text-red">Delete</p>
           </button>
           <DeleteContent v-if="openDelete" />
         </div>
       </div>
-      <div class="flex mt-14 space-s-72">
+      <div class="flex mt-20 space-s-20">
         <div class="w-1/2">
-          <p class="text-gray-80">
+          <p class="text-gray-80 font-normal text-xl">
             Paintings are a form of visual art that have been around for
             centuries, and they continue to be a popular and powerful way of
             expressing ideas, emotions, and experiences. Paintings can vary
@@ -63,7 +59,7 @@
             mediums, including oil, acrylic, watercolor, and gouache.
           </p>
           <br />
-          <p class="pb-4 mt-4 text-gray-80">
+          <p class="pb-12 mt-4 text-gray-80 font-normal text-xl">
             One of the most fascinating aspects of paintings is the way they can
             communicate complex ideas and emotions through color, composition,
             and form. A well-executed painting can evoke feelings of joy,
@@ -83,8 +79,8 @@
               />
             </div>
             <div class="grid">
-              <div class="text-xs text-gray-60">Posted By</div>
-              <div class="text-sm text-gray-80">David Green</div>
+              <div class="text-sm text-gray-60 font-normal">Posted By</div>
+              <div class="text-base font-normal text-gray-80">David Green</div>
             </div>
           </div>
         </div>
@@ -108,6 +104,7 @@
             </div>
             <div class="flex items-center space-s-2">
               <a
+                class="font-normal text-gray-60 text-lg"
                 href="#"
                 @click="
                   router.push({
@@ -116,7 +113,7 @@
                 "
                 >Advanced Stats</a
               >
-              <ArrowRightIcon />
+              <ArrowRightIcon class="h-3 w-3" />
             </div>
           </div>
           <div class="flex justify-between mt-4 space-s-4">
@@ -125,11 +122,13 @@
               :key="i.id"
               class="w-48 rounded-lg h-28 bg-blue-10"
             >
-              <div class="flex flex-col items-start justify-center px-3 my-7">
-                <h3 class="text-lg text-blue">{{ i.value }}</h3>
+              <div
+                class="flex flex-col items-start justify-center space-y-2 px-3 my-5"
+              >
+                <h3 class="text-xl text-blue font-medium">{{ i.value }}</h3>
                 <div class="flex items-center space-s-2">
                   <img :src="`/images/${i.icon}`" alt="" />
-                  <p class="text-gray-60">{{ i.name }}</p>
+                  <p class="text-gray-60 font-normal text-lg">{{ i.name }}</p>
                 </div>
               </div>
             </div>
@@ -153,7 +152,7 @@ import ArchiveContent from "../components/Modals/ArchiveContent.vue";
 
 const router = useRouter();
 const route = useRoute();
-const showModal = ref(false);
+const openEdit = ref(false);
 const openDelete = ref(false);
 const openArchive = ref(false);
 const stats = ref([

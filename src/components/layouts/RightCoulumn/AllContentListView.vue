@@ -1,34 +1,34 @@
 <template>
-  <div class="ps-9 pe-9 py-10 w-full overflow-y-auto">
+  <div class="px-9 py-5 w-full overflow-y-auto">
     <div v-if="getContentList()">
-      <div class="py-4" v-for="list in contentList" :key="list.id">
+      <div class="py-2" v-for="list in contentList" :key="list.id">
         <div
-          class="flex justify-between ps-2 pe-2 space-y-6 border rounded-s-md rounded-e-md border-gray-30"
+          class="flex justify-between px-2 space-y-6 border rounded-md border-gray-30"
         >
           <div class="flex py-4 space-s-4">
-            <input type="checkbox" name="" id="" class="-mt-28" />
-            <div class="relative w-32 h-32">
+            <input type="checkbox" name="" id="" class="-mt-20" />
+            <div class="relative" style="width: 88px; height: 88px">
               <img
                 class="absolute inset-0 object-cover w-full h-full"
                 :src="`https://picsum.photos/200/300`"
                 alt="content image"
               />
             </div>
-            <div class="flex flex-col">
-              <p class="text-left text-black">{{ list.title }}</p>
+            <div class="flex flex-col -mt-1">
+              <p class="text-start text-black text-lg">{{ list.title }}</p>
 
-              <p class="text-left text-gray-60">
+              <p class="text-start text-gray-60 text-base">
                 <small>{{ list.desc }}</small>
               </p>
-              <div class="justify-between">
-                <div class="flex items-center mt-16 space-s-2">
-                  <div class="text-sm text-left text-gray-60">
+              <div class="flex justify-between">
+                <div class="flex items-center mt-5 space-s-2">
+                  <div class="text-base text-start text-gray-60">
                     <small>{{ list.date }}</small>
                   </div>
-                  <div class="text-sm text-left text-gray-60">
+                  <div class="text-base text-start text-gray-60">
                     <Ellipse />
                   </div>
-                  <div class="text-sm text-left text-gray-60">
+                  <div class="text-base text-start text-gray-60">
                     <small>{{ list.time }}</small>
                   </div>
                 </div>
@@ -36,7 +36,7 @@
             </div>
           </div>
 
-          <div class="flex flex-col space-y-12">
+          <div class="flex flex-col space-y-8">
             <div class="flex justify-end space-s-4">
               <button
                 @click="
@@ -45,14 +45,14 @@
                     params: { id: list.id },
                   })
                 "
-                class="w-10 h-6 ps-1 pe-1 text-sm border rounded-s-sm rounded-e-sm text-gray-70 border-gray-40"
+                class="w-10 h-6 px-1 text-sm border rounded-sm text-gray-70 border-gray-40"
               >
                 view
               </button>
-              <Menu as="div" class="relative inline-block h-6 text-left">
+              <Menu as="div" class="relative inline-block h-6 text-start">
                 <div>
                   <MenuButton
-                    class="w-8 h-6 ps-1 text-sm text-center border rounded-s-sm rounded-e-sm text-gray-70 border-gray-30"
+                    class="w-8 h-6 ps-1 text-sm text-center border rounded-sm text-gray-70 border-gray-30"
                   >
                     <MenuIcon
                       class="w-5 h-5 -me-1 text-gray-400"
@@ -83,7 +83,7 @@
                   class="w-12 h-6 rounded-s-md rounded-e-md bg-green-10 text-green-70"
                 >
                   <p
-                    class="ps-2 pe-2 text-sm text-center flex justify-center items-center"
+                    class="px-2 text-sm text-center flex justify-center items-center"
                     :class="{}"
                   >
                     {{ list.imageText }}

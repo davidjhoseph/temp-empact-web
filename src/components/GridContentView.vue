@@ -1,19 +1,17 @@
 <template>
-  <div class="grid grid-cols-4 gap-x-14 gap-y-6 pe-9 ps-9">
-    <div class="py-4" v-for="list in contentList" :key="list.id">
-      <div
-        class="grid gap-y-2 py-4 pe-4 ps-4 border rounded-s-md rounded-e-md border-gray-30"
-      >
+  <div class="grid grid-cols-4 gap-x-10 gap-y-1 px-9">
+    <div class="py-7" v-for="list in contentList" :key="list.id">
+      <div class="grid gap-y-2 py-4 px-4 border rounded-md border-gray-30">
         <div class="relative w-full h-40">
           <img
-            class="w-full h-full object-cover"
+            class="w-full h-40 rounded-md object-cover"
             :src="`https://picsum.photos/200/300`"
             alt="content image"
           />
           <div class="absolute top-2 end-2" v-if="list.imageText == 'Image'">
             <button class="h-6 w-12">
               <p
-                class="text-center text-sm pe-2 ps-2 flex justify-center items-center bg-green-10 text-green rounded-md"
+                class="text-center text-sm px-2 flex justify-center items-center bg-green-10 text-green rounded-md"
               >
                 {{ list.imageText }}
               </p>
@@ -22,7 +20,7 @@
           <div class="absolute top-2 end-2" v-if="list.imageText == 'Video'">
             <button class="h-6 w-12">
               <p
-                class="text-center text-sm pe-2 ps-2 flex justify-center items-center bg-red-10 text-red rounded-md"
+                class="text-center text-sm px-2 flex justify-center items-center bg-red-10 text-red rounded-md"
               >
                 {{ list.imageText }}
               </p>
@@ -32,7 +30,7 @@
           <div class="absolute top-2 end-2" v-if="list.imageText == 'Text'">
             <button class="h-6 w-12 rounded-md">
               <p
-                class="text-center text-sm pe-2 ps-2 flex justify-center items-center bg-orange-20 text-orange-60 rounded-md"
+                class="text-center text-sm px-2 flex justify-center items-center bg-orange-20 text-orange-60 rounded-md"
               >
                 {{ list.imageText }}
               </p>
@@ -41,9 +39,9 @@
         </div>
 
         <div class="flex flex-col">
-          <p class="text-black text-start">{{ list.title }}</p>
+          <p class="text-black text-start text-lg">{{ list.title }}</p>
 
-          <p class="text-gray-60 text-start">
+          <p class="text-gray-60 text-start text-base">
             <small>{{ list.desc }}</small>
           </p>
         </div>
@@ -65,17 +63,17 @@
         </div>
         <div class="flex justify-between items-center">
           <div class="flex space-s-2 mt-6 items-center">
-            <div class="text-sm text-gray-60 text-start">
+            <div class="text-base text-gray-60 text-start">
               <small>{{ list.date }}</small>
             </div>
-            <div class="text-sm text-gray-60 text-start"><Ellipse /></div>
-            <div class="text-sm text-gray-60 text-start">
+            <div class="text-base text-gray-60 text-start"><Ellipse /></div>
+            <div class="text-base text-gray-60 text-start">
               <small>{{ list.time }}</small>
             </div>
           </div>
           <div class="flex space-s-4 mt-5">
             <button
-              class="text-gray-70 h-6 w-10 text-sm border-gray-40 rounded-s-sm rounded-e-sm border ps-1 pe-1"
+              class="text-gray-70 h-6 w-10 text-sm border-gray-40 rounded-md border ps-1 pe-1"
               @click="
                 router.push({
                   name: ROUTES.CONTENT_VIEW,
@@ -88,7 +86,7 @@
             <Menu as="div" class="relative inline-block h-6 text-start">
               <div>
                 <MenuButton
-                  class="w-8 h-6 ps-1 text-sm text-center border rounded-s-sm rounded-e-sm text-gray-70 border-gray-40"
+                  class="w-8 h-6 ps-1 text-sm text-center border rounded-md text-gray-70 border-gray-40"
                 >
                   <MenuIcon
                     class="w-5 h-5 -me-1 text-gray-400"
@@ -106,7 +104,7 @@
                 leave-to-class="transform scale-95 opacity-0"
               >
                 <MenuItems
-                  class="absolute end-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-s-md rounded-e-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                  class="absolute end-0 z-10 w-40 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 >
                   <div><MenuDropdownView /></div>
                 </MenuItems>

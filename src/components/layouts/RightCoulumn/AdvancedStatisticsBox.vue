@@ -1,10 +1,10 @@
 <template>
-  <div class="border border-gray-70 rounded-md">
+  <div class="border border-gray-30 rounded-md">
     <div class="flex justify-between py-4 ps-4 pe-4">
       <div class="font-bold text-balck">{{ props.title }}</div>
       <div><slot name="viewAll"></slot></div>
     </div>
-    <div class="py-2 ps-4 pe-4" v-for="i in platforms" :key="i.id">
+    <div class="py-2 px-4" v-for="i in platforms" :key="i.id">
       <div class="flex justify-between">
         <div class="flex space-s-2 items-center">
           <div>

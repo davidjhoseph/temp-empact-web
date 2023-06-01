@@ -1,32 +1,74 @@
 <template>
-  <div class="flex justify-between ps-9 pe-9 pt-2">
-    <h1 class="capitalize text-black text-xl font-bold">Platform Shares</h1>
-    <Filter />
-  </div>
-  <main class="py-10 ps-6 pe-6">
-    <div class="sm:ps-6 sm:pe-6 lg:ps-4 lg:pe-6">
-      <!-- Your content -->
-      <div class="pe-6 ps-6 border border-gray-70 rounded-s-md rounded-e-md">
-        <div>
-          <div class="text-lg text-black font-semibold pt-4 pb-4 ps-4">
-            All Shares
+  <div class="flex justify-between px-9 pt-2">
+    <h1 class="capitalize text-black text-2xl font-bold">Platform Shares</h1>
+    <Filter>
+      <MenuItems
+        class="absolute z-20 mt-4 w-82 rounded-md bg-white shadow-lg -end-1"
+      >
+        <div class="flex items-center justify-between pt-2 px-4">
+          <div class="font-medium text-lg capitalize text-gray-80">
+            Filter by date
           </div>
-          <div
-            class="grid grid-cols-3 gap-y-4 gap-x-96 pb-6"
-            v-for="x in recentShares"
-          >
-            <div class="flex space-s-2 items-center ps-4">
-              <img :src="`/images/${x.icon}`" alt="" class="h-4 w-4" />
-              <p class="capitalize text-blacK">{{ x?.platform }}</p>
+          <CloseIcon @click="open = false" class="cursor-pointer" />
+        </div>
+        <form action="" class="pb-4 px-4">
+          <CalendarDate label="start date" class="py-6" />
+          <CalendarDate label="end date" />
+          <div class="flex justify-end pt-10 space-s-4">
+            <div>
+              <button
+                class="h-8 capitalize border rounded-s-md rounded-e-md border-gray-40 text-gray-70"
+              >
+                <p class="ps-2 pe-2">cancel</p>
+              </button>
             </div>
-            <div class="flex space-s-2 items-end">
-              <img src="/images/DG.png" alt="" />
-              <div class="text-gray-80 capitalize">{{ x?.name }}</div>
+            <div>
+              <button
+                class="h-8 text-white capitalize bg-blue rounded-s-md rounded-e-md"
+              >
+                <button class="ps-3 pe-3" @click="">Apply Filter</button>
+              </button>
             </div>
-            <div class="flex space-s-2 items-center ms-6">
-              <div class="text-gray-80">{{ x?.date }}</div>
-              <div><Ellipse /></div>
-              <div class="text-gray-80">{{ x?.time }}</div>
+          </div>
+        </form>
+      </MenuItems>
+    </Filter>
+  </div>
+  <main class="py-10">
+    <div class="sm:px-9 lg:px-9">
+      <!-- Your content -->
+      <div class="px-4 border border-gray-30 rounded-md">
+        <div>
+          <div class="text-xl text-black font-bold pt-4 pb-8">All Shares</div>
+          <div v-for="x in recentShares">
+            <div class="flex justify-between pb-6 ps-2">
+              <div class="w-1/3">
+                <div class="flex space-s-2 items-center">
+                  <img :src="`/images/${x.icon}`" alt="" class="h-4 w-4" />
+                  <p class="capitalize text-blacK-DEFAULT font-normal text-lg">
+                    {{ x?.platform }}
+                  </p>
+                </div>
+              </div>
+              <div class="w-1/3">
+                <div class="flex space-s-2">
+                  <img src="/images/DG.png" alt="" />
+                  <div class="text-gray-80 capitalize text-lg font-normal">
+                    {{ x?.name }}
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="flex space-s-2 items-center">
+                  <div class="text-gray-80 font-normal text-lg">
+                    {{ x?.date }}
+                  </div>
+                  <div><Ellipse /></div>
+                  <div class="text-gray-80 font-normal text-lg">
+                    {{ x?.time }}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -37,8 +79,11 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Filter from "../../layouts/RightCoulumn/Filter.vue";
-
 import Ellipse from "../../icons/Ellipse.vue";
+import { MenuItems } from "@headlessui/vue";
+import CloseIcon from "../../icons/CloseIcon.vue";
+import CalendarDate from "../RightCoulumn/Calendar.vue";
+const open = ref(false);
 const recentShares = ref([
   {
     id: 1,

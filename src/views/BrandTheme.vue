@@ -102,6 +102,7 @@
               <p class="text-gray-60">Customize the colors of your brand</p>
             </div>
           </div>
+
           <div
             v-for="colorConfig in colorConfigs"
             :key="colorConfig.id"
@@ -121,7 +122,7 @@
               <h3 class="mt-9 text-gray-50">Hex color</h3>
               <div>
                 <input
-                  v-model="colorConfig.input"
+                  v-model="colorConfig.color"
                   class="w-56 p-1 border rounded-md"
                   placeholder="Enter a color value (hex, RGB, or HSL)"
                   @input="updateColor(colorConfig)"
@@ -130,7 +131,7 @@
               <div class="flex items-center gap-2">
                 <button
                   class="border text-gray-60 p-1.5 w-1/3 rounded-md"
-                  @click="resetColor(colorConfig)"
+                  @click="resetColor(colorConfig.type)"
                 >
                   Reset
                 </button>
@@ -138,9 +139,8 @@
                 <div class="w-2/3 text-white relative">
                   <input
                     type="color"
-                    v-model="colorConfig.input"
+                    v-model="colorConfig.color"
                     class="opacity-0 absolute"
-                    placeholder="Enter a color value (hex, RGB, or HSL)"
                     @input="updateColor(colorConfig)"
                     :id="colorConfig.label"
                   />
@@ -158,25 +158,114 @@
       </div>
 
       <div
-        class="flex flex-col w-2/6 gap-8 p-5 mt-3 border rounded-md bg-gray-10 h-1/2"
+        class="sticky top-0 flex flex-col w-2/6 gap-8 p-5 mt-5 border rounded-md bg-gray-10 h-1/2"
       >
         <h2 class="text-2xl font-bold text-center text-black">App Preview</h2>
-        <div class="mx-auto mt-2">
-          <img src="/images/iphone.png" alt="" />
+
+        <div
+          class="mx-auto mt-2 w-[22rem] h-[38rem] flex flex-col rounded-3xl border-black border-4"
+          :style="{ color: brandColors.text }"
+        >
+          <div
+            :style="{ backgroundColor: brandColors.primary }"
+            class="rounded-tr-2xl rounded-tl-2xl px-2 py-5 flex justify-between text-xs"
+          >
+            <div class="flex items-center gap-2">
+              <img
+                src="https://picsum.photos/30/30?grayscale"
+                class="rounded-md"
+                alt=""
+              />
+              <span class="bg-gray-30 px-1.5 rounded-sm">13,000 pts</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="font-semibold">Hello, it's me</span>
+              <img
+                src="https://picsum.photos/28/28"
+                class="rounded-full"
+                alt=""
+              />
+            </div>
+          </div>
+          <div
+            :style="{ backgroundColor: brandColors.secondary }"
+            class="flex-1 p-5"
+          >
+            <h2 class="font-semibold">Content</h2>
+            <div>
+              <div
+                class="rounded-md text-xs font-semibold bg-white flex gap-2 justify-between border shadow-2xl p-1"
+              >
+                <span class="w-1/2 text-center bg-gray-50 rounded-md p-1"
+                  >All Content</span
+                >
+                <span class="w-1/2 text-center">Favorites</span>
+              </div>
+              <!-- card -->
+              <div class="border p-2 bg-white mt-2 rounded-md">
+                <div
+                  class="rounded-tr-3xl rounded-tl-3xl px-2 py-1 flex justify-between text-xs"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      src="https://picsum.photos/25/25?grayscale"
+                      class="rounded-full"
+                      alt=""
+                    />
+                    <div class="border flex flex-col">
+                      <span class="text-xs font-semibold">13,000 pts</span>
+                      <span class="text-[.6rem]">13,000 pts</span>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <span class="font-semibold">Hello, it's me</span>
+                  </div>
+                </div>
+                <div>
+                  <img
+                    src="https://picsum.photos/200/120"
+                    alt=""
+                    class="w-full rounded-md"
+                  />
+                </div>
+                <div class="space-y-1.5 pt-2">
+                  <h4 class="text-sm font-semibold">Content Title</h4>
+                  <p class="text-sm">Lorem ipsum dolor sit amet consectetur.</p>
+                  <div class="flex justify-between">
+                    <span class="w-1/2 text-center text-sm">Favs</span>
+                    <span class="w-1/2 text-center text-sm">share</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-br-3xl rounded-bl-3xl p-3.5 justify-between flex text-xs font-semibold"
+          >
+            <span>Messages</span>
+            <span>Content</span>
+            <span>Tasks</span>
+          </div>
         </div>
+        <!-- <img src="/images/iphone.png" alt="" /> -->
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, Ref } from "vue";
+import { ref, computed } from "vue";
 import UploadIcon from "../components/icons/UploadIcon.vue";
 import TrashIcon from "../components/icons/TrashIcon.vue";
 import SaveIcon from "../components/icons/SaveIcon.vue";
 import { ColorsIcon, BrandIcon } from "../components/icons/AllIcons";
+import { useBrandTheme } from "../store/brandTheme";
 
 const previewImage = ref("");
+
+const brandThemeStore = useBrandTheme();
+
+const brandColors = computed(() => brandThemeStore.brandColors);
 
 const handleFileUpload = (event: Event) => {
   const input = event.target as HTMLInputElement;
@@ -197,36 +286,45 @@ const deleteFile = () => {
   previewImage.value = "";
 };
 
+type ColorType = "primary" | "secondary" | "text";
+
 interface ColorConfig {
   id: number;
   label: string;
-  input: string;
   color: string;
+  type: ColorType;
 }
 
-const colorConfigs: Ref<ColorConfig[]> = ref([
-  { id: 1, label: "Primary Color", input: "", color: "" },
-  { id: 2, label: "Secondary Color", input: "", color: "" },
-  { id: 3, label: "Text Color", input: "", color: "" },
+const colorConfigs = computed<ColorConfig[]>(() => [
+  {
+    id: 1,
+    label: "Primary Color",
+    input: "",
+    color: brandColors.value.primary,
+    type: "primary",
+  },
+  {
+    id: 2,
+    label: "Secondary Color",
+    input: "",
+    color: brandColors.value.secondary,
+    type: "secondary",
+  },
+  {
+    id: 3,
+    label: "Text Color",
+    input: "",
+    color: brandColors.value.text,
+    type: "text",
+  },
 ]);
 
 const updateColor = (colorConfig: ColorConfig) => {
-  const input = colorConfig.input.trim();
-  // Check if the input is a valid hex, RGB, or HSL color
-  if (
-    input.match(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/) ||
-    input.match(/^rgb\(\d{1,3}, \d{1,3}, \d{1,3}\)$/) ||
-    input.match(/^hsl\(\d{1,3}, \d{1,3}%, \d{1,3}%\)$/)
-  ) {
-    colorConfig.color = input;
-  } else {
-    colorConfig.color = "";
-  }
+  brandThemeStore.updateColor(colorConfig.color, colorConfig.type);
 };
 
-const resetColor = (colorConfig: ColorConfig) => {
-  colorConfig.input = "";
-  colorConfig.color = "";
+const resetColor = (type: ColorType) => {
+  brandThemeStore.resetColor(type);
 };
 </script>
 

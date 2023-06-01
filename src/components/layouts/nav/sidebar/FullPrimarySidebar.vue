@@ -120,14 +120,14 @@
                         <template #icon>
                           <HomeIcon />
                         </template>
-                        <template #arrowIcon>
+                        <!-- <template #arrowIcon>
                           <OutlineArrowDownIcon
                             class="w-4 h-4 transition-all ease-linear transform"
                             :class="{ 'rotate-180': !isBrandThemeSelected }"
                           />
-                        </template>
+                        </template> -->
                       </SingleNavLink>
-                      <div
+                      <!-- <div
                         class="font-light transition-all duration-100 ease-linear transform ms-8 text-gray-40 text-micro"
                         :class="
                           isBrandThemeSelected
@@ -141,7 +141,7 @@
                         <div class="py-2 tracking-wider cursor-pointer">
                           Theme Manager
                         </div>
-                      </div>
+                      </div> -->
                     </li>
                     <li>
                       <SingleNavLink
@@ -233,13 +233,13 @@
                 <HomeIcon />
               </template>
               <template #arrowIcon>
-                <OutlineArrowDownIcon
+                <!-- <OutlineArrowDownIcon
                   class="w-4 h-4 transition-all ease-linear transform"
                   :class="{ 'rotate-180': !isBrandThemeSelected }"
-                />
+                /> -->
               </template>
             </SingleNavLink>
-            <div
+            <!-- <div
               class="font-light transition-all duration-100 ease-linear transform ms-8 text-gray-40 text-micro"
               :class="
                 isBrandThemeSelected
@@ -253,7 +253,7 @@
               <div class="py-2 tracking-wider cursor-pointer">
                 Theme Manager
               </div>
-            </div>
+            </div> -->
             <SingleNavLink
               title="Recommendations"
               :route="ROUTES.RECOMMENDATION"

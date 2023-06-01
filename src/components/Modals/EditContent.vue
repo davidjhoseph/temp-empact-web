@@ -29,16 +29,16 @@
             leave-to="opacity-0 translat e-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden bg-white px-4 pb-4 pt-5 text-start shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-xl sm:p-6 sm:h-full"
+              class="relative transform overflow-hidden bg-white px-4 pb-6 pt-5 text-start shadow-xl transition-all sm:w-full sm:max-w-xl sm:p-6 sm:h-screen"
             >
               <div>
-                <div class="mt-3 sm:mt-5">
+                <div class="">
                   <DialogTitle
                     as="h3"
                     class="text-base font-semibold leading-6 text-gray-80 capitalize"
                   >
                     <div class="flex justify-between">
-                      <div class="text-black text-xl">Create new content</div>
+                      <div class="text-black text-xl">Edit content</div>
                       <div>
                         <CloseIcon
                           @click="open = false"
@@ -47,38 +47,48 @@
                       </div></div
                   ></DialogTitle>
                   <div class="">
-                    <p class="text-sm capitalize text-gray-60">Description</p>
+                    <!-- <p class="text-sm capitalize text-gray-60">Description</p> -->
                     <form action="" class="pt-4">
                       <div class="grid gap-y-6">
                         <div>
-                          <label for="title" class="text-black text-sm"
-                            >Title</label
-                          >
+                          <div class="mb-2">
+                            <label for="title" class="text-black text-sm pb-2"
+                              >Title</label
+                            >
+                          </div>
                           <input
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 placeholder:text-gray-70 placeholder:ps-3 rounded-md h-12"
+                            class="w-full focus:outline-none border border-gray-40 ps-4 placeholder:text-gray-70 placeholder:ps-2 rounded-md h-12"
                             placeholder="Enter a title"
                           />
                         </div>
                         <div class="">
-                          <label for="description" class="capitalize text-black"
-                            >content description</label
-                          >
+                          <div class="mb-2">
+                            <label
+                              for="description"
+                              class="capitalize text-black pb-2"
+                              >content description</label
+                            >
+                          </div>
                           <textarea
                             name=""
                             id=""
                             cols=""
                             rows=""
-                            class="w-full h-48 border border-gray-40 rounded-md focus:outline-none placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2"
+                            class="w-full h-80 border border-gray-40 rounded-md pt-2 ps-4 focus:outline-none placeholder:text-gray-70 placeholder:ps-2 placeholder:pt-32"
                             placeholder="Enter details of this post"
                           ></textarea>
                         </div>
                         <div>
-                          <label for="media-type" class="capitalize text-black"
-                            >Media type</label
-                          >
+                          <div class="mb-2">
+                            <label
+                              for="media-type"
+                              class="capitalize text-black pb-2"
+                              >Media type</label
+                            >
+                          </div>
                           <select
                             name=""
                             id=""
@@ -88,14 +98,16 @@
                           </select>
                         </div>
                         <div>
-                          <label for="media-url" class="text-black capitalize"
-                            >Media URL</label
-                          >
+                          <div class="mb-2">
+                            <label for="media-url" class="text-black capitalize"
+                              >Media URL</label
+                            >
+                          </div>
                           <input
                             type="text"
                             name=""
                             id=""
-                            class="w-full focus:outline-none border border-gray-40 rounded-md placeholder:text-gray-70 placeholder:ps-3 placeholder:pt-2 h-12"
+                            class="w-full focus:outline-none border border-gray-40 ps-4 rounded-md placeholder:text-gray-70 placeholder:ps-2 placeholder:pt-2 h-12"
                             placeholder="Paste URL to the media file"
                           />
                         </div>
@@ -103,17 +115,60 @@
                           <label for="upload-file" class="text-black capitalize"
                             >upload a file</label
                           >
-                          <div class="flex space-s-2 bg">
+                          <div
+                            v-if="selectedFile"
+                            class="flex space-s-2 mt-2 h-36 w-full bg-gray-20 rounded-md"
+                          >
                             <input
                               id="file"
                               type="file"
                               ref="file"
                               hidden
-                              @change="handleUploadFile"
+                              @change="handleFileUpload"
                             />
                             <button
                               @click.prevent="attachFile"
-                              class="w-full focus:outline-none rounded-md h-24"
+                              class="w-full focus:outline-none rounded-md h-40"
+                            >
+                              <div
+                                class="flex justify-between px-3 -mt-10 mb-4"
+                              >
+                                <div class="text-black-DEFAULT font-normal">
+                                  {{ fileName }}
+                                </div>
+                                <div
+                                  class="text-green font-normal text-sm"
+                                  v-if="selectedFile"
+                                >
+                                  uploaded
+                                </div>
+                              </div>
+                              <div
+                                class="flex space-s-2 items-center px-3 py-1"
+                              >
+                                <UploadIcon class="text-blue" />
+                                <p class="text-sm text-blue">
+                                  select a different file
+                                </p>
+                              </div>
+                              <div
+                                class="text-gray-60 font-normal text-start ps-3"
+                              >
+                                JPG, PNG, less than 10MB
+                              </div>
+                            </button>
+                          </div>
+                          <div v-else class="flex space-s-2 bg mt-2">
+                            <input
+                              id="file"
+                              type="file"
+                              ref="file"
+                              hidden
+                              @change="handleFileUpload"
+                            />
+                            <button
+                              @click.prevent="attachFile"
+                              class="w-full focus:outline-none rounded-md h-40"
                             >
                               <div
                                 class="flex space-s-2 items-center justify-center px-2 py-1"
@@ -168,7 +223,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import {
   Dialog,
   DialogPanel,
@@ -178,17 +233,31 @@ import {
 } from "@headlessui/vue";
 import CloseIcon from "../icons/CloseIcon.vue";
 import EditIcon from "../icons/EditIcon.vue";
+import UploadIcon from "../icons/UploadIcon.vue";
 const selectedFile = ref(null);
+const fileName = ref("");
 
 const open = ref(true);
 function attachFile() {
   document.getElementById("file")?.click();
 }
-const handleUploadFile = (e: any) => {
-  selectedFile.value = e.target.files[0];
-  console.log(selectedFile);
-  return selectedFile;
+
+const handleFileUpload = (event: Event) => {
+  const input = event.target as HTMLInputElement;
+  const file = input.files?.[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      selectedFile.value = reader.result as null;
+      fileName.value = file.name;
+      console.log(fileName);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    selectedFile.value = null;
+  }
 };
+const getfileName = computed(() => {});
 </script>
 <style scoped>
 .bg {

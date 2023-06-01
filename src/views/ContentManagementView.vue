@@ -1,13 +1,15 @@
 <template>
   <div>
     <div class="flex justify-between px-9 pt-4">
-      <h1 class="text-xl font-bold capitalize text-black-DEFAULT">
+      <h1 class="text-2xl font-bold capitalize text-black-DEFAULT">
         Content Manager
       </h1>
-      <button class="w-32 h-10 text-white rounded-md bg-blue">
+      <button class="w-36 h-12 text-white rounded-md bg-blue">
         <div class="flex justify-center space-s-2">
           <PlusIcon class="w-6 h-6" />
-          <button @click="showModal = !showModal">Create New</button>
+          <button @click="showModal = !showModal" class="text-base">
+            Create New
+          </button>
           <CreateNewContent v-if="showModal" />
         </div>
       </button>
@@ -25,7 +27,7 @@
               'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
             ]"
           >
-            <div>{{ i.name }}</div>
+            <div class="text-lg">{{ i.name }}</div>
             <div
               class="flex items-center justify-center text-center"
               :class="[
@@ -53,7 +55,7 @@
               'whitespace-nowrap border-b-2 py-4 px-1 text-sm font-medium',
             ]"
           >
-            <div>{{ i.name }}</div>
+            <div class="text-lg">{{ i.name }}</div>
             <div
               class="flex items-center justify-center text-center"
               :class="[
@@ -71,7 +73,7 @@
       <hr />
     </div>
 
-    <div class="flex justify-between px-9 pt-10">
+    <div class="flex justify-between px-9 pt-7">
       <div class="flex space-s-6">
         <div class="relative rounded-md">
           <div
@@ -83,11 +85,42 @@
             type="text"
             name="search"
             id="search"
-            class="block w-96 h-12 rounded-md border focus:outline-none py-1.5 ps-10 placeholder:text-gray-70 border-gray-40"
+            class="block w-96 h-12 rounded-md border focus:outline-none py-1.5 ps-10 placeholder:text-gray-70 placeholder:font-medium border-gray-40"
             placeholder="Search"
           />
         </div>
-        <Filter><FilterIcon /></Filter>
+        <Filter>
+          <MenuItems
+            class="absolute z-20 mt-4 w-82 rounded-md bg-white shadow-lg"
+          >
+            <div class="flex items-center justify-between pt-2 px-4">
+              <div class="font-bold capitalize text-gray-80">
+                Filter by date
+              </div>
+              <CloseIcon @click="open = false" class="cursor-pointer" />
+            </div>
+            <form action="" class="pb-4 ps-4 pe-4">
+              <CalendarDate label="start date" class="py-6" />
+              <CalendarDate label="end date" />
+              <div class="flex justify-end pt-10 space-s-4">
+                <div>
+                  <button
+                    class="h-8 capitalize border rounded-s-md rounded-e-md border-gray-40 text-gray-70"
+                  >
+                    <p class="px-2 text-base">cancel</p>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    class="h-8 text-white capitalize bg-blue rounded-s-md rounded-e-md"
+                  >
+                    <button class="px-3" @click="">Apply Filter</button>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </MenuItems>
+        </Filter>
 
         <!-- Media type dropdown -->
         <Dropdown name="All">
@@ -100,7 +133,7 @@
         </Dropdown>
       </div>
       <div class="flex items-center mt-2 space-s-4">
-        <div class="text-gray-60">View</div>
+        <div class="text-gray-60 font-medium text-lg">View</div>
         <div @click="layout = 'list'">
           <button v-if="layout === 'list'"><ListIcon /></button>
           <button v-else>
@@ -152,7 +185,6 @@ import Filter from "../components/layouts/RightCoulumn/Filter.vue";
 import ListIcon from "../components/icons/ListIcon.vue";
 import GridIcon from "../components/icons/gridIcon.vue";
 import GridContentView from "../components/GridContentView.vue";
-import { FilterIcon } from "../components/icons/AllIcons";
 import PlusIcon from "../components/icons/PlusIcon.vue";
 import AllContentListView from "../components/layouts/RightCoulumn/AllContentListView.vue";
 import Archive from "../components/layouts/RightCoulumn/Archive.vue";
@@ -161,12 +193,16 @@ import Publish from "../components/layouts/RightCoulumn/Publish.vue";
 import CreateNewContent from "../components/Modals/CreateNewContent.vue";
 import Dropdown from "../components/Dropdown.vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
+import { MenuItems } from "@headlessui/vue";
+import CloseIcon from "../components/icons/CloseIcon.vue";
+import CalendarDate from "../components/layouts/RightCoulumn/Calendar.vue";
 import MediaDropdown from "../components/layouts/Dropdown/MediaDropdown.vue";
 import GridPublish from "../components/layouts/GridPublish.vue";
 import GridDrafts from "../components/layouts/GridDraft.vue";
 import GridArchive from "../components/layouts/GridArchive.vue";
 import ColoredGridIcon from "../components/icons/ColoredGridIcon.vue";
 import GrayListIcon from "../components/icons/GrayListIcon.vue";
+const open = ref(false);
 
 const layout = ref("list");
 const showModal = ref(false);
@@ -335,13 +371,4 @@ const changeTab = (name: string) => {
   tabValue.value = name;
 };
 </script>
-<style scoped>
-.isActive {
-  color: #020d1c;
-  border-bottom: 2px;
-  border-color: #2c79ec;
-}
-.isActive:hover {
-  border: #2c79ec;
-}
-</style>
+<style scoped></style>
