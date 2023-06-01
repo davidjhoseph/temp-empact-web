@@ -4,25 +4,21 @@
     aria-labelledby="modal-title"
     role="dialog"
     aria-modal="true"
-    v-if="open"
-  >
+    v-if="open">
     <div
       class="fixed inset-0 transition-opacity bg-opacity-75 bg-gray-80"
-      @click="closeModal"
-    ></div>
+      @click="closeModal"></div>
 
     <div class="fixed inset-0 z-[9999999999999] overflow-y-auto">
       <div class="flex items-center justify-center min-h-full p-4 text-center">
         <div
-          class="relative transform overflow-hidden rounded-lg bg-white w-[36rem] p-6 text-left shadow-xl transition-all"
-        >
+          class="relative transform overflow-hidden rounded-lg bg-white w-[36rem] p-6 text-left shadow-xl transition-all">
           <div>
             <div class="space-y-3">
               <div class="flex justify-between">
                 <h3
                   class="text-base font-semibold leading-6 text-black"
-                  id="modal-title"
-                >
+                  id="modal-title">
                   Your Community Brands
                 </h3>
                 <span>
@@ -43,8 +39,7 @@
                   type="search"
                   placeholder="Search for a brand"
                   icon
-                  v-model="searchQuery"
-                >
+                  v-model="searchQuery">
                   <template #icon>
                     <SearchIcon class="w-5 h-5 text-gray-70" />
                   </template>
@@ -59,35 +54,23 @@
                   {{ filteredBrands.length }}
                   {{ filteredBrands.length > 1 ? "brands" : "brand" }}
                 </h3>
-                <ul class="grid w-full gap-6 md:grid-cols-3">
-                  <li
+                <div class="grid grid-cols-3 gap-6">
+                  <div
+                    class="w-40 h-40 bg-white border-2 rounded-md shadow-md cursor-pointer hover:shadow-lg"
+                    :class="{'border-blue-30' : selectedBrandId === brand.id}"
                     v-for="brand in filteredBrands"
                     :key="brand.id"
-                    class="hover:shadow-lg"
-                  >
-                    <input
-                      type="checkbox"
-                      :id="brand.id.toString()"
-                      :value="brand.id"
-                      :checked="selectedBrandId === brand.id"
-                      @change="handleBrandSelection(brand)"
-                      class="hidden peer"
-                    />
-                    <label
-                      :for="brand.id.toString()"
-                      class="flex flex-col items-center justify-center w-full gap-2 p-5 border rounded-lg cursor-pointer border-1 peer-checked:border-blue-30"
+                    @click="handleBrandSelection(brand)"
                     >
-                      <div>
-                        <img
-                          :src="brand.brand.brand_logo"
-                          alt="brand logo"
-                          class="w-full h-full"
-                        />
-                      </div>
-                      <p class="text-sm">{{ brand.brand.actualName }}</p>
-                    </label>
-                  </li>
-                </ul>
+                    <div class="w-full h-2/3">
+                      <img
+                        :src="brand.brand.brand_logo"
+                        alt="brand logo"
+                        class="object-contain w-full h-full" />
+                    </div>
+                    <div class="text-sm text-center">{{ brand.brand.actualName }}</div>
+                  </div>
+                </div>
               </div>
             </template>
             <template v-else>
@@ -100,16 +83,13 @@
           <div class="flex gap-2 mt-5 ms-auto w-44">
             <BaseButton
               class="w-1/2 border border-gray-50 bg-inherit"
-              @click="closeModal"
-            >
+              @click="closeModal">
               <p class="text-black">Close</p>
             </BaseButton>
             <BaseButton
               class="w-1/2"
               :disabled="selectedBrandId === null"
-              @click="gotoDashboard"
-              >Continue</BaseButton
-            >
+              @click="gotoDashboard">Continue</BaseButton>
           </div>
         </div>
       </div>
